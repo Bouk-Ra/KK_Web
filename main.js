@@ -137,8 +137,7 @@
     });
 
     function hideLoadingPage() {
-        var loadingPage = document.getElementById("loading-page");
-        var content = document.getElementById("welcome-page__container");
+        var loadingPage = document.querySelector(".kaamkaaj-script__loading");
 
         loadingPage.style.animation = "slideUpAndFadeOut 1s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
