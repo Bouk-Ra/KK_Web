@@ -135,7 +135,7 @@ canvas.logo {
 
 .nav-bar__bg {
     width: 100%;
-    height: var(--nav-height);
+    height: calc(var(--nav-height) + 10px);
     background-color: rgb(255, 255, 255);
     position: fixed;
     mix-blend-mode: normal;
