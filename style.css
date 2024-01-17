@@ -108,6 +108,7 @@ svg#kaamkaaj-script {
 }
 
 .header-logo {
+    z-index: 999;
     overflow: hidden;
 }
 

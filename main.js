@@ -204,6 +204,7 @@
             // 클릭된 버튼에 해당하는 섹션 활성화
             targetSection.classList.add('toggleActive');
             updateButtonStyle(sectionId);
+            navBarBgSwitch();
         }
     }
     
@@ -219,6 +220,18 @@
         const activeButton = document.getElementById(sectionId + '__btn');
         if (activeButton) {
             activeButton.classList.add('toggleActive__btn');
+        }
+    }
+
+    function navBarBgSwitch() {
+        const navBarBg = document.querySelector('.nav-bar__bg');
+
+        if(navBarBg) {
+            if(navBarBg.style.display === "block") {
+                navBarBg.style.display = "none";
+            } else {
+                navBarBg.style.display = "none";
+            }
         }
     }
 
@@ -263,7 +276,6 @@
     function navBarModifier() {
         const tagGallery = document.querySelector('.gallery');
         const tagGalleryRect = tagGallery.getBoundingClientRect();
-        console.log(tagGalleryRect.top);
 
         const navBarBg = document.querySelector('.nav-bar__bg');
 
@@ -275,6 +287,7 @@
     }
 
     window.addEventListener('scroll', navBarModifier);
+    window.navBarModifier = navBarModifier;
     navBarModifier();
 })();
 
