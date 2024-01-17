@@ -580,9 +580,6 @@ body {
     transform: 0.3 ease;
     font-size: 0.8em;
 }
-.see-project-btn:hover {
-
-}
 
 /* Main-Toggle */
 /* Main-Toggle */
@@ -604,8 +601,6 @@ body {
 .toggleActive {
     display: block;
 }
-
-
 
 .section2-container {
     width: 100%;

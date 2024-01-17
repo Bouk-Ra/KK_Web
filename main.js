@@ -7,7 +7,7 @@
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
-
+    
     // Set animation properties for paths in the main group
     const kkScriptMainGroup = document.querySelector('.kaamkaaj-script__svg--main');
     const kkScriptMainPaths = document.querySelectorAll('.kaamkaaj-script-path');
