@@ -258,7 +258,55 @@
 })();
 
 
+// Add BG color to nav-bar when Tag Sticky
+(() => {
+    function navBarModifier() {
+        const tagGallery = document.querySelector('.gallery');
+        const tagGalleryRect = tagGallery.getBoundingClientRect();
+        console.log(tagGalleryRect.top);
 
+        const navBarContainer = document.querySelector('.nav-bar__container');
+        const navBar = document.querySelector('.nav-bar');
+        const navBarBtns = document.querySelectorAll('.nav-bar-btn');
+
+        if (tagGalleryRect.top < 40) {
+            navBarContainer.style.mixBlendMode = 'normal';
+            // navBarContainer.style.color = 'var(--color1)';
+            navBar.style.backgroundColor = 'white';
+            // navBar.style.filter = 'diffrence';
+        } else {
+            navBarContainer.style.mixBlendMode = 'difference';
+            // navBarContainer.style.color = 'var(--color2)';
+            navBar.style.backgroundColor = 'transparent';
+            // navBar.style.mixBlendMode = 'normal';
+        }
+    }
+
+    window.addEventListener('scroll', navBarModifier);
+
+    navBarModifier();
+})();
+
+
+    // function tagItemsHandler() {
+    //     const tagItems = document.querySelector('.main-project__tag--items');
+    //     const rect = tagItems.getBoundingClientRect();
+
+    //     console.log("Top:", rect.top);
+    //     console.log("Window Height:", window.innerHeight);
+
+    //     if (rect.top < window.innerHeight * 0.8) {
+    //         tagItems.style.opacity = '0';
+    //         tagItems.classList.add('sticky_elem'); // 클래스 추가
+    //         console.log("Tag Items:", tagItems);
+    //         console.log("Window Height:", window.innerHeight);
+    //     }
+    // }
+
+    // window.addEventListener('scroll', tagItemsHandler);
+
+    // // 초기에도 한 번 호출
+    // tagItemsHandler();
 
 // Filter : GRID
 (() => {
