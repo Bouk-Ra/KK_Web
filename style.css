@@ -448,6 +448,7 @@ body {
     background-color: var(--color2);
 }
 .main-project__tag {
+    z-index: 999;
     mix-blend-mode: difference;
     position: sticky;
     top: 30px;
