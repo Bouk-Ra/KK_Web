@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2024_01_13_V1</title>
+    <title>2024_01_17_V1</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,14 +40,23 @@
         <div class="nav-bar__container">
             <nav class="nav-bar">
               <div class="nav-bar__column">
-                <span>KAAM KAAJ</span>
+                <a href="#" style="color: white;"><span>KAAM KAAJ</span></a>
                 <p>Design Services, London, UK<br>Local + Global Services.</p>
               </div>
               <div class="nav-bar__column">
-                <button class="nav-bar-btn btn__animation">WORK</button>
-                <button class="nav-bar-btn btn__animation">INFO</button>
-                <button class="nav-bar-btn btn__animation">SHOP</button>
-                <button class="nav-bar-btn btn__animation">CONTACT</button>
+                <div class="projects-toggle__btns">
+                    <div class="projects-toggle__btns__container">
+                        <span>View: </span>
+                        <span class="projects-toggle__btn toggleActive__btn" id="section1__btn" onclick="toggleSection('section1'); scrollToSection('section1');">Featured</span>
+                        <span class="projects-toggle__btn" id="section2__btn" onclick="toggleSection('section2'); scrollToSection('section2');">Index</span>
+                    </div>
+                </div>
+              </div>
+              <div class="nav-bar__column">
+                <button type="button" class="nav-bar-btn btn__animation">WORK</button>
+                <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='https://google.com'">INFO</button>
+                <button type="button" class="nav-bar-btn btn__animation">SHOP</button>
+                <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='mailto:mo@kaamkaaj.work'">CONTACT</button>
               </div>
             </nav>
           </div>          
@@ -71,32 +80,561 @@
     </div>
 
     <section class="renderSection">
-        <h1>
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-            Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World 
-        </h1>
+        <!-- Project section -->
+        <!-- Project section -->
+        <!-- Project section -->
+        <!-- <section class="projects-toggle__btns">
+            <div class="projects-toggle__btns__container">
+                <span>View: </span>
+                <span class="projects-toggle__btn toggleActive__btn" id="section1__btn" onclick="toggleSection('section1'); scrollToSection('section1');">Featured</span>
+                <span class="projects-toggle__btn" id="section2__btn" onclick="toggleSection('section2'); scrollToSection('section2');">Index</span>
+            </div>
+        </section> -->
+        
+        <div class="main-projects">
+            <!-- Project section--GRID STARTSTARTSTART -->
+            <!-- Project section--GRID STARTSTARTSTART -->
+            <!-- Project section--GRID STARTSTARTSTART -->
+            <!-- Project section--GRID STARTSTARTSTART -->
+            <!-- Project section--GRID STARTSTARTSTART -->
+            <section id="section1" class="section toggleActive">
+                <div class="main-project__single">
+                    <div class="main-project__single--img carousel-container">
+                        <div class="carousel">
+                            <div class="slide">
+                                <img src="https://freight.cargo.site/t/original/i/bb0a01ab532c115a6e2ca5e5711be54126f407f60dec7c679583cf69d11b7bf6/Kaam-Kaaj-STS-03-min.png">
+                            </div>
+                            <div class="slide">
+                                <img src="https://freight.cargo.site/t/original/i/bb0a01ab532c115a6e2ca5e5711be54126f407f60dec7c679583cf69d11b7bf6/Kaam-Kaaj-STS-03-min.png">
+                            </div>
+                            <div class="slide">
+                                <img src="https://freight.cargo.site/t/original/i/bb0a01ab532c115a6e2ca5e5711be54126f407f60dec7c679583cf69d11b7bf6/Kaam-Kaaj-STS-03-min.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-project--dscr">
+                        <span class="main-project__title invert-hover">School to Swoosh</span>
+                        <span class="main-project__client invert-hover">Nike, 2023</span>
+                        <div class="carousel-buttons">
+                            <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                            <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                            <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                            <a class="see-project-btn" href="#">See Project +</a>
+                        </div>
+                    </div>
+                </div>            
+            
+                <div class="space-divider"></div>
+            
+                <div class="main-project__x2">
+                    <div class="main-project__x2--column">
+                        <div class="main-project__x2--img carousel-container">
+                            <div class="carousel">
+                                <div class="slide">
+                                    <img src="https://freight.cargo.site/t/original/i/a1577d1d74832c70a80db1e49b0fe6f85feaa66c6cb4a62b60af02a332d3a4a0/Group-773-2.png">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://freight.cargo.site/t/original/i/a1577d1d74832c70a80db1e49b0fe6f85feaa66c6cb4a62b60af02a332d3a4a0/Group-773-2.png">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://freight.cargo.site/t/original/i/a1577d1d74832c70a80db1e49b0fe6f85feaa66c6cb4a62b60af02a332d3a4a0/Group-773-2.png">
+                                </div>                                                        
+                            </div>
+                        </div>
+                        <div class="main-project--dscr">
+                            <span class="main-project__title invert-hover">Splice Connections Live</span>
+                            <span class="main-project__client invert-hover">Splice X Resident Advisor, 2023</span>
+                            <div class="carousel-buttons">
+                                <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                <a class="see-project-btn" href="#">See Project +</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-project__x2--column">
+                        <div class="main-project__x2--img carousel-container">
+                            <div class="carousel">
+                                <div class="slide">
+                                    <img src="https://freight.cargo.site/t/original/i/4caba12ccd8d6e43d2b80500767fb8f5451df81096352ef70f4b2a2be0528b20/Group-781.png">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://freight.cargo.site/t/original/i/4caba12ccd8d6e43d2b80500767fb8f5451df81096352ef70f4b2a2be0528b20/Group-781.png">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://freight.cargo.site/t/original/i/4caba12ccd8d6e43d2b80500767fb8f5451df81096352ef70f4b2a2be0528b20/Group-781.png">
+                                </div>                                                        
+                            </div>
+                        </div>
+            
+                        <div class="main-project--dscr">
+                            <span class="main-project__title invert-hover">More Denim Please</span>
+                            <span class="main-project__client invert-hover">Levi's X Anyways, 2023</span>
+                            <div class="carousel-buttons">
+                                <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                <a class="see-project-btn" href="#">See Project +</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-divider"></div>
+            
+                <div class="main-project__single">
+                    <div class="main-project__single--img carousel-container">
+                        <div class="carousel">
+                            <div class="slide">
+                                <img src="https://freight.cargo.site/t/original/i/57af390e4d836dea3383e4b43141f065931d9b5cf73b109badbea56f02232860/x1thb_lcc_.jpg">
+                            </div>
+                            <div class="slide">
+                                <img src="https://freight.cargo.site/t/original/i/57af390e4d836dea3383e4b43141f065931d9b5cf73b109badbea56f02232860/x1thb_lcc_.jpg">
+                            </div>
+                            <div class="slide">
+                                <img src="https://freight.cargo.site/t/original/i/57af390e4d836dea3383e4b43141f065931d9b5cf73b109badbea56f02232860/x1thb_lcc_.jpg">
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="main-project--dscr">
+                        <span class="main-project__title invert-hover">LCC Shows 2023</span>
+                        <span class="main-project__client invert-hover">University of the Arts London, 2023</span>
+                        <div class="carousel-buttons">
+                            <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                            <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                            <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                            <a class="see-project-btn" href="#">See Project +</a>
+                        </div>
+                    </div>
+                </div>    
+            
+                <div class="space-divider"></div>
+                <div class="gallery__container">
+                    <div class="main-project__tag">
+                        <div class="main-project__tag--items">
+                            <div class="main-project__tag--item"><span class="category-btn invert-hover btn--active" onclick="filterImages('all'); toggleActive(this); ">All Projects</span></div>
+                            <div class="main-project__tag--item"><span class="category-btn invert-hover" onclick="filterImages('typography'); toggleActive(this);">Typography</span></div>
+                            <div class="main-project__tag--item"><span class="category-btn invert-hover" onclick="filterImages('logo'); toggleActive(this);">Logo Design</span></div>
+                            <div class="main-project__tag--item"><span class="category-btn invert-hover" onclick="filterImages('studio'); toggleActive(this);">KK Projects</span></div>
+                            <div class="main-project__tag--item"><span class="category-btn invert-hover" onclick="filterImages('graphic'); toggleActive(this);">Graphic Design</span></div>
+                            <div class="main-project__tag--item"><span class="category-btn invert-hover" onclick="filterImages('digital'); toggleActive(this);">Digital Design</span></div>
+                        </div>
+                    </div>
+                    <!-- x3 columns GRID -->
+                    <!-- x3 columns GRID -->
+                    <!-- x3 columns GRID -->
+                    <!-- typography logo studio graphic digital -->
+                    <div class="gallery" id="project-gallery">
+
+                        <div class="main-project__x3">
+                            <!-- N.A.C.H.O -->
+                            <div class="main-project__x3--item tag-img typography logo graphic">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/046de168f4ddd9d99bf71a7cf385c98d57f4d98dfb500f7db4242071e8f464a1/x3thb_01_nacho_1.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/046de168f4ddd9d99bf71a7cf385c98d57f4d98dfb500f7db4242071e8f464a1/x3thb_01_nacho_1.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/046de168f4ddd9d99bf71a7cf385c98d57f4d98dfb500f7db4242071e8f464a1/x3thb_01_nacho_1.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">N.A.C.H.O.</span>
+                                    <span class="main-project__client invert-hover">Nobell, Coming Soon</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- AIR MAX 97 -->
+                            <div class="main-project__x3--item tag-img typography logo">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/6778d0c9950c071e9c20064d8f0be58b649d7154f41ce220005a222f3ff862a3/x3thb_02_am97.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/6778d0c9950c071e9c20064d8f0be58b649d7154f41ce220005a222f3ff862a3/x3thb_02_am97.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/6778d0c9950c071e9c20064d8f0be58b649d7154f41ce220005a222f3ff862a3/x3thb_02_am97.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">AIR MAX 97</span>
+                                    <span class="main-project__client invert-hover">Nike, 2022</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <a class="see-project-btn" href="#">See Project +</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- SPLICE CONNECTIONS LIVE -->
+                            <div class="main-project__x3--item tag-img typography logo graphic digital">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/578b24acb168559ae6c8b220f03153c81bbc71d2b069ca56604e7d6e5c4e967b/x3thb_03_splice.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/6778d0c9950c071e9c20064d8f0be58b649d7154f41ce220005a222f3ff862a3/x3thb_02_am97.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/578b24acb168559ae6c8b220f03153c81bbc71d2b069ca56604e7d6e5c4e967b/x3thb_03_splice.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">SPLICE CONNECTIONS LIVE</span>
+                                    <span class="main-project__client invert-hover">Splice x Resident Advisor, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ORGANIC TANNED LEATHER -->
+                            <div class="main-project__x3--item tag-img typography logo graphic">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/2cc8c333c399ada9ece63a14b8c60caebf2b8128b9c888e24d6c00c3a2661566/x3thb_04_otl.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/2cc8c333c399ada9ece63a14b8c60caebf2b8128b9c888e24d6c00c3a2661566/x3thb_04_otl.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/2cc8c333c399ada9ece63a14b8c60caebf2b8128b9c888e24d6c00c3a2661566/x3thb_04_otl.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">ORGANIC TANNED LEATHER</span>
+                                    <span class="main-project__client invert-hover">Ecco Leather, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <a class="see-project-btn" href="#">See Project +</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- MORE DENIM PLEASE -->
+                            <div class="main-project__x3--item tag-img typography graphic digital">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/bf494ebdbe36c58adb9bcc0152088f94b88de425d4f9b48f66c8b34639665a5c/x3thb_05_levis.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/bf494ebdbe36c58adb9bcc0152088f94b88de425d4f9b48f66c8b34639665a5c/x3thb_05_levis.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/bf494ebdbe36c58adb9bcc0152088f94b88de425d4f9b48f66c8b34639665a5c/x3thb_05_levis.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">More Denim Please</span>
+                                    <span class="main-project__client invert-hover">Levi's X Anyways, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <a class="see-project-btn" href="#">See Project +</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- KAMDIDAR -->
+                            <div class="main-project__x3--item tag-img typography logo digital">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/ab3db08a68a56776ebbd323480a92eb25ee27be93171b5c67ab7c47dbdc13996/x3thb_06_kamdidar.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/ab3db08a68a56776ebbd323480a92eb25ee27be93171b5c67ab7c47dbdc13996/x3thb_06_kamdidar.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/ab3db08a68a56776ebbd323480a92eb25ee27be93171b5c67ab7c47dbdc13996/x3thb_06_kamdidar.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">KAMDIDAR</span>
+                                    <span class="main-project__client invert-hover">Kamdidar, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <a class="see-project-btn" href="#">See Project +</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ENDLESSLOVESHOW -->
+                            <div class="main-project__x3--item tag-img typography graphic digital">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/61b65135ab1fecf675ac67e10e0d5bc47da6cb0a1693993da51e151afda06b1d/x3thb_07_els.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/61b65135ab1fecf675ac67e10e0d5bc47da6cb0a1693993da51e151afda06b1d/x3thb_07_els.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/61b65135ab1fecf675ac67e10e0d5bc47da6cb0a1693993da51e151afda06b1d/x3thb_07_els.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">ENDLESSLOVESHOW</span>
+                                    <span class="main-project__client invert-hover">Kazim Rashid, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- LCC SHOWS 2023 -->
+                            <div class="main-project__x3--item tag-img typography logo graphic">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/32a586148953749182000207506e70b93b7755b55144a843784a1ba934d6bc35/x3thb_08_lcc.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/32a586148953749182000207506e70b93b7755b55144a843784a1ba934d6bc35/x3thb_08_lcc.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/32a586148953749182000207506e70b93b7755b55144a843784a1ba934d6bc35/x3thb_08_lcc.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">LCC SHOWS 2023</span>
+                                    <span class="main-project__client invert-hover">Univeristy of the Arts London, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <a class="see-project-btn" href="#">See Project +</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- REFLECTIVE HANDS MUSIC -->
+                            <div class="main-project__x3--item tag-img typography graphic">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/6562b47ff231c6962b519e8a93ea20c6e2edd6cb0b50c362cd63f82472fab1a3/x3thb_09_anchor.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/6562b47ff231c6962b519e8a93ea20c6e2edd6cb0b50c362cd63f82472fab1a3/x3thb_09_anchor.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/6562b47ff231c6962b519e8a93ea20c6e2edd6cb0b50c362cd63f82472fab1a3/x3thb_09_anchor.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">REFLECTIVE HANDS MUSIC</span>
+                                    <span class="main-project__client invert-hover">Reflective Hands, 2022</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- SCHOOL TO SWOOSH -->
+                            <div class="main-project__x3--item tag-img typography logo graphic">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/01bc66d209aa0e2d3840ef2fc26c833975acdb0d0d444beb2d233daa947e21e7/x3thb_10_sts.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/01bc66d209aa0e2d3840ef2fc26c833975acdb0d0d444beb2d233daa947e21e7/x3thb_10_sts.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/01bc66d209aa0e2d3840ef2fc26c833975acdb0d0d444beb2d233daa947e21e7/x3thb_10_sts.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">SCHOOL TO SWOOSH</span>
+                                    <span class="main-project__client invert-hover">Nike, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <a class="see-project-btn" href="#">See Project +</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- NEW HERE POSTER -->
+                            <div class="main-project__x3--item tag-img typography graphic studio">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/0d4bdc7196b6b77277834dd4cc2bdd694cf50b2a4677e089b0713d3e149d98dc/x3thb_11_poster.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/0d4bdc7196b6b77277834dd4cc2bdd694cf50b2a4677e089b0713d3e149d98dc/x3thb_11_poster.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/0d4bdc7196b6b77277834dd4cc2bdd694cf50b2a4677e089b0713d3e149d98dc/x3thb_11_poster.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">NEW HERE POSTER</span>
+                                    <span class="main-project__client invert-hover">Kaam Kaaj Projects, 2023</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <!-- WINGING IT -->
+                            <div class="main-project__x3--item tag-img typography studio">
+                                <div class="main-project__x3--img carousel-container">
+                                    <div class="carousel">
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/f247d058d3bbfabcdd4eb33f5a6aff7ffcd12612596739b9663fa6398d6e1a49/x3thb_12_winging.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/f247d058d3bbfabcdd4eb33f5a6aff7ffcd12612596739b9663fa6398d6e1a49/x3thb_12_winging.jpg">
+                                        </div>
+                                        <div class="slide">
+                                            <img src="https://freight.cargo.site/t/original/i/f247d058d3bbfabcdd4eb33f5a6aff7ffcd12612596739b9663fa6398d6e1a49/x3thb_12_winging.jpg">
+                                        </div>                                                        
+                                    </div>
+                                </div>
+                    
+                                <div class="main-project--dscr">
+                                    <span class="main-project__title invert-hover">WINGING IT</span>
+                                    <span class="main-project__client invert-hover">Reflective Hands</span>
+                                    <div class="carousel-buttons">
+                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+
+                <div class="space-divider"></div>
+
+            
+            </section>
+            <!-- Project section--GRID ENDENDENDEND -->
+            <!-- Project section--GRID ENDENDENDEND -->
+            <!-- Project section--GRID ENDENDENDEND -->
+            <!-- Project section--GRID ENDENDENDEND -->
+            <!-- Project section--GRID ENDENDENDEND -->
+            
+            <!-- Project section--LIST STARTSTARTSTART -->
+            <!-- Project section--LIST STARTSTARTSTART -->
+            <!-- Project section--LIST STARTSTARTSTART -->
+            <!-- Project section--LIST STARTSTARTSTART -->    
+            <!-- Project section--LIST STARTSTARTSTART -->
+            <section id="section2" class="section">
+                <div class="section2-container">
+                    <div class="main-projects-list__item">
+                        <span class="main-project-list__title">School to Swoosh</span>
+                        <span class="main-project-list__title">Splice x Resident Advisor</span>
+                        <span class="main-project-list__title">Levi’s x Anyways</span>
+                        <span class="main-project-list__title">LCC Shows 2023</span> 
+                        <span class="main-project-list__title">N.A.C.H.O.</span>
+                        <span class="main-project-list__title">Nike AM97</span>
+                        <span class="main-project-list__title">V&A East Make Space</span>
+                        <span class="main-project-list__title">Kamdidar</span>  
+                        <span class="main-project-list__title">ENDLESSLOVESHOW</span>
+                        <span class="main-project-list__title">Organic Tanned Leather</span>         
+                        <div class="space-divider"></div>
+                        <div class="space-divider"></div>
+                        <div class="space-divider"></div>
+                        <div class="space-divider"></div>
+                        <div class="space-divider"></div>
+                        <div class="space-divider"></div>
+                        <div class="space-divider"></div>
+
+                    </div> 
+                    <div class="main-projects-list__item">
+                        <div class="main-projects-list__img">
+                            <img src="https://freight.cargo.site/t/original/i/01bc66d209aa0e2d3840ef2fc26c833975acdb0d0d444beb2d233daa947e21e7/x3thb_10_sts.jpg" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="https://freight.cargo.site/t/original/i/578b24acb168559ae6c8b220f03153c81bbc71d2b069ca56604e7d6e5c4e967b/x3thb_03_splice.jpg" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="https://freight.cargo.site/t/original/i/bf494ebdbe36c58adb9bcc0152088f94b88de425d4f9b48f66c8b34639665a5c/x3thb_05_levis.jpg" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="https://freight.cargo.site/t/original/i/32a586148953749182000207506e70b93b7755b55144a843784a1ba934d6bc35/x3thb_08_lcc.jpg" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="https://freight.cargo.site/t/original/i/046de168f4ddd9d99bf71a7cf385c98d57f4d98dfb500f7db4242071e8f464a1/x3thb_01_nacho_1.jpg" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="https://freight.cargo.site/t/original/i/6778d0c9950c071e9c20064d8f0be58b649d7154f41ce220005a222f3ff862a3/x3thb_02_am97.jpg" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="#" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="#" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="#" />
+                        </div>
+                        <div class="main-projects-list__img">
+                            <img src="#" />
+                        </div>
+
+                    </div> 
+                </div>
+            
+            </section>
+            <!-- Project section--LIST STARTSTARTSTART -->
+            <!-- Project section--LIST STARTSTARTSTART -->
+            <!-- Project section--LIST STARTSTARTSTART -->
+            <!-- Project section--LIST STARTSTARTSTART -->    
+            <!-- Project section--LIST STARTSTARTSTART -->
+        </div>
+        
     </section>
 
    <script src="main.js"></script>
