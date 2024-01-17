@@ -265,28 +265,18 @@
         const tagGalleryRect = tagGallery.getBoundingClientRect();
         console.log(tagGalleryRect.top);
 
-        const navBarContainer = document.querySelector('.nav-bar__container');
-        const navBar = document.querySelector('.nav-bar');
-        const navBarBtns = document.querySelectorAll('.nav-bar-btn');
+        const navBarBg = document.querySelector('.nav-bar__bg');
 
         if (tagGalleryRect.top < 40) {
-            navBarContainer.style.mixBlendMode = 'normal';
-            // navBarContainer.style.color = 'var(--color1)';
-            navBar.style.backgroundColor = 'white';
-            // navBar.style.filter = 'diffrence';
+            navBarBg.style.display = 'block';
         } else {
-            navBarContainer.style.mixBlendMode = 'difference';
-            // navBarContainer.style.color = 'var(--color2)';
-            navBar.style.backgroundColor = 'transparent';
-            // navBar.style.mixBlendMode = 'normal';
+            navBarBg.style.display = 'none';
         }
     }
 
     window.addEventListener('scroll', navBarModifier);
-
     navBarModifier();
 })();
-
 
     // function tagItemsHandler() {
     //     const tagItems = document.querySelector('.main-project__tag--items');

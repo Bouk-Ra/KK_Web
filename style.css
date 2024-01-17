@@ -133,7 +133,18 @@ canvas.logo {
     pointer-events: none;
 }
 
+.nav-bar__bg {
+    width: 100%;
+    height: var(--nav-height);
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    mix-blend-mode: normal;
+    z-index: 997;
+    display: none;
+} 
+
 .nav-bar__container {
+    mix-blend-mode: difference;
     color: var(--color2);
     display: flex;
     align-items: center;
@@ -469,7 +480,7 @@ body {
     width: 100%;
     padding: 0 var(--gap);
     box-sizing: border-box;
-    margin-bottom: 5px;
+    padding-bottom: 5px;
     column-gap: calc(var(--gap) / 2);
 }
 
