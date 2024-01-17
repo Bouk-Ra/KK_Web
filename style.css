@@ -12,6 +12,7 @@
     --gap: 10px;
     --border : 0.75px;
     --char-set1: 1em;
+    --char-set2: 0.6em;
 
   }
 
@@ -135,13 +136,43 @@ canvas.logo {
 
 .nav-bar__bg {
     width: 100%;
-    height: var(--nav-height);
+    padding-bottom: 5px;
     background-color: rgb(255, 255, 255);
     position: fixed;
     mix-blend-mode: normal;
     z-index: 997;
     display: none;
 } 
+
+.gallery-btns__container {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: var(--char-set2);
+    letter-spacing: -0.03rem;
+}
+.gallery-btns__column {
+    margin-right: 10px;
+}
+.gallery-btns {
+    grid-column-start: 2;
+    display: flex;
+}
+
+.gallery-btns--list {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-btn--active {
+    color: var(--color2);
+    background-color: var(--color1);
+    font-weight: 700;
+    box-sizing: border-box;
+    padding: 2px 10px;
+    border-radius: 40px;
+}
+
 
 .nav-bar__container {
     mix-blend-mode: difference;
@@ -218,7 +249,7 @@ button.nav-bar-btn {
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    font-size: 12px;
+    font-size: var(--char-set2);
     opacity: 0;
     transition: .5s ease;
     letter-spacing: -0.04rem;
@@ -624,4 +655,6 @@ body {
     box-sizing: border-box;
     margin-top: 30px;
 }
+
+
 
