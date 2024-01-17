@@ -157,7 +157,7 @@ canvas.logo {
     font-size: var(--char-set2);
     letter-spacing: -0.03rem;
     text-transform: uppercase;
-    transition: .5s ease;
+    transition: opacity .5s ease, transform .5s ease;
 }
 .gallery-btns__column {
     margin-right: 10px;
@@ -261,8 +261,8 @@ button.nav-bar-btn {
     background-color: var(--color--transparent);
     border-radius: 20px;
     margin: 0;
-    margin-left: 0.5vw;
-    padding: 1px 25px;
+    margin-left: 5px;
+    padding: 1px 1.4vw;
     cursor: pointer;
     letter-spacing: -0.04em;
     font-size: 0.75em;
@@ -393,7 +393,7 @@ body {
 
 
 .space-divider {
-	height: 250px;
+	height: 110px;
 }
 
 .hidden-opacity {
@@ -416,7 +416,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--color1); /* 검은색 음영 효과 */
+    background: var(--color2); /* 검은색 음영 효과 */
     z-index: -1; /* 텍스트 뒤로 이동 */
     transition: left 0.5s, color 1s ease; /* 좌측으로 이동하면서, 텍스트 색상 변경에도 딜레이 추가 */
 }
@@ -426,7 +426,7 @@ body {
 }
 
 .invert-hover:hover {
-    color: var(--color2)!important; /* 반전된 텍스트 색상 */
+    color: var(--color1)!important; /* 반전된 텍스트 색상 */
 }
 
 
@@ -468,6 +468,8 @@ body {
 }
 
 .main-project--dscr {
+    mix-blend-mode: difference;
+    color: var(--color2);
     font-size: var(--char-set1);
 	display: flex;
     flex-direction: column;
@@ -481,6 +483,10 @@ body {
 }
 .main-project__client {
     font-size: 0.6rem;
+}
+
+.main-project__single, .main-project__x2, .main-project__x3 {
+    background-color: var(--color2);
 }
 
 .main-project__single .main-project--dscr {
@@ -646,7 +652,7 @@ body {
     width: 0.9em;
     height: 0.9em;
     border-radius: 50%;
-    border: var(--border) solid var(--color1);
+    border: var(--border) solid var(--color2);
     background-color: var(--color--transparent);
     margin-right: 0.2rem;
     cursor: pointer;

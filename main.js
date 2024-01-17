@@ -276,19 +276,18 @@
     function navBarModifier() {
         const tagGallery = document.querySelector('.gallery');
         const tagGalleryRect = tagGallery.getBoundingClientRect();
-
         const navBarBg = document.querySelector('.nav-bar__bg');
 
         const galleryContainer = document.querySelector('.gallery-btns__container');
 
-        if (tagGalleryRect.top < 320) {
+        if (tagGalleryRect.top < 300) {
             galleryContainer.style.opacity = '1';
             galleryContainer.style.visibility = 'visible';
             galleryContainer.style.transform = 'translateX(0)';
         } else {
             galleryContainer.style.opacity = '0';
             galleryContainer.style.visibility = 'hidden';
-            galleryContainer.style.transform = 'translateX(-100px)';
+            galleryContainer.style.transform = 'translateX(-50px)';
         }
 
         if (tagGalleryRect.top < 110) {
@@ -296,6 +295,12 @@
 
         } else {
             navBarBg.style.display = 'none';
+        }
+
+        if (tagGalleryRect.top === 0) {
+            navBarBg.style.display = 'none';
+            galleryContainer.style.opacity = '0';
+            galleryContainer.style.visibility = 'hidden';
         }
     }
 
@@ -477,7 +482,7 @@
         } else {
             toggleButtons.style.opacity = 0;
             toggleButtons.style.visibility = 'hidden';
-            toggleButtons.style.transform = 'translateX(-100px)';
+            toggleButtons.style.transform = 'translateX(-50px)';
 
         }
     }
