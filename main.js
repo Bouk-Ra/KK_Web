@@ -279,37 +279,31 @@
 
         const navBarBg = document.querySelector('.nav-bar__bg');
 
-        if (tagGalleryRect.top < 100) {
+        const galleryContainer = document.querySelector('.gallery-btns__container');
+
+        if (tagGalleryRect.top < 320) {
+            galleryContainer.style.opacity = '1';
+            galleryContainer.style.visibility = 'visible';
+            galleryContainer.style.transform = 'translateX(0)';
+        } else {
+            galleryContainer.style.opacity = '0';
+            galleryContainer.style.visibility = 'hidden';
+            galleryContainer.style.transform = 'translateX(-100px)';
+        }
+
+        if (tagGalleryRect.top < 110) {
             navBarBg.style.display = 'block';
+
         } else {
             navBarBg.style.display = 'none';
         }
     }
 
     window.addEventListener('scroll', navBarModifier);
-    window.navBarModifier = navBarModifier;
+    window.addEventListener('resize', navBarModifier);
     navBarModifier();
 })();
 
-    // function tagItemsHandler() {
-    //     const tagItems = document.querySelector('.main-project__tag--items');
-    //     const rect = tagItems.getBoundingClientRect();
-
-    //     console.log("Top:", rect.top);
-    //     console.log("Window Height:", window.innerHeight);
-
-    //     if (rect.top < window.innerHeight * 0.8) {
-    //         tagItems.style.opacity = '0';
-    //         tagItems.classList.add('sticky_elem'); // 클래스 추가
-    //         console.log("Tag Items:", tagItems);
-    //         console.log("Window Height:", window.innerHeight);
-    //     }
-    // }
-
-    // window.addEventListener('scroll', tagItemsHandler);
-
-    // // 초기에도 한 번 호출
-    // tagItemsHandler();
 
 // Filter : GRID
 (() => {

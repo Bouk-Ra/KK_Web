@@ -38,21 +38,21 @@
             <canvas class="logo" width="3000" height="308" style="display: block;"></canvas>
         </header>   
         <div class="nav-bar__bg">
-            <div class="gallery-btns__container">
-                <div class="gallery-btns">
-                    <div class="gallery-btns__column">
-                        <span class="gallery-btns--filter">Filter:</span>
-                    </div>
-                    <div class="gallery-btns__column">
-                        <span class="gallery-btns--all gallery-btn--active">All</span>
-                    </div>
-                    <div class="gallery-btns__column gallery-btns--list">
-                        <span class="gallery-btn--project">Graphic Design</span>
-                        <span class="gallery-btn--project">Typography</span>
-                        <span class="gallery-btn--project">Digital Design</span>
-                        <span class="gallery-btn--project">Branding</span>
-                        <span class="gallery-btn--project">KK Projects</span>
-                    </div>
+        </div>
+        <div class="gallery-btns__container">
+            <div class="gallery-btns">
+                <div class="gallery-btns__column">
+                    <span class="gallery-btns--filter">Filter:</span>
+                </div>
+                <div class="gallery-btns__column">
+                    <span class="gallery-btn--all category-btn btn--active" onclick="filterImages('all'); toggleActive(this);">All</span>
+                </div>
+                <div class="gallery-btns__column gallery-btns--list">
+                    <span class="gallery-btn--project category-btn" onclick="filterImages('graphic'); toggleActive(this);">Graphic Design</span>
+                    <span class="gallery-btn--project category-btn" onclick="filterImages('typography'); toggleActive(this);">Typography</span>
+                    <span class="gallery-btn--project category-btn" onclick="filterImages('digital'); toggleActive(this);">Digital Design</span>
+                    <span class="gallery-btn--project category-btn" onclick="filterImages('logo'); toggleActive(this);">Branding</span>
+                    <span class="gallery-btn--project category-btn" onclick="filterImages('studio'); toggleActive(this);">KK Projects</span>
                 </div>
             </div>
         </div>
