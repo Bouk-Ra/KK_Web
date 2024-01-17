@@ -279,7 +279,7 @@
 
         const navBarBg = document.querySelector('.nav-bar__bg');
 
-        if (tagGalleryRect.top < 50) {
+        if (tagGalleryRect.top < 100) {
             navBarBg.style.display = 'block';
         } else {
             navBarBg.style.display = 'none';
