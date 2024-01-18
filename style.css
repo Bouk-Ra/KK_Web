@@ -36,7 +36,7 @@ a {
 }
 
 
-
+/* 
 svg#kaamkaaj-script {
     transform: translateY(-10px);
     overflow: visible;
@@ -59,8 +59,41 @@ svg#kaamkaaj-script {
     100% {
         stroke-dashoffset: 0;
     }
+} */
+
+
+/* SVG SETTING */
+
+
+.winging-it-script__container {
+    width: 95%;
+    margin: 0 auto;
 }
 
+svg.winging-it--svg {
+    transform: translateX(-15px);
+    fill: none;
+    width: 100%;
+    stroke-width: 5px;
+}
+
+path {
+    stroke: black;
+    stroke-dasharray: var(--length);
+    stroke-dashoffset: var(--length);
+}
+
+@keyframes path {
+    100% {
+       stroke-dashoffset: 0; 
+    }
+}
+
+@keyframes path-reward {
+    100% {
+       stroke-dashoffset: var(--length); 
+    }
+}
 
 
 .main_container {
@@ -152,6 +185,9 @@ canvas.logo {
 } 
 
 .gallery-btns__container {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50px);
     position: fixed;
     z-index: 999;
     left: 50vw;
@@ -292,6 +328,9 @@ button.nav-bar-btn {
 }
 
 .projects-toggle__btns{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50px);
     font-size: var(--char-set2);
     letter-spacing: var(--char-set2-ls);
     text-transform: uppercase;
@@ -694,34 +733,6 @@ body {
     margin-top: 30px;
 }
 
-
-
-.winging-it-script__container {
-    background-color: var(--color2);
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-    box-sizing: border-box;
-}
-
-svg.winging-it-script {
-    transform: translateY(-10px);
-    overflow: visible;
-    fill: none;
-    width: 95%;
-    stroke-width: 15px;
-    box-sizing: border-box;
-}
-
-
-.cls-1 {
-    stroke: rgb(0, 0, 0);
-    stroke-dasharray: var(--length);
-    stroke-dashoffset: var(--length);
-    animation: path var(--duration) forwards;
-    animation-delay: var(--delay);
-    animation-timing-function: ease;
-}
 
 .seeyou-text__container {
     background-color: var(--color2);

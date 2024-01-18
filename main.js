@@ -258,43 +258,155 @@ window.addEventListener('resize', setVH);
 })();
 
 
-// Add BG color to nav-bar when Tag Sticky
+// Toggle Button Handler
+// (() => {
+//     function toggleButtonsHandler() {
+//         // Opening Part
+//         const toggleButtons = document.querySelector('.projects-toggle__btns');
+//         const welcomePage = document.querySelector('.welcome-page');
+//         const beforeRenderSection = document.querySelector('.renderSection');
+//         const welcomePageHeight = welcomePage.clientHeight;
+//         const beforeRenderSectionHeight = beforeRenderSection.clientHeight;
+
+//         const primarySectionHeight = welcomePageHeight + beforeRenderSectionHeight*0.2;
+
+//         const scrollPosition = window.scrollY;
+
+//         if(scrollPosition > primarySectionHeight) {
+//             toggleButtons.style.opacity = 1;
+//             toggleButtons.style.visibility = 'visible';
+//             toggleButtons.style.transform = 'translateX(0)';
+
+//         } else {
+//             toggleButtons.style.opacity = 0;
+//             toggleButtons.style.visibility = 'hidden';
+//             toggleButtons.style.transform = 'translateX(-50px)';
+//         }
+
+//     }
+
+//     window.addEventListener('scroll', toggleButtonsHandler);
+//     window.addEventListener('resize', toggleButtonsHandler);
+//     toggleButtonsHandler();
+// })();
+
 (() => {
-    function navBarModifier() {
+    document.addEventListener('DOMContentLoaded', () => {
+        const observeElement1 = document.getElementById('section1');
+        const observeElement2 = document.getElementById('section2');
+
+        let mainProjects = document.querySelector('.main-projects');
+
+        if (!mainProjects) {
+            return;
+        }
+
+        const resizeObserver1 = new ResizeObserver(() => {
+            if (window.getComputedStyle(observeElement1).display === 'block') {
+                updateMainProjectsHeight(observeElement1.clientHeight);
+            } 
+        });
+
+        const resizeObserver2 = new ResizeObserver(() => {
+            if (window.getComputedStyle(observeElement2).display === 'block') {
+                updateMainProjectsHeight(observeElement2.clientHeight);
+            }
+        });
+
+        resizeObserver1.observe(observeElement1);
+        resizeObserver2.observe(observeElement2);
+
+        function updateMainProjectsHeight(sectionHeight) {
+            if (mainProjects.clientHeight !== sectionHeight) {
+                console.log('MainProjects Height has changed:', sectionHeight);
+                mainProjects.style.height = sectionHeight + 'px';
+                console.log(mainProjects.clientHeight);
+            }
+        }
+
+    });
+})();
+
+
+
+(() => {
+
+
+    function toggleButtonsHandler() {
+        const vh = window.innerHeight * 0.01;
+        const welcomePageHeight = document.querySelector('.welcome-page').clientHeight;
+        const renderSectionHeight = document.querySelector('.renderSection').clientHeight;
+        const sectionPrimary = document.getElementById('section1');
+
+
+        const scrollPosition = window.scrollY;
+        const screenHeight = window.innerHeight;
+        const toggleHideOffset = welcomePageHeight + renderSectionHeight*0.95;
+
+        const toggleButtons = document.querySelector('.projects-toggle__btns');
+        
+        function showToggleButtons() {
+            toggleButtons.style.opacity = '1';
+            toggleButtons.style.visibility = 'visible';
+            toggleButtons.style.transform = 'translateX(0)';
+        }
+    
+        function hideToggleButtons() {
+            toggleButtons.style.opacity = '0';
+            toggleButtons.style.visibility = 'hidden';
+            toggleButtons.style.transform = 'translateX(-50px)';
+        }
+        
+
+        if(scrollPosition > vh * 120 && scrollPosition < toggleHideOffset) {
+            showToggleButtons();
+        } else {
+            hideToggleButtons();
+        };
+
         const tagGallery = document.querySelector('.gallery');
         const tagGalleryRect = tagGallery.getBoundingClientRect();
         const navBarBg = document.querySelector('.nav-bar__bg');
+        const wingingItContainer = document.querySelector('.winging-it-script__container');
+        const wingingItContainerRect = wingingItContainer.getBoundingClientRect();
+        const filterButtons = document.querySelector('.gallery-btns__container');
 
-        const galleryContainer = document.querySelector('.gallery-btns__container');
+        const filterHideOffset = toggleHideOffset + 50;
 
-        if (tagGalleryRect.top < 300) {
-            galleryContainer.style.opacity = '1';
-            galleryContainer.style.visibility = 'visible';
-            galleryContainer.style.transform = 'translateX(0)';
-        } else {
-            galleryContainer.style.opacity = '0';
-            galleryContainer.style.visibility = 'hidden';
-            galleryContainer.style.transform = 'translateX(-50px)';
+        function showFilterButtons() {
+            filterButtons.style.opacity = '1';
+            filterButtons.style.visibility = 'visible';
+            filterButtons.style.transform = 'translateX(0)';
+        }
+    
+        function hideFilterButtons() {
+            filterButtons.style.opacity = '0';
+            filterButtons.style.visibility = 'hidden';
+            filterButtons.style.transform = 'translateX(-50px)';
         }
 
-        if (tagGalleryRect.top < 110) {
-            navBarBg.style.display = 'block';
-
-        } else {
-            navBarBg.style.display = 'none';
+        if(sectionPrimary.classList.contains('toggleActive')) {
+            if(tagGalleryRect.top < 120 && scrollPosition < filterHideOffset) {
+                showFilterButtons();
+            } else {
+                hideFilterButtons();
+            }
+            if(wingingItContainerRect.top < screenHeight*0.15 || tagGalleryRect.top > 120) {
+                navBarBg.style.display = 'none';
+            } else if(tagGalleryRect.top < 120) {
+                navBarBg.style.display = 'block';
+            } 
         }
 
-        if (tagGalleryRect.top === 0) {
-            navBarBg.style.display = 'none';
-            galleryContainer.style.opacity = '0';
-            galleryContainer.style.visibility = 'hidden';
-        }
-    }
+    };
 
-    window.addEventListener('scroll', navBarModifier);
-    window.addEventListener('resize', navBarModifier);
-    navBarModifier();
+    window.addEventListener('scroll', toggleButtonsHandler);
+    window.addEventListener('resize', toggleButtonsHandler);
+    toggleButtonsHandler();
 })();
+
+
+
 
 
 // Filter : GRID
@@ -400,7 +512,7 @@ window.addEventListener('resize', setVH);
         const welcomePage = document.querySelector('.welcome-page');
         const beforeRenderSection = document.querySelector('.renderSection');
         const welcomePageHeight = welcomePage.clientHeight * 0.8;
-        const beforeRenderSectionHeight = beforeRenderSection.clientHeight * 0.9;
+        const beforeRenderSectionHeight = beforeRenderSection.clientHeight * 0.4;
         
         const primarySectionHeight = welcomePageHeight + beforeRenderSectionHeight;
 
@@ -422,40 +534,32 @@ window.addEventListener('resize', setVH);
     updateOpacity();
 })();
 
+
+// Winging It Trigger
 (() => {
-    function updateOpacity() {
-        const toggleButtons = document.querySelector('.projects-toggle__btns');
-        const welcomePage = document.querySelector('.welcome-page');
-        const beforeRenderSection = document.querySelector('.renderSection');
-        const welcomePageHeight = welcomePage.clientHeight;
-        const beforeRenderSectionHeight = beforeRenderSection.clientHeight;
+    const wingingItPaths = document.querySelectorAll('.winging-it--path');
 
-        const primarySectionHeight = welcomePageHeight + beforeRenderSectionHeight*0.2;
+    wingingItPaths.forEach((path, index) => {
+        const length = path.getTotalLength();
+        path.style.setProperty('--length', length);
+    });
 
-        const scrollPosition = window.scrollY;
-
-        if(scrollPosition > primarySectionHeight) {
-            toggleButtons.style.opacity = 1;
-            toggleButtons.style.visibility = 'visible';
-            toggleButtons.style.transform = 'translateX(0)';
-
-        } else {
-            toggleButtons.style.opacity = 0;
-            toggleButtons.style.visibility = 'hidden';
-            toggleButtons.style.transform = 'translateX(-50px)';
-
-        }
+    function wingingItHandler() {
+        const screenHeight = window.innerHeight;
+        
+        const wingingItSvg = document.querySelector('.winging-it--svg');
+            const wingingItSvgRect = wingingItSvg.getBoundingClientRect();
+            const wingingItSvgTop = wingingItSvgRect.top;
+            if(wingingItSvgTop < screenHeight*0.8) {
+                wingingItPaths.forEach((path) => {
+                    path.style.animation = 'path 2000ms ease forwards';
+                });
+            } else if(wingingItSvgTop > screenHeight) {
+                wingingItPaths.forEach((path) => {
+                    path.style.animation = 'path-reward 2000ms forwards';
+                });
+            }
     }
-    // 스크롤 이벤트에 대한 리스너 등록
-    window.addEventListener('scroll', updateOpacity);
 
-    // 화면 리사이즈 이벤트에 대한 리스너 등록
-    window.addEventListener('resize', updateOpacity);
-
-    // 초기 로딩 시 한 번 호출하여 초기 상태 업데이트
-    updateOpacity();
+    window.addEventListener('scroll', wingingItHandler);
 })();
-
-
-
-
