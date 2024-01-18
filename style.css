@@ -26,6 +26,10 @@ html {
     scroll-behavior: smooth;
 }
 
+#section1, body, bodycopy {
+    background-color: var(--color2);
+}
+
 a {
     text-decoration: none;
     color: var(--color1);
@@ -56,6 +60,7 @@ svg#kaamkaaj-script {
         stroke-dashoffset: 0;
     }
 }
+
 
 
 .main_container {
@@ -157,7 +162,7 @@ canvas.logo {
     font-size: var(--char-set2);
     letter-spacing: -0.03rem;
     text-transform: uppercase;
-    transition: opacity .5s ease, transform .5s ease;
+    transition: opacity .2s ease, visibility .2s ease, transform .5s ease;
 }
 .gallery-btns__column {
     margin-right: 10px;
@@ -292,7 +297,7 @@ button.nav-bar-btn {
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    transition: .5s ease;
+    transition: opacity .2s ease, visibility .2s ease, transform .5s ease;
 }
 
 .projects-toggle__btns span:nth-child(2) {
@@ -321,7 +326,6 @@ button.nav-bar-btn {
     width: 100%;
     position: absolute;
     height: 100vh;
-    width: 100%;
     top: 0;
 }
 
@@ -329,19 +333,11 @@ button.nav-bar-btn {
     font-size: 2.5em;
     letter-spacing: -0.1rem;
     text-align: center;
-    /* transition: .3s ease; */
     z-index: 202;
     position: fixed;
     font-weight: 600;
 }
 
-/* .welcome-text__container p:hover {
-    text-shadow: 
-        0 0 5px #000, 
-        0 0 5px #000,
-        0 0 5px #000,
-        0 0 5px #000;
-} */
 
 
 .logo-hover-zone {
@@ -571,9 +567,6 @@ body {
 /* SECTION 2 -- LIST */
 /* SECTION 2 -- LIST */
 
-#section2 p {
-    font-size: 100px;
-}
 
 .main-projects-list__item:first-child {
     display: flex;
@@ -703,3 +696,83 @@ body {
 
 
 
+.winging-it-script__container {
+    background-color: var(--color2);
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    box-sizing: border-box;
+}
+
+svg.winging-it-script {
+    transform: translateY(-10px);
+    overflow: visible;
+    fill: none;
+    width: 95%;
+    stroke-width: 15px;
+    box-sizing: border-box;
+}
+
+
+.cls-1 {
+    stroke: rgb(0, 0, 0);
+    stroke-dasharray: var(--length);
+    stroke-dashoffset: var(--length);
+    animation: path var(--duration) forwards;
+    animation-delay: var(--delay);
+    animation-timing-function: ease;
+}
+
+.seeyou-text__container {
+    background-color: var(--color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 90px auto 150px auto;
+}
+
+.seeyou-text__container p {
+    font-size: 2.5em;
+    letter-spacing: -0.1rem;
+    text-align: center;
+    z-index: 202;
+    font-weight: 600;
+}
+
+.footer {
+    background-color: var(--color2);
+    font-size: var(--char-set1);
+    letter-spacing: -0.02em;
+    color: var(--color2);
+    padding: 7px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.footer a {
+    mix-blend-mode: difference;
+    color: var(--color2);
+}
+.footer__column:nth-child(2) {
+    margin: 0 auto;
+}
+.footer__column:last-child {
+    /* grid-column: span 2; */
+    margin-left: auto;
+}
+
+.link--email {
+    display: flex;
+}
+
+.link--email span {
+    display: none;
+}
+
+.link--email a:hover span {
+    display: inline-flex;
+}

@@ -1,25 +1,32 @@
-(() => {
-    // Set --vh CSS variable
-    let vh = window.innerHeight * 0.01;
+
+// Set --vh CSS variable
+
+const setVH = () => {
+    const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
 
-    window.addEventListener('resize', () => {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
-    
-    // Set animation properties for paths in the main group
-    const kkScriptMainGroup = document.querySelector('.kaamkaaj-script__svg--main');
-    const kkScriptMainPaths = document.querySelectorAll('.kaamkaaj-script-path');
+window.addEventListener('resize', setVH);
 
-    kkScriptMainPaths.forEach((path, index) => {
-        const length = path.getTotalLength();
-        path.style.setProperty('--length', length);
-        path.style.setProperty('--delay', `${index * 100}ms`);
-        path.style.setProperty('--duration', `${length * 2}ms`);
-    });
 
-    // Handle sticky effect for navigation bar
+// Animation setup for paths in the main group
+(() => {
+    const setupMainPathsAnimation = () => {
+        const kkScriptMainPaths = document.querySelectorAll('.kaamkaaj-script-path');
+
+        kkScriptMainPaths.forEach((path, index) => {
+            const length = path.getTotalLength();
+            path.style.setProperty('--length', length);
+            path.style.setProperty('--delay', `${index * 100}ms`);
+            path.style.setProperty('--duration', `${length * 2}ms`);
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', setupMainPathsAnimation);
+})();
+
+// Handle sticky effect for navigation bar
+(() => {
     function handerNavBar() {
         const welcomePage = document.querySelector('.welcome-page');
         const navBar = document.querySelector('.nav-bar__container');
@@ -34,9 +41,12 @@
     }
 
     window.addEventListener('scroll', handerNavBar);
+})();
+
+(() => {
 
     // Loading page setup with minimum loading time
-    const loadingPage = document.querySelector('.kaamkaaj-script__loading');
+    const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
     loadingPage.id = 'loading-page';
     document.body.appendChild(loadingPage);
 
@@ -137,7 +147,7 @@
     });
 
     function hideLoadingPage() {
-        var loadingPage = document.querySelector(".kaamkaaj-script__loading");
+        var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
 
         loadingPage.style.animation = "slideUpAndFadeOut 1s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
@@ -155,29 +165,6 @@
     checkTouchDevice();
 })();
 
-
-
-//Button Click to move
-
-(() => {
-    document.querySelector('.nav-bar-btn:first-child').addEventListener('click', function() {
-        // Find the element with the class 'renderSection'
-        const renderSectionElement = document.querySelector('.renderSection');
-      
-        // Check if the element exists
-        if (renderSectionElement) {
-          // Calculate the scroll position, considering the offset (100 pixels from the top)
-          const scrollPosition = renderSectionElement.offsetTop + renderSectionElement.clientHeight;
-      
-          // Scroll to the calculated position
-          window.scrollTo({
-            top: scrollPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-      
-})();
 
 
 
@@ -406,33 +393,6 @@
 })();
 
 
-// (() => {
-//     function updateOpacity() {
-//         const welcomeText = document.querySelector('.welcome-text__container');
-//         const welcomePage = document.querySelector('.welcome-page');
-//         const beforeRenderSection = document.querySelector('.renderSection');
-//         const welcomePageHeight = welcomePage.clientHeight;
-//         const beforeRenderSectionHeight = beforeRenderSection.clientHeight;
-        
-//         const primarySectionHeight = welcomePageHeight + beforeRenderSectionHeight;
-
-//         const scrollPosition = window.scrollY;
-
-
-//         const opacityValue = Math.max(0, 0.4 - (scrollPosition - welcomePageHeight) / welcomePageHeight);
-//         welcomeText.style.opacity = opacityValue;
-
-//     }
-//     // 스크롤 이벤트에 대한 리스너 등록
-//     window.addEventListener('scroll', updateOpacity);
-
-//     // 화면 리사이즈 이벤트에 대한 리스너 등록
-//     window.addEventListener('resize', updateOpacity);
-
-//     // 초기 로딩 시 한 번 호출하여 초기 상태 업데이트
-//     updateOpacity();
-// })();
-
 (() => {
     function updateOpacity() {
         const welcomeTextContainer = document.querySelector('.welcome-text__container');
@@ -495,3 +455,7 @@
     // 초기 로딩 시 한 번 호출하여 초기 상태 업데이트
     updateOpacity();
 })();
+
+
+
+
