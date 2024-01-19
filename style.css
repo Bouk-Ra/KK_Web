@@ -36,32 +36,6 @@ a {
 }
 
 
-/* 
-svg#kaamkaaj-script {
-    transform: translateY(-10px);
-    overflow: visible;
-    fill: none;
-    width: 70%;
-    stroke-width: 5px;
-    box-sizing: border-box;
-}
-
-#kaamkaaj-script path, #kaamkaaj-script line {
-    stroke: rgb(255, 255, 255);
-    stroke-dasharray: var(--length);
-    stroke-dashoffset: var(--length);
-    animation: path var(--duration) forwards;
-    animation-delay: var(--delay);
-    animation-timing-function: ease;
-}
-
-@keyframes path {
-    100% {
-        stroke-dashoffset: 0;
-    }
-} */
-
-
 /* SVG SETTING */
 
 
@@ -275,7 +249,7 @@ canvas.logo {
     box-sizing: border-box;
 }
 
-.nav-bar__column:first-child span, p {
+.nav-bar__column:first-child span, .nav-bar__column:first-child p {
     white-space: nowrap;
 }
 .nav-bar__column:first-child span {

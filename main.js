@@ -1,12 +1,15 @@
 
 // Set --vh CSS variable
+(() => {
+    const setVH = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    window.addEventListener('resize', setVH);
+    setVH();
+})();
 
-const setVH = () => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-};
-
-window.addEventListener('resize', setVH);
 
 
 // Animation setup for paths in the main group
@@ -258,37 +261,6 @@ window.addEventListener('resize', setVH);
 })();
 
 
-// Toggle Button Handler
-// (() => {
-//     function toggleButtonsHandler() {
-//         // Opening Part
-//         const toggleButtons = document.querySelector('.projects-toggle__btns');
-//         const welcomePage = document.querySelector('.welcome-page');
-//         const beforeRenderSection = document.querySelector('.renderSection');
-//         const welcomePageHeight = welcomePage.clientHeight;
-//         const beforeRenderSectionHeight = beforeRenderSection.clientHeight;
-
-//         const primarySectionHeight = welcomePageHeight + beforeRenderSectionHeight*0.2;
-
-//         const scrollPosition = window.scrollY;
-
-//         if(scrollPosition > primarySectionHeight) {
-//             toggleButtons.style.opacity = 1;
-//             toggleButtons.style.visibility = 'visible';
-//             toggleButtons.style.transform = 'translateX(0)';
-
-//         } else {
-//             toggleButtons.style.opacity = 0;
-//             toggleButtons.style.visibility = 'hidden';
-//             toggleButtons.style.transform = 'translateX(-50px)';
-//         }
-
-//     }
-
-//     window.addEventListener('scroll', toggleButtonsHandler);
-//     window.addEventListener('resize', toggleButtonsHandler);
-//     toggleButtonsHandler();
-// })();
 
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
@@ -356,7 +328,6 @@ window.addEventListener('resize', setVH);
             toggleButtons.style.visibility = 'hidden';
             toggleButtons.style.transform = 'translateX(-50px)';
         }
-        
 
         if(scrollPosition > vh * 120 && scrollPosition < toggleHideOffset) {
             showToggleButtons();
@@ -396,12 +367,16 @@ window.addEventListener('resize', setVH);
             } else if(tagGalleryRect.top < 120) {
                 navBarBg.style.display = 'block';
             } 
+        } else {
+            hideFilterButtons();
         }
 
     };
 
+
     window.addEventListener('scroll', toggleButtonsHandler);
     window.addEventListener('resize', toggleButtonsHandler);
+    window.toggleButtonsHandler = toggleButtonsHandler;
     toggleButtonsHandler();
 })();
 
@@ -506,32 +481,28 @@ window.addEventListener('resize', setVH);
 
 
 (() => {
-    function updateOpacity() {
+
+    function textEraser() {
+        const vh = window.innerHeight * 0.01;
+        const welcomePage = document.querySelector('.welcome-page');
         const welcomeTextContainer = document.querySelector('.welcome-text__container');
         const welcomeTextPara = document.querySelector('.welcome-text__container p')
-        const welcomePage = document.querySelector('.welcome-page');
-        const beforeRenderSection = document.querySelector('.renderSection');
-        const welcomePageHeight = welcomePage.clientHeight * 0.8;
-        const beforeRenderSectionHeight = beforeRenderSection.clientHeight * 0.4;
         
-        const primarySectionHeight = welcomePageHeight + beforeRenderSectionHeight;
+        const textHiddenPosition = vh*50;
+        scrollPosition = window.scrollY;
+        const effectScope = Math.min(1, Math.max(0, (welcomePage.clientHeight + textHiddenPosition - scrollPosition) / (welcomePage.clientHeight*0.8 + textHiddenPosition)));
 
-        const scrollPosition = window.scrollY;
+        const opacityValue = effectScope;
+        const blurValue = (1 - effectScope)*5;
         
-        if (scrollPosition > welcomePageHeight) {
-            const opacityValue = Math.max(0, (primarySectionHeight - scrollPosition) / beforeRenderSectionHeight);
-            welcomeTextContainer.style.opacity = opacityValue;
-            const blurValue = Math.min(20, (scrollPosition - welcomePageHeight) / beforeRenderSectionHeight * 20);
-            welcomeTextPara.style.filter = `blur(${blurValue}px)`;
-        } else {
-            welcomeTextContainer.style.opacity = '1';
-            welcomeTextPara.style.filter = 'blur(0px)';
-        }
+
+        welcomeTextContainer.style.opacity = opacityValue;
+        welcomeTextPara.style.filter = `blur(${blurValue}px)`;
+
     }
-
-    window.addEventListener('scroll', updateOpacity);
-    window.addEventListener('resize', updateOpacity);
-    updateOpacity();
+    window.addEventListener('scroll', textEraser);
+    window.addEventListener('resize', textEraser);
+    textEraser();
 })();
 
 
