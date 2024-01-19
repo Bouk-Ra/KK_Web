@@ -51,7 +51,6 @@
     // Loading page setup with minimum loading time
     const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
     loadingPage.id = 'loading-page';
-    document.body.appendChild(loadingPage);
 
     const minimumLoadingTime = 100;
     const startTime = new Date().getTime();
@@ -300,10 +299,8 @@
 })();
 
 
-
+// Additional Toggle Buttons Handler
 (() => {
-
-
     function toggleButtonsHandler() {
         const vh = window.innerHeight * 0.01;
         const welcomePageHeight = document.querySelector('.welcome-page').clientHeight;
@@ -372,12 +369,9 @@
         }
 
     };
-
-
     window.addEventListener('scroll', toggleButtonsHandler);
     window.addEventListener('resize', toggleButtonsHandler);
     window.toggleButtonsHandler = toggleButtonsHandler;
-    toggleButtonsHandler();
 })();
 
 
@@ -480,6 +474,7 @@
 })();
 
 
+// Welcome Text Eraser
 (() => {
 
     function textEraser() {
@@ -489,12 +484,11 @@
         const welcomeTextPara = document.querySelector('.welcome-text__container p')
         
         const textHiddenPosition = vh*50;
-        scrollPosition = window.scrollY;
+        let scrollPosition = window.scrollY;
         const effectScope = Math.min(1, Math.max(0, (welcomePage.clientHeight + textHiddenPosition - scrollPosition) / (welcomePage.clientHeight*0.8 + textHiddenPosition)));
 
         const opacityValue = effectScope;
         const blurValue = (1 - effectScope)*5;
-        
 
         welcomeTextContainer.style.opacity = opacityValue;
         welcomeTextPara.style.filter = `blur(${blurValue}px)`;
@@ -502,7 +496,7 @@
     }
     window.addEventListener('scroll', textEraser);
     window.addEventListener('resize', textEraser);
-    textEraser();
+    // textEraser();
 })();
 
 
