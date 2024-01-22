@@ -392,7 +392,6 @@ button.nav-bar-btn {
 
 
 body {
-    overflow: hidden; /* 페이지 내용이 로드되기 전에 스크롤을 막음 */
     margin: 0;
 }
 
@@ -869,6 +868,7 @@ body {
     padding: 0 var(--padding-side);
     grid-template-columns: 2fr 1fr 1fr;
     column-gap: var(--gap-big);
+    font-size: 0.7em;
 }
 
 .project-page--dscr .project--dscr--discipline {

@@ -154,7 +154,7 @@
         loadingPage.style.animation = "slideUpAndFadeOut 1s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
             loadingPage.style.display = "none";
-            document.body.style.overflow = "visible";
+            document.body.style.overflow = "auto";
         });
     }
 
@@ -174,13 +174,7 @@
 
 // Toggle Switch (GRID <-> LIST)
 (() => {
-    function scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
+
               
     function toggleSection(sectionId) {
         const targetSection = document.getElementById(sectionId);
@@ -194,9 +188,19 @@
             targetSection.classList.add('toggleActive');
             updateButtonStyle(sectionId);
             navBarBgSwitch();
+            setTimeout(() => {
+                scrollToSection(sectionId);
+                console.log(sectionId);
+            }, 100);
         }
     }
     
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        
+        section.scrollIntoView({ behavior: 'smooth' });
+
+    }
     
     function updateButtonStyle(sectionId) {
         // 모든 버튼 비활성화
