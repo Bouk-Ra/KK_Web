@@ -32,7 +32,7 @@ html {
 
 a {
     text-decoration: none;
-    color: var(--color1);
+    color: var(--color2);
 }
 
 
@@ -370,7 +370,7 @@ body {
 }
 
 #loading-page {
-    z-index: 999;
+    z-index: 9999;
     position: fixed;
     top: 0;
     left: 0;
@@ -448,13 +448,15 @@ body {
 /* Section1 -- GRID */
 .main-project__single--img,
 .main-project__x2--img,
-.main-project__x3--img{
+.main-project__x3--img,
+.main-project__x4--img{
 	margin-bottom: 5px;
 }
 
 .main-project__single--img img,
 .main-project__x2--img img,
-.main-project__x3--img img{
+.main-project__x3--img img,
+.main-project__x4--img img{
 	width: 100%;
     height: 100%;
 }
@@ -462,18 +464,21 @@ body {
 
 .main-project__single--img,
 .main-project__x2--img,
-.main-project__x3--img {
+.main-project__x3--img,
+.main-project__x4--img {
 	overflow: hidden;
 }
 .main-project__single--img img,
 .main-project__x2--img img,
-.main-project__x3--img img {
+.main-project__x3--img img,
+.main-project__x4--img img {
     transition: transform 0.6s ease-in-out;
 }
 
 .main-project__single--img img:hover,
 .main-project__x2--img img:hover,
-.main-project__x3--img img:hover {
+.main-project__x3--img img:hover,
+.main-project__x4--img img:hover {
 	transform: scale(1.02);
 }
 
@@ -495,7 +500,10 @@ body {
     font-size: 0.6rem;
 }
 
-.main-project__single, .main-project__x2, .main-project__x3 {
+.main-project__single, 
+.main-project__x2, 
+.main-project__x3,
+.main-project__x4 {
     background-color: var(--color2);
 }
 
@@ -517,13 +525,22 @@ body {
 /* Section1 -- GRID __ TAG CATEGORY */
 /* Section1 -- GRID __ TAG CATEGORY */
 /* Section1 -- GRID __ TAG CATEGORY */
-.main-project__x3 {
+
+.main-project__x3, 
+.main-project__x4 {
     width: 100%;
     padding: 0 var(--gap);
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     column-gap: calc(var(--gap) / 2);
+}
+
+.main-project__x3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.main-project__x4 {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 
@@ -762,3 +779,23 @@ body {
 .link--email a:hover span {
     display: inline-flex;
 }
+
+.project-page--dscr {
+    display: grid;
+    padding: 0 var(--gap);
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: calc(var(--gap)*0.5);
+    column-gap: 20px;
+}
+
+.project-page--dscr .project--dscr--discipline {
+    grid-row: span 2;
+}
+
+.related-projects h2 {
+    padding: 0 var(--gap);
+    font-weight: 400;
+    letter-spacing: -0.04rem;
+    margin-bottom: 5px;
+}
+

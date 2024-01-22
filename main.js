@@ -399,7 +399,7 @@
 
     // 각 이미지 초기 상태 설정
     function initializeImages() {
-        const images = document.querySelectorAll('.main-project__x3--item');
+        const images = document.querySelectorAll('.main-project__x4--item');
         images.forEach((img) => (img.style.opacity = '1'));
     }
 
