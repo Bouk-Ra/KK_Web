@@ -134,7 +134,7 @@ path {
 }
 .nav-bar {
     -ms-overflow-style: none; 
-    scrollbar-width: none; 
+    scrollbar-width: none;
 }
 .nav-bar:hover {
     scrollbar-width: none;
@@ -410,6 +410,7 @@ body {
     flex-direction: column;
     animation: none; /* 초기에는 애니메이션 없음 */
     color: white;
+    pointer-events: none;
 }
 
 
