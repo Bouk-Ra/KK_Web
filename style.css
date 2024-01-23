@@ -1137,6 +1137,7 @@ body {
         padding: 5px 0;
     }
     .nav-bar--mb button {
+        font-size: 0.9em;
         padding: 2px;
         margin-left: 0;
         background-color: var(--color1);
@@ -1148,7 +1149,7 @@ body {
     .welcome-text__container {
         position: relative;
         height: auto;
-        margin: 30px 0;
+        margin: 40px 0 50px 0;
         z-index: 888;
     }
     .renderSection {
