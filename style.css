@@ -18,6 +18,12 @@
     --char-set1: 1em;
     --char-set2: 0.6em;
     --char-set2-ls: -0.04rem;
+    
+    --char-set-p1: 2.5em;
+    --char-set-p1-ls: -0.1rem;
+
+
+    
 
   }
 
@@ -139,6 +145,10 @@ path {
 }
 .nav-bar:hover {
     scrollbar-width: none;
+}
+
+.nav-bar__container--mb {
+    display: none;
 }
 
 .header-logo {
@@ -370,9 +380,10 @@ button.nav-bar-btn {
 }
 
 .welcome-text__container p,
-.welcome-info__container {
-    font-size: 2.5em;
-    letter-spacing: -0.1rem;
+.welcome-info__container,
+.seeyou-text__container p {
+    font-size: var(--char-set-p1);
+    letter-spacing: var(--char-set-p1-ls);
     text-align: center;
     z-index: 202;
     font-weight: 600;
@@ -849,8 +860,8 @@ body {
 }
 
 .seeyou-text__container p {
-    font-size: 2.5em;
-    letter-spacing: -0.1rem;
+    font-size: var(--char-set-p1);
+    letter-spacing: var(--char-set-p1-ls);
     text-align: center;
     z-index: 202;
     font-weight: 600;
@@ -995,6 +1006,7 @@ body {
 .header-logo--mb img {
     width: 100%;
     padding: var(--padding-side);
+    padding-bottom: 0;
     box-sizing: border-box;
 }
 
@@ -1029,12 +1041,19 @@ body {
         font-size: 70px;
         margin-bottom: -0.2em;
     }
+
+    svg.winging-it--svg {
+        transform: translateX(0);
+    }
+
 }
 
 @media (max-width: 870px) {
     :root {
         --padding-side: 5px;
         --nav-height: 25px;
+        --char-set-p1: 1.8em;
+        --char-set-p1-ls: -0.04em;
     }
 
     .space-divider {
@@ -1043,11 +1062,6 @@ body {
 
     .kaamkaaj-is {
         display: none;
-    }
-    
-    .welcome-text__container p,
-    .seeyou-text__container p  {
-        font-size: 1.8em;
     }
 
     .main-project-list__title {
@@ -1076,15 +1090,70 @@ body {
     .related-projects .main-project__x3 .main-project__x3--item:last-child {
         display: none;
     }
-
+    .footer {
+        padding: var(--padding-side);
+    }
+    .winging-it-script__container {
+        margin-top: 30px;
+    }
 }
 
 @media (max-width: 767px) {
-
+    :root {
+        --char-set-p1: 1.4em;
+        --char-set-p1-ls: -0.03em;
+    }
     html {
         font-size: 16px!important;
     }
 
+    canvas.logo {
+        display: none!important;
+    }
+    .logo-hover-zone__container {
+        display: none!important;
+    }
+    .header-logo--mb {
+        display: block!important;
+    } 
+
+    .nav-bar__container {
+        display: none;
+    }
+    .nav-bar__container--mb {
+        mix-blend-mode: difference;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        display: block;
+        padding: 0 5px;
+        box-sizing: border-box;
+
+    }
+    .nav-bar--mb {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        gap: 5px;
+        padding: 5px 0;
+    }
+    .nav-bar--mb button {
+        padding: 2px;
+        margin-left: 0;
+        background-color: var(--color1);
+    }
+    .welcome-page {
+        height: auto;
+    }
+
+    .welcome-text__container {
+        position: relative;
+        height: auto;
+        margin: 30px 0;
+        z-index: 888;
+    }
+    .renderSection {
+        padding-top: 10px;
+    }
     .space-divider {
         height: 0;
     }
@@ -1112,6 +1181,9 @@ body {
 
     .main-project__x4--img {
         margin-bottom: 3px;
+    }
+    .seeyou-text__container {
+        margin: 30px auto;
     }
 }
 
