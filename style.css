@@ -1,6 +1,7 @@
 
 
 :root {
+    --vw: 1vw;
     --vh: 1vh;
     --color1: rgb(0, 0, 0);
     --color2: rgb(255, 255, 255);
@@ -183,10 +184,9 @@ canvas.logo {
     transform: translateX(-50px);
     position: fixed;
     z-index: 999;
-    left: 50vw;
+    left: 50%;
     mix-blend-mode: difference;
     color: var(--color2);
-    margin-left: 2px;
     margin-top: 10px;
     font-size: var(--char-set2);
     letter-spacing: -0.03rem;
@@ -194,11 +194,11 @@ canvas.logo {
     transition: opacity .2s ease, visibility .2s ease, transform .5s ease;
 }
 .gallery-btns__column {
-    margin-right: 10px;
+    margin-right: 0.6em;
 }
 
 .gallery-btns__column:nth-child(2) {
-    margin-right: 20px;
+    margin-right: 1.5em;
 }
 .gallery-btns {
     grid-column-start: 2;
@@ -334,11 +334,11 @@ button.nav-bar-btn {
 }
 
 .projects-toggle__btns span:nth-child(2) {
-    margin-right: 7px;
+    margin-right: 0.5em;
 }
 
 .projects-toggle__btns span:first-child {
-    margin-right: 10px;
+    margin-right: 0.6em;
 }
 
 .toggleActive__btn {
@@ -478,11 +478,51 @@ body {
     left: 0;
 }
 
+
 .invert-hover:hover {
     color: var(--color1)!important; /* 반전된 텍스트 색상 */
 }
 
 
+
+.invert-hover--nonmix {
+    position: relative;
+    display: inline-flex;
+    text-decoration: none;
+    overflow: hidden;
+    margin-right: auto;
+    padding: 0 2px;
+}
+
+.main-projects-list__item .invert-hover--nonmix {
+    padding: 0 2px;
+}
+
+.invert-hover--nonmix::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color1); /* 검은색 음영 효과 */
+    z-index: -1; /* 텍스트 뒤로 이동 */
+    transition: left 0.5s, color 1s ease; /* 좌측으로 이동하면서, 텍스트 색상 변경에도 딜레이 추가 */
+}
+
+.invert-hover--nonmix:hover::before {
+    left: 0;
+}
+
+.invert-hover--nonmix:hover {
+    color: var(--color2)!important; /* 반전된 텍스트 색상 */
+}
+
+
+.main-projects-list__item:first-child {
+    width: 100%;
+    overflow: hidden;
+}
 
 .shadow-text--yellow {
     position: relative;
@@ -566,7 +606,7 @@ body {
     flex-direction: column;
     line-height: 1;
     letter-spacing: -0.03rem;
-    margin-bottom: 30px;
+    margin-bottom: 1.5em;
 }
 
 .main-project__title {
@@ -627,12 +667,12 @@ body {
 #project-gallery {
     position: relative;
     z-index: 100;
-    transition: 0.3s ease;
+    /* transition: 0.3s ease; */
     opacity: 1;
 }
 
 #project-gallery div {
-    transition: 0.5s ease;
+    /* transition: 0.5s ease; */
     opacity: 1;
 }
 .gallery__container {
@@ -686,7 +726,7 @@ body {
     height: 100%;
     position: sticky;
     top: var(--nav-height);
-    z-index: 9;
+    z-index: 99;
 }
 .main-projects-list__item:last-child img{
     width: 30vw;
@@ -698,13 +738,12 @@ body {
 
 .main-project-list__title {
     white-space: nowrap;
-    letter-spacing: -0.2rem;
+    letter-spacing: -0.04em;
 	font-size: 80px;
-    margin-bottom: -16px;
+    margin-bottom: -0.2em;
     color: var(--color3);
     position: relative;
     overflow: visible;
-    transition: 0.7s ease;
 }
 
 
@@ -715,7 +754,6 @@ body {
     right: 0;
     visibility: hidden;
     opacity: 0;
-    transition: 0.5s ease;
 }
 
 
@@ -737,7 +775,7 @@ body {
 }
 
 .carousel-buttons {
-    margin-top: 5px;
+    margin-top: 0.15em;
     display: flex;
     align-items: center;
 }
@@ -793,11 +831,11 @@ body {
 
 .section2-container {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto auto;
     padding: 0 10px;
     box-sizing: border-box;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 
 
@@ -945,3 +983,119 @@ body {
     flex-direction: column;
 }
 
+
+
+
+/* MEDIA QUERY */
+/* MEDIA QUERY */
+/* MEDIA QUERY */
+/* MEDIA QUERY */
+/* MEDIA QUERY */
+
+@media (max-width: 1150px) {
+    :root {
+        --nav-height: 30.8px;
+    }
+    html {
+        font-size: 18px!important;
+    }
+
+    .nav-bar {
+        grid-template-columns: 1fr 1fr 2fr;
+    }
+
+    .nav-bar__bg {
+        height: 88px;
+    }
+
+    .main-project__x4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-btns__container {
+        left: 44%;
+    }
+    .gallery-btns__container {
+        margin-top: 8.8px;
+    }
+
+    .main-project-list__title {
+        font-size: 70px;
+        margin-bottom: -0.2em;
+    }
+}
+
+@media (max-width: 870px) {
+    .space-divider {
+        height: 80px;
+    }
+
+    .kaamkaaj-is {
+        display: none;
+    }
+    
+    .welcome-text__container p,
+    .seeyou-text__container p  {
+        font-size: 1.8em;
+    }
+
+    .main-project-list__title {
+        font-size: 60px;
+    }
+
+    .nav-bar {
+        grid-template-columns: 1fr 1fr 4fr;
+    }
+
+    .renderSection {
+        padding-top: 50vh;
+    }
+    .gallery-btns__container {
+        left: 37%;
+    }
+
+    .main-project__x2 {
+        width: 100%;
+    }
+
+    .main-project__x4, .main-project__x3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .related-projects .main-project__x3 .main-project__x3--item:last-child {
+        display: none;
+    }
+
+}
+
+@media (max-width: 740px) {
+
+    :root {
+        --padding-side: 5px;
+    }
+    html {
+        font-size: 16px!important;
+    }
+
+    .space-divider {
+        height: 0;
+    }
+    .main-project-list__title {
+        font-size: 40px;
+        margin-bottom: -0.2em;
+    }
+
+    .nav-bar {
+        column-gap: 10px;
+    }
+    .gallery-btns__container {
+        display: none;
+    }
+    .nav-bar__bg {
+        display: none!important;
+    }
+
+    .main-project__x4--img {
+        margin-bottom: 3px;
+    }
+}
