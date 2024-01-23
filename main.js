@@ -159,9 +159,20 @@
     }
 
     // Check for touch devices and handle accordingly
+    const logoMobile = document.querySelector('.header-logo--mb');
+    const logoHoverZone = document.querySelector('.logo-hover-zone__container');
+
     const checkTouchDevice = () => {
         const isTouchDevice = window.matchMedia("(hover: none)").matches;
-        canvas.style.display = isTouchDevice ? "none" : "block";
+        if (isTouchDevice) {
+            canvas.style.display = "none";
+            logoHoverZone.style.display = "none";
+            logoMobile.style.display = "block";
+        } else {
+            canvas.style.display = "block";
+            logoHoverZone.style.display = "block";
+            logoMobile.style.display = "none";
+        }
     };
 
     checkTouchDevice();
