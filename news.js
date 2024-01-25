@@ -139,9 +139,10 @@
             console.error('Could not find the parent news-box element.');
             return;
         }
-        console.log(currentBox);
+
         currentBox.style.visibility = "hidden";
         currentBox.style.animation = "";
+        currentBox.style.pointerEvents = "none";
         newsSection.style.backgroundImage = 'none';
         isDragging = false;
 
@@ -150,9 +151,8 @@
             element.style.filter = "blur(0px)";
         })
 
-
-    
         setTimeout(() => {
+            currentBox.style.pointerEvents = "auto";
             currentBox.style.left = Math.random() * 80 + "vw"; // Adjust the range as needed
             currentBox.style.top = Math.random() * 80 + "vh"; // Adjust the range as needed
             currentBox.style.visibility = "visible";
@@ -176,6 +176,18 @@
     window.closeBox = closeBox;
 })();
 
+(() => {
+    let draggableElements = document.querySelectorAll(".news-box");
+    
+    function boxAnimator() {
+        draggableElements.forEach(element => {
+            if(element.getBoundingClientRect().top < window.innerHeight * 0.9) {
+                element.style.animation = "cloud 2s infinite";
+            }
+        });
+    }
+    window.addEventListener('scroll', boxAnimator);
+})();
 
 (() => {
 
@@ -210,8 +222,31 @@
         } else {
             newsSection.style.visibility = "visible";
         }
-
+        
     };
     
+})();
 
+(() => {
+    const newsSection = document.querySelector('.newsSection');
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const welcomeSection = document.querySelector('.welcome-page');
+        const renderSection = document.querySelector('.renderSection');
+        const sectionOne = document.getElementById('section1');
+        const norme = Math.max(-20, (scrollPosition / welcomeSection.clientHeight) * -20);
+        if (sectionOne.classList.contains('toggleActive')) {
+            let red = 255 + norme;
+            let green = 255 + norme;
+            let blue = 255 + norme;
+            document.body.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+            if (renderSection.getBoundingClientRect().top < 0) {
+                document.body.style.backgroundColor = "rgb(" + 255 + "," + 255 + "," + 255 + ")";
+            }
+        } else {
+            return;
+        }
+       
+    });
 })();

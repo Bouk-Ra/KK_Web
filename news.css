@@ -36,7 +36,7 @@ html {
     box-sizing: border-box;
 }
 .news-box {
-  width: 500px;
+  width: 400px;
   height: auto;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
@@ -66,7 +66,7 @@ body {
 }
 
 .shaker:hover {
-    animation: shaker 4s ease forwards;
+    animation: shaker 4s ease forwards!important;
 }
 
 .news-btn__container {
@@ -137,10 +137,10 @@ img {
 }
 
 .news-title {
-    font-size: 3.5em;
+    font-size: 2.5rem;
     letter-spacing: -0.08rem;
-    line-height: 3.2rem;
-    margin-left: -4px;
+    line-height: 1;
+    margin-left: -2px;
     font-weight: 500;
     margin-top: 2px;
     margin-bottom: 10px;
@@ -208,6 +208,43 @@ img {
     }
 }
 
+@keyframes cloud {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
 
+
+/* Button Hover Animation */
+.news-btn__animation {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.news-btn__animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--color1);
+    transition: .4s ease;
+    z-index: -1;
+
+}
+
+.news-btn__animation:hover:before {
+    width: 100%;
+}
+.news-btn__animation:hover img {
+    filter: invert(1);
+}
 

@@ -327,14 +327,17 @@
     function toggleButtonsHandler() {
         const vh = window.innerHeight * 0.01;
         const welcomePageHeight = document.querySelector('.welcome-page').clientHeight;
+        const newsSectionHeight = document.querySelector('.newsSection').clientHeight;
         const renderSectionHeight = document.querySelector('.renderSection').clientHeight;
+        const renderSectionStyle = window.getComputedStyle(document.querySelector('.renderSection'));
+        const renderSectionMarginTop = parseInt(renderSectionStyle.getPropertyValue("margin-top"), 10);
         const sectionPrimary = document.getElementById('section1');
 
-
+        
         const scrollPosition = window.scrollY;
         const screenHeight = window.innerHeight;
-        const toggleHideOffset = welcomePageHeight + renderSectionHeight*0.95;
-
+        const toggleStartOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop;
+        const toggleHideOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop + renderSectionHeight*0.95;
         const toggleButtons = document.querySelector('.projects-toggle__btns');
         
         function showToggleButtons() {
@@ -348,8 +351,8 @@
             toggleButtons.style.visibility = 'hidden';
             toggleButtons.style.transform = 'translateX(-50px)';
         }
-
-        if(scrollPosition > vh * 120 && scrollPosition < toggleHideOffset) {
+        
+        if(scrollPosition > toggleStartOffset && scrollPosition < toggleHideOffset) {
             showToggleButtons();
         } else {
             hideToggleButtons();
