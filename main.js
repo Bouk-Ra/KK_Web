@@ -41,10 +41,18 @@
         } else {
             welcomePage.classList.remove('sticky-elem');
         }
+    
+        // console.log(navBarTop);
     }
 
     window.addEventListener('scroll', handerNavBar);
 })();
+
+
+
+
+
+
 
 (() => {
 
@@ -90,6 +98,7 @@
             ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
         };
     };
+    loadImage();
 
     const startPlayback = (forward, callback) => {
         const playDirection = forward ? 1 : -1;
@@ -126,14 +135,8 @@
         });
     });
 
-    window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        loadImage();
-    });
 
-    canvas.width = window.innerWidth;
-    loadImage();
-
+    
     document.addEventListener("DOMContentLoaded", () => {
         preloadImages().then(() => {
             const elapsedTime = new Date().getTime() - startTime;
@@ -199,10 +202,15 @@
             targetSection.classList.add('toggleActive');
             updateButtonStyle(sectionId);
             navBarBgSwitch();
-            setTimeout(() => {
-                scrollToSection(sectionId);
-                console.log(sectionId);
-            }, 100);
+            scrollToSection(sectionId);
+            if (sectionId === "section2") {
+                const newsSection = document.querySelector('.newsSection');
+                newsSection.style.display = "none";
+            } 
+            if(sectionId === "section1"){
+                const newsSection = document.querySelector('.newsSection');
+                newsSection.style.display = "block";
+            }
         }
     }
     
@@ -304,9 +312,9 @@
 
         function updateMainProjectsHeight(sectionHeight) {
             if (mainProjects.clientHeight !== sectionHeight) {
-                console.log('MainProjects Height has changed:', sectionHeight);
+                // console.log('MainProjects Height has changed:', sectionHeight);
                 mainProjects.style.height = sectionHeight + 'px';
-                console.log(mainProjects.clientHeight);
+                // console.log(mainProjects.clientHeight);
             }
         }
 
@@ -449,40 +457,38 @@
 
 // Show image on hover : LIST
 (() => {
-    document.addEventListener('DOMContentLoaded', function () {
-        const titles = document.querySelectorAll('.main-projects-list__item:first-child span');
-        const images = document.querySelectorAll('.main-projects-list__img');
-      
-        titles.forEach((title, index) => {
-            title.addEventListener('mouseover', () => {
-                showImage(index);
-            });
+    const titles = document.querySelectorAll('.main-projects-list__item:first-child span');
+    const images = document.querySelectorAll('.main-projects-list__img');
+  
+    titles.forEach((title, index) => {
+        title.addEventListener('mouseover', () => {
+            showImage(index);
         });
-      
-        // 마우스가 타이틀을 벗어날 때 모든 이미지 숨김
-        document.querySelector('.main-projects-list__item:first-child').addEventListener('mouseout', () => {
-            hideImages();
-        });
-      
-        function showImage(index) {
-            images.forEach((img, i) => {
-                if (i === index) {
-                    img.style.visibility = 'visible';
-                    img.style.opacity = '1';
-                } else {
-                    img.style.visibility = 'hidden';
-                    img.style.opacity = '0';
-                }
-            });
-        }
-      
-        function hideImages() {
-            images.forEach((img) => {
+    });
+  
+    // 마우스가 타이틀을 벗어날 때 모든 이미지 숨김
+    document.querySelector('.main-projects-list__item:first-child').addEventListener('mouseout', () => {
+        hideImages();
+    });
+  
+    function showImage(index) {
+        images.forEach((img, i) => {
+            if (i === index) {
+                img.style.visibility = 'visible';
+                img.style.opacity = '1';
+            } else {
                 img.style.visibility = 'hidden';
                 img.style.opacity = '0';
-            });
-        }
-    });
+            }
+        });
+    }
+  
+    function hideImages() {
+        images.forEach((img) => {
+            img.style.visibility = 'hidden';
+            img.style.opacity = '0';
+        });
+    }
 
 })();
 
@@ -496,15 +502,15 @@
         const welcomeTextContainer = document.querySelector('.welcome-text__container');
         const welcomeTextPara = document.querySelector('.welcome-text__container p')
         
-        const textHiddenPosition = vh*50;
+        const textHiddenPosition = -vh*15;
         let scrollPosition = window.scrollY;
         const effectScope = Math.min(1, Math.max(0, (welcomePage.clientHeight + textHiddenPosition - scrollPosition) / (welcomePage.clientHeight*0.8 + textHiddenPosition)));
 
         const opacityValue = effectScope;
-        const blurValue = (1 - effectScope)*5;
+        // const blurValue = (1 - effectScope)*5;
 
         welcomeTextContainer.style.opacity = opacityValue;
-        welcomeTextPara.style.filter = `blur(${blurValue}px)`;
+        // welcomeTextPara.style.filter = `blur(${blurValue}px)`;
 
     }
     window.addEventListener('scroll', textEraser);
