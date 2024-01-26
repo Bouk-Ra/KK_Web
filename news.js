@@ -156,10 +156,18 @@
             currentBox.style.left = Math.random() * 80 + "vw"; // Adjust the range as needed
             currentBox.style.top = Math.random() * 80 + "vh"; // Adjust the range as needed
             currentBox.style.visibility = "visible";
-            currentBox.style.animation = "flicker 1s forwards";
+            currentBox.style.animation = "flicker .5s forwards";
             currentBox.addEventListener('animationend', onAnimationEnd);
         }, 1000);
-    
+
+        setTimeout(() => {
+            currentBox.style.animation = "cloud 2s infinite";
+        }, 1500);
+
+        // setTimeout(() => {
+        //     console.log("hi");
+        // }, 1500);
+
         function onAnimationEnd() {
             currentBox.style.animation = ""; // 애니메이션 속성 삭제
             currentBox.removeEventListener('animationend', onAnimationEnd); // 이벤트 핸들러 제거
