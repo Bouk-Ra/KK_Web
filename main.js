@@ -120,6 +120,8 @@
         playFrame();
     };
 
+    loadImage();
+
     const logoTrigger = document.querySelectorAll(".logo-hover-zone");
 
     logoTrigger.forEach((logoTrigger) => {

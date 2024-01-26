@@ -34,7 +34,7 @@ html {
     --screen-vh: calc(var(--vh) * 100);
     font-size: 20px!important;
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory!important;
+    scroll-snap-type: y mandatory;
 }
 
 #section1, body, bodycopy {
@@ -282,6 +282,7 @@ canvas.logo {
 
 .nav-bar__column:first-child span, .nav-bar__column:first-child p {
     white-space: nowrap;
+    margin: 0;
 }
 .nav-bar__column:first-child span {
     font-size: var(--char-set1);
@@ -311,7 +312,7 @@ button.nav-bar-btn {
     padding: 1px 1.4vw;
     cursor: pointer;
     letter-spacing: -0.04em;
-    font-size: 0.75em;
+    font-size: 0.75rem;
 }
 
 .nav-bar-btn__link {
@@ -1025,7 +1026,7 @@ body {
     }
 
     .nav-bar__bg {
-        height: 88px;
+        height: 92px;
     }
 
     .main-project__x4 {
@@ -1036,7 +1037,7 @@ body {
         left: 44%;
     }
     .gallery-btns__container {
-        margin-top: 8.8px;
+        margin-top: 8.4px;
     }
 
     .main-project-list__title {
@@ -1069,16 +1070,19 @@ body {
     .main-project-list__title {
         font-size: 60px;
     }
-
+    button.nav-bar-btn {
+        font-size: 0.65rem;
+    }
     .nav-bar {
         grid-template-columns: 1fr 1fr 4fr;
     }
-
-    .renderSection {
-        padding-top: 300px;
+    .nav-bar__bg {
+        height: 92px;
     }
+
     .gallery-btns__container {
         left: 37%;
+        margin-top: 5.5px;
     }
 
     .main-project__x2 {
@@ -1109,6 +1113,9 @@ body {
     html {
         font-size: 16px!important;
     }
+    body {
+        background-color: var(--color2);
+    }
 
     canvas.logo {
         display: none!important;
@@ -1124,6 +1131,10 @@ body {
         visibility: hidden;
         position: absolute;
         pointer-events: none;
+    }
+
+    .projects-toggle__btns {
+        display: none;
     }
     .nav-bar__container--mb {
         mix-blend-mode: exclusion;
@@ -1191,7 +1202,17 @@ body {
     .seeyou-text__container {
         margin: 30px auto;
     }
+
+    .newsSection {
+        display: none;
+    }
+
+    html {
+        scroll-snap-type: none;
+    }
 }
+
+
 
 @media (max-width: 400px) {
     .main-project__x2,

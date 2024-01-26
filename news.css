@@ -2,7 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 
-.news-message__container {
+.news-state {
     width: 100%;
     height: 100%;
     display: flex;
@@ -11,21 +11,20 @@ html {
     opacity: 0;
     transition: .3s ease;
 }
-.news-message {
-    font-size: 1.6rem;
-    letter-spacing: -0.1rem;
-    text-transform: uppercase;
-    color: var(--color2);
-    background-color: var(--color1);
-    padding: 4px 30px;
-    box-sizing: border-box;
-    border-radius: 50px;
-    transition: opacity .3s ease;
+.news-state img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
 }
 
+.news-state--news {
+    display: flex;
+    transform: scale(0.6);
+}
+
+
 .newsSection {
-    /* position: sticky;
-    top: 0; */
     width: 100%;
     height: 100vh;
     margin: 0;
@@ -36,7 +35,7 @@ html {
     box-sizing: border-box;
 }
 .news-box {
-  width: 400px;
+  width: 500px;
   height: auto;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
@@ -79,6 +78,7 @@ body {
     z-index: 100;
     cursor: pointer;
 }
+
 .play-btn {
     z-index: 100;
     cursor: pointer;
@@ -95,6 +95,7 @@ img {
     padding: 13px 20px;
     box-sizing: border-box;
 }
+
 .close-btn,
 .play-btn,
 .enter-btn {
@@ -137,7 +138,7 @@ img {
 }
 
 .news-title {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     letter-spacing: -0.08rem;
     line-height: 1;
     margin-left: -2px;

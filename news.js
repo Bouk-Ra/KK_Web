@@ -54,17 +54,16 @@
     } 
 
     function activeBox(event) {
-        const newsMessage = document.querySelector('.news-message');
+        const newsState = document.querySelector('.news-state');
         const currentBox = event.target;
         const siblingBoxes = Array.from(currentBox.parentNode.children).filter(child => child !== currentBox);
         currentBox.style.filter = "invert(1)";
         currentBox.style.opacity = "0.8";
         currentBox.style.zIndex = "";
-        newsMessage.style.opacity = "0.3";
 
         siblingBoxes.forEach(sibling => {
             sibling.style.zIndex = "";
-            sibling.style.opacity = "0.8";
+            sibling.style.opacity = "0.3";
             sibling.style.filter = "blur(3px)";
             // sibling의 자식들에게 filter를 적용
         });
@@ -77,12 +76,12 @@
     }
 
     function nonActiveBox(event) {
-        const newsMessage = document.querySelector('.news-message');
+        const newsState = document.querySelector('.news-state');
         const currentBox = event.target;
         const siblingBoxes = Array.from(currentBox.parentNode.children).filter(child => child !== currentBox);
         currentBox.style.filter = "invert(0)";
         currentBox.style.opacity = "1";
-        newsMessage.style.opacity = "1";
+        newsState.style.opacity = "1";
         
         siblingBoxes.forEach(sibling => {
             sibling.style.opacity = "1";
@@ -91,8 +90,59 @@
         });
     }
 
+
+
+    function handleMouseEnterExcp(event) {
+        activeBoxExcp(event);
+    }
+
+    function handleMouseLeaveExcp(event) {
+        nonActiveBoxExcp(event);
+    }
+
+
+    function activeBoxExcp(event) {
+        const newsState = document.querySelector('.news-state');
+        const currentBox = event.target;
+        const siblingBoxes = Array.from(currentBox.parentNode.children).filter(child => child !== currentBox);
+        currentBox.style.filter = "invert(1)";
+        currentBox.style.opacity = "0.8";
+        currentBox.style.zIndex = "";
+
+        siblingBoxes.forEach(sibling => {
+            sibling.style.zIndex = "";
+            sibling.style.opacity = "0.3";
+            sibling.style.filter = "blur(3px)";
+            // sibling의 자식들에게 filter를 적용
+        });
+        increaseZIndex(event);
+        function increaseZIndex(event) {
+            const currentBox = event.target;
+            const currentZIndex = parseInt(currentBox.style.zIndex) || 0; // 현재 zIndex 값을 가져옴
+            currentBox.style.zIndex = currentZIndex + 997; // 1을 뺀 값을 다시 설정
+        }
+    }
+
+    function nonActiveBoxExcp(event) {
+        const newsState = document.querySelector('.news-state');
+        const currentBox = event.target;
+        const siblingBoxes = Array.from(currentBox.parentNode.children).filter(child => child !== currentBox);
+        currentBox.style.filter = "invert(0)";
+        currentBox.style.opacity = "1";
+        newsState.style.opacity = "1";
+        
+        siblingBoxes.forEach(sibling => {
+            sibling.style.opacity = "1";
+            sibling.style.filter = "blur(0px)";
+            // sibling의 자식들에게 filter를 적용
+        });
+    }
+
+
     window.handleMouseEnter = handleMouseEnter;
     window.handleMouseLeave = handleMouseLeave;
+    window.handleMouseEnterExcp = handleMouseEnterExcp;
+    window.handleMouseLeaveExcp = handleMouseLeaveExcp;
     window.playSlideshow = playSlideshow;
     window.stopSlideshow = stopSlideshow;
 })();
@@ -153,7 +203,7 @@
 
         setTimeout(() => {
             currentBox.style.pointerEvents = "auto";
-            currentBox.style.left = Math.random() * 80 + "vw"; // Adjust the range as needed
+            currentBox.style.left = Math.random() * 70 + "vw"; // Adjust the range as needed
             currentBox.style.top = Math.random() * 80 + "vh"; // Adjust the range as needed
             currentBox.style.visibility = "visible";
             currentBox.style.animation = "flicker .5s forwards";
@@ -202,8 +252,8 @@
     const welcomeSection = document.querySelector('.welcome-page');
     const newsSection = document.querySelector('.newsSection');
     const renderSection = document.querySelector('.renderSection');
-    const newsMessageContainer = document.querySelector('.news-message__container');
-    const newsMessage = document.querySelector('.news-message');
+    const newsState = document.querySelector('.news-state');
+    const newsNews = document.querySelector('.news-state--news');
     const screenHeight = window.innerHeight;
 
     
@@ -216,12 +266,12 @@
 
     function newsMessageHandler() {
         if (newsSection.getBoundingClientRect().top < (screenHeight * 0.1)) {
-            newsMessageContainer.style.animation = "flicker 1s forwards";
-            newsMessageContainer.style.opacity = "1";
-            newsMessage.style.opacity = "1";
+            newsState.style.animation = "flicker 0.5s forwards";
+            newsState.style.opacity = "1";
+            newsNews.style.opacity = "1";
         } else {
-            newsMessageContainer.style.animation = "";
-            newsMessage.style.opacity = "0";
+            newsState.style.animation = "";
+            newsNews.style.opacity = "0";
         }
         const scrollPosition = window.scrollY;
         const newsCloseLine = welcomeSection.clientHeight + newsSection.clientHeight + vh * 120;
@@ -251,6 +301,10 @@
         document.body.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
         if (renderSection.getBoundingClientRect().top < 100) {
             document.body.style.backgroundColor = "rgb(" + 255 + "," + 255 + "," + 255 + ")";
+        } else {
+            if(window.innerWidth < 768) {
+                document.body.style.backgroundColor = "rgb(" + 255 + "," + 255 + "," + 255 + ")";
+            }
         }
     });
 })();
