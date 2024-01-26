@@ -53,7 +53,6 @@
 
 
 
-
 (() => {
 
     // Loading page setup with minimum loading time
@@ -98,7 +97,6 @@
             ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
         };
     };
-    loadImage();
 
     const startPlayback = (forward, callback) => {
         const playDirection = forward ? 1 : -1;
@@ -135,8 +133,6 @@
         });
     });
 
-
-    
     document.addEventListener("DOMContentLoaded", () => {
         preloadImages().then(() => {
             const elapsedTime = new Date().getTime() - startTime;
@@ -157,30 +153,18 @@
         loadingPage.style.animation = "slideUpAndFadeOut 1s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
             loadingPage.style.display = "none";
-            document.body.style.overflow = "auto";
+            document.body.style.overflow = "visible";
         });
     }
 
     // Check for touch devices and handle accordingly
-    const logoMobile = document.querySelector('.header-logo--mb');
-    const logoHoverZone = document.querySelector('.logo-hover-zone__container');
-
     const checkTouchDevice = () => {
         const isTouchDevice = window.matchMedia("(hover: none)").matches;
-        if (isTouchDevice) {
-            canvas.style.display = "none";
-            logoHoverZone.style.display = "none";
-            logoMobile.style.display = "block";
-        } else {
-            canvas.style.display = "block";
-            logoHoverZone.style.display = "block";
-            logoMobile.style.display = "none";
-        }
+        canvas.style.display = isTouchDevice ? "none" : "block";
     };
 
     checkTouchDevice();
 })();
-
 
 
 
@@ -202,15 +186,9 @@
             targetSection.classList.add('toggleActive');
             updateButtonStyle(sectionId);
             navBarBgSwitch();
-            scrollToSection(sectionId);
-            if (sectionId === "section2") {
-                const newsSection = document.querySelector('.newsSection');
-                newsSection.style.display = "none";
-            } 
-            if(sectionId === "section1"){
-                const newsSection = document.querySelector('.newsSection');
-                newsSection.style.display = "block";
-            }
+            setTimeout(() => {
+                scrollToSection(sectionId);
+            }, 50);
         }
     }
     
@@ -336,8 +314,9 @@
         
         const scrollPosition = window.scrollY;
         const screenHeight = window.innerHeight;
-        const toggleStartOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop;
-        const toggleHideOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop + renderSectionHeight*0.95;
+        // const toggleStartOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop;
+        const toggleStartOffset = welcomePageHeight + newsSectionHeight*0.95 + renderSectionMarginTop;
+        const toggleHideOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop + renderSectionHeight*0.8;
         const toggleButtons = document.querySelector('.projects-toggle__btns');
         
         function showToggleButtons() {

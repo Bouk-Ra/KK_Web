@@ -34,6 +34,7 @@ html {
     --screen-vh: calc(var(--vh) * 100);
     font-size: 20px!important;
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory!important;
 }
 
 #section1, body, bodycopy {
@@ -406,6 +407,7 @@ button.nav-bar-btn {
 
 body {
     margin: 0;
+    transition: background-color .3s ease;
 }
 
 #loading-page {
@@ -435,7 +437,8 @@ body {
 .renderSection {
     position: relative;
     z-index: 888;
-    margin-top: calc(var(--screen-vh) * 1.2);
+    /* margin-top: calc(var(--screen-vh) * 1.2); */
+    /* margin-top: 700px; */
 }
 
 
@@ -1072,7 +1075,7 @@ body {
     }
 
     .renderSection {
-        padding-top: 50vh;
+        padding-top: 300px;
     }
     .gallery-btns__container {
         left: 37%;
