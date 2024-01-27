@@ -638,10 +638,12 @@
     navBarMobileHandler()
     function navBarMobileHandler() {
         const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
         const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
         const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
 
-        navBarMobile.style.top = headerLogoHeight + "px";
+        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
     }
     window.addEventListener('resize', navBarMobileHandler);
@@ -656,7 +658,7 @@
                 headerLogo.style.transition = ".3s ease";
                 navBarMobile.style.transition = ".3s ease";
                 navBarMobile.style.top = 0 + "px";
-                headerLogo.style.transform = "translateY(-100%)";
+                headerLogo.style.transform = "translateY(-120%)";
             }
             else { 
                 navBarMobileHandler()

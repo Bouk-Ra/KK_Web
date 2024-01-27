@@ -1006,8 +1006,9 @@ body {
 }
 
 @media (max-width: 1050px) {
-    :root {
-        --nav-height: 30.8px;
+
+    .header-logo {
+        margin: 2px;
     }
 
     .nav-bar {
@@ -1015,7 +1016,7 @@ body {
     }
 
     .nav-bar__bg {
-        height: 92px;
+        height: 96px;
     }
 
     .main-project__x4 {
@@ -1024,9 +1025,6 @@ body {
 
     .gallery-btns__container {
         left: 44%;
-    }
-    .gallery-btns__container {
-        margin-top: 8.4px;
     }
 
     .main-project-list__title {
@@ -1043,7 +1041,7 @@ body {
 @media (max-width: 870px) {
     :root {
         --padding-side: 5px;
-        --nav-height: 25px;
+        --nav-height: 30px;
         --char-set-p1: 1.8em;
         --char-set-p1-ls: -0.04em;
     }
@@ -1066,12 +1064,12 @@ body {
         grid-template-columns: 1fr 1fr 4fr;
     }
     .nav-bar__bg {
-        height: 88px;
+        height: 91px;
     }
 
     .gallery-btns__container {
         left: 39%;
-        margin-top: 5.5px;
+        margin-top: 8px;
     }
 
     .main-project__x2 {
@@ -1108,6 +1106,7 @@ body {
     }
     .header-logo {
         position: fixed;
+        margin: 3.5px 3px 3px 3px;
     }
     canvas.logo {
         transform: scale(0.9);
@@ -1135,7 +1134,7 @@ body {
         display: grid;
         grid-template-columns: repeat(4, auto);
         gap: 5px;
-        padding: 5px 0;
+        padding: var(--padding-side) 0;
     }
     .nav-bar--mb button {
         font-size: 0.9em;
