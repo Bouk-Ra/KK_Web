@@ -130,7 +130,7 @@ path {
 
 .header-logo {
     mix-blend-mode: exclusion;
-    filter: invert();
+    /* filter: invert(); */
     opacity: 0;
     z-index: 10000;
     overflow: hidden;
@@ -138,7 +138,8 @@ path {
 }
 
 canvas.logo {
-    mix-blend-mode: exclusion;
+    /* mix-blend-mode: exclusion; */
+    filter: invert();
     width: 100%;
     height: auto;
     image-rendering: auto;

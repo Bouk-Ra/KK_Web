@@ -638,19 +638,20 @@
     window.addEventListener('scroll',() => {
         let nextScrollTop = window.scrollY;
     
-        if(preScrollTop < nextScrollTop) {
-            headerLogo.style.transition = "1s ease";
-            navBarMobile.style.transition = "1s ease";
+        if(preScrollTop < nextScrollTop && window.pageYOffset >= 0) {
+            headerLogo.style.transition = ".3s ease";
+            navBarMobile.style.transition = ".3s ease";
             navBarMobile.style.top = 0 + "px";
             headerLogo.style.transform = "translateY(-100%)";
         }
         else { 
             navBarMobileHandler()
-            headerLogo.style.transition = "1s ease";
-            navBarMobile.style.transition = "1s ease";
+            headerLogo.style.transition = ".3s ease";
+            navBarMobile.style.transition = ".3s ease";
             headerLogo.style.transform = "translateY(0%)";
         }
         preScrollTop = nextScrollTop;
     });
     window.addEventListener('resize', navBarMobileHandler);
 })();
+
