@@ -562,21 +562,36 @@
 
     function textEraser() {
         const vh = window.innerHeight * 0.01;
+        const screenHeight = window.innerHeight;
         const welcomePage = document.querySelector('.welcome-page');
         const welcomeTextContainer = document.querySelector('.welcome-text__container');
-        const welcomeTextPara = document.querySelector('.welcome-text__container p')
-        
-        const textHiddenPosition = -vh*15;
-        let scrollPosition = window.scrollY;
-        const effectScope = Math.min(1, Math.max(0, (welcomePage.clientHeight + textHiddenPosition - scrollPosition) / (welcomePage.clientHeight*0.8 + textHiddenPosition)));
-
-        const opacityValue = effectScope;
-        // const blurValue = (1 - effectScope)*5;
-
+        const welcomeTextPara = document.querySelector('.welcome-text__container p');
+    
+        let eraserStartPoint, eraserEndPointOffset, eraserEndPoint, eraserRange;
+    
+        if (window.innerWidth > 767) {
+            eraserStartPoint = screenHeight * 0.2;
+            eraserEndPointOffset = screenHeight * 0.7;
+            eraserEndPoint = screenHeight - eraserEndPointOffset;
+            eraserRange = screenHeight - eraserEndPoint;
+        } else {
+            eraserStartPoint = screenHeight * 0.05;
+            eraserEndPointOffset = screenHeight * 0.3;
+            eraserEndPoint = screenHeight - eraserEndPointOffset;
+            eraserRange = screenHeight - eraserEndPoint;
+        }
+    
+        const scrollPosition = window.scrollY;
+    
+        const effectZone = Math.min(1, Math.max(0, (eraserRange - scrollPosition) / (eraserRange - eraserStartPoint)));
+    
+        const opacityValue = effectZone;
+        const blurValue = (1 - effectZone) * 5;
+    
         welcomeTextContainer.style.opacity = opacityValue;
-        // welcomeTextPara.style.filter = `blur(${blurValue}px)`;
-
+        welcomeTextPara.style.filter = `blur(${blurValue}px)`;
     }
+    
     window.addEventListener('scroll', textEraser);
     window.addEventListener('resize', textEraser);
     // textEraser();
@@ -624,35 +639,37 @@
     function navBarMobileHandler() {
         const headerLogoHeight = headerLogo.getBoundingClientRect().height;
         const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
+        const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
 
         navBarMobile.style.top = headerLogoHeight + "px";
-        if(window.innerWidth < 768) {
-            welcomeTextContainer.style.marginTop = headerLogoHeight + navBarMobileHeight + "px";
-        } else {
-            welcomeTextContainer.style.marginTop = "auto";
-        }
-        
+        document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
     }
+    window.addEventListener('resize', navBarMobileHandler);
 
     let preScrollTop = 0;
 
     window.addEventListener('scroll',() => {
-        let nextScrollTop = window.scrollY;
+        if(window.innerWidth < 768) {
+            let nextScrollTop = window.scrollY;
     
-        if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1) {
-            headerLogo.style.transition = ".3s ease";
-            navBarMobile.style.transition = ".3s ease";
-            navBarMobile.style.top = 0 + "px";
-            headerLogo.style.transform = "translateY(-100%)";
+            if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1) {
+                headerLogo.style.transition = ".3s ease";
+                navBarMobile.style.transition = ".3s ease";
+                navBarMobile.style.top = 0 + "px";
+                headerLogo.style.transform = "translateY(-100%)";
+            }
+            else { 
+                navBarMobileHandler()
+                headerLogo.style.transition = ".3s ease";
+                navBarMobile.style.transition = ".3s ease";
+                headerLogo.style.transform = "translateY(0%)";
+            }
+            preScrollTop = nextScrollTop;
         }
-        else { 
-            navBarMobileHandler()
-            headerLogo.style.transition = ".3s ease";
-            navBarMobile.style.transition = ".3s ease";
+        if(window.innerWidth >= 768) {
             headerLogo.style.transform = "translateY(0%)";
         }
-        preScrollTop = nextScrollTop;
     });
-    window.addEventListener('resize', navBarMobileHandler);
+    
 })();
 

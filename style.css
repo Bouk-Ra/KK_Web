@@ -1,8 +1,8 @@
 
 
 :root {
-    /* --vw: 1vw;
-    --vh: 1vh; */
+    --vw: 1vw;
+    --vh: 1vh;
     --color1: rgb(0, 0, 0);
     --color2: rgb(255, 255, 255);
     --color3: #a4a4a4;
@@ -365,8 +365,10 @@ button.nav-bar-btn {
     width: 100%;
     position: fixed;
     height: calc(var(--vh, 1vh) * 100);
+    height: 100dvh;
     top: 0;
     color: var(--color2);
+    transition: min-height .2s ease;
 }
 
 .welcome-info__container {
@@ -1147,6 +1149,7 @@ body {
     .welcome-text__container {
         position: relative;
         height: auto;
+        margin-top: var(--welcome-text-margin-top);
         margin-bottom: 50px;
         z-index: 888;
     }
