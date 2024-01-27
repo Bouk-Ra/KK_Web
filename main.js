@@ -178,7 +178,7 @@
     document.addEventListener("DOMContentLoaded", () => {
 
         (async () => {
-            centerImageVertically()
+            await centerImageVertically();
             const hasVisited = sessionStorage.getItem('hasVisited');
             async function preloadAndHide(loadingPageFunction) {
                 headerLogo.style.opacity = "1";
