@@ -11,6 +11,32 @@
 })();
 
 
+// Prevent overscroll on top for Chrome
+(() => {
+    htmlElement = document.querySelector('html');
+
+    window.addEventListener("resize", () => {
+        if(window.innerWidth <= 767 ) {
+            htmlElement.style.scrollSnapType = "none";
+            console.log("Hello");
+        } else {
+            htmlElement.style.scrollSnapType = "y mandatory";
+        }
+    })
+
+    window.addEventListener("wheel", function(event) {
+        if (window.innerWidth > 767 && event.deltaY > 0) {
+            // 마우스 휠을 아래로 스크롤할 때
+            htmlElement.style.scrollSnapType = "y mandatory";
+        } else if (window.innerWidth > 767 && event.deltaY < 0 && window.scrollY <= 0) {
+            // 마우스 휠을 위로 스크롤할 때
+            htmlElement.style.scrollSnapType = "none";
+        }
+    });
+
+})();
+
+
 
 // Animation setup for paths in the main group
 (() => {
@@ -59,9 +85,10 @@
     const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
     loadingPage.id = 'loading-page';
 
-    const minimumLoadingTime = 100;
+    const minimumLoadingTime = 3000;
     const startTime = new Date().getTime();
 
+    const headerLogo = document.querySelector('.header-logo');
     const canvas = document.querySelector(".logo");
     const ctx = canvas.getContext("2d");
     const videoWidth = 3000;
@@ -69,14 +96,25 @@
     const imageUrls = [];
 
     for (let i = 0; i <= 80; i++) {
-        imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}.png`);
+        // imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}.png`);
+        imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}-min.png`);
     }
 
     let currentFrame = 0;
     let isPlaying = false;
 
+    const firstImage = new Image();
+    // firstImage.src = `https://files.cargocollective.com/c1706458/KK_morph_${String(0).padStart(5, '0')}.png`;
+    firstImage.src = `https://files.cargocollective.com/c1706458/KK_morph_${String(0).padStart(5, '0')}-min.png`;
+    firstImage.onload = () => {
+        canvas.width = videoWidth;
+        canvas.height = videoHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(firstImage, 0, 0, videoWidth, videoHeight);
+    };
+
     const preloadImages = () => {
-        return Promise.all(imageUrls.map((url) => {
+        return Promise.all(imageUrls.slice(1).map((url) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
                 img.src = url;
@@ -122,6 +160,7 @@
 
     loadImage();
 
+    const logoTriggerContainer = document.querySelector(".logo-hover-zone__container");
     const logoTrigger = document.querySelectorAll(".logo-hover-zone");
 
     logoTrigger.forEach((logoTrigger) => {
@@ -136,6 +175,7 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
+        headerLogo.style.opacity = "1";
         preloadImages().then(() => {
             const elapsedTime = new Date().getTime() - startTime;
             const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
@@ -152,10 +192,14 @@
     function hideLoadingPage() {
         var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
 
-        loadingPage.style.animation = "slideUpAndFadeOut 1s ease-in-out";
+        loadingPage.style.animation = "slideUpAndFadeOut 1s 1s ease-in-out";
+        canvas.style.animation = "none"
+        headerLogo.style.transform = "translateY(0)";
+        canvas.style.transform = "scale(1.008)"
         loadingPage.addEventListener("animationend", function () {
             loadingPage.style.display = "none";
-            document.body.style.overflow = "visible";
+            document.body.style.overflow = "auto";
+            logoTriggerContainer.style.pointerEvents = "auto";
         });
     }
 
