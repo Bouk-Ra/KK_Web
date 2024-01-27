@@ -245,7 +245,7 @@
         const imageHeight = headerLogo.getBoundingClientRect().height;
         const logoYOffset = Math.max(0, (screenHeight - imageHeight) / 2.1);
     
-        headerLogo.style.setProperty('--logo-y-offset', `${logoYOffset}px`);
+        headerLogo.style.transform = `translateY(${logoYOffset}px)`;
     };
 
 })();

@@ -134,7 +134,6 @@ path {
     opacity: 0;
     z-index: 10000;
     overflow: hidden;
-    transform: translateY(var(--logo-y-offset));
     transition: opacity 1.2s ease;
 }
 
