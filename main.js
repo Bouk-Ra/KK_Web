@@ -55,13 +55,6 @@
 
 (() => {
 
-    // Loading page setup with minimum loading time
-    const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
-    loadingPage.id = 'loading-page';
-
-    const minimumLoadingTime = 100;
-    const startTime = new Date().getTime();
-
     const canvas = document.querySelector(".logo");
     const ctx = canvas.getContext("2d");
     const videoWidth = 3000;
@@ -120,20 +113,13 @@
         playFrame();
     };
 
-    loadImage();
+    // loadImage();
 
-    const logoTrigger = document.querySelectorAll(".logo-hover-zone");
-
-    logoTrigger.forEach((logoTrigger) => {
-        logoTrigger.addEventListener("mouseenter", () => {
-            if (!isPlaying) {
-                isPlaying = true;
-                startPlayback(currentFrame === 0, () => {
-                    isPlaying = false;
-                });
-            }
-        });
-    });
+    //Loading page controller
+    const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
+    loadingPage.id = 'loading-page';
+    const minimumLoadingTime = 100;
+    const startTime = new Date().getTime();
 
     document.addEventListener("DOMContentLoaded", () => {
         preloadImages().then(() => {
@@ -150,14 +136,28 @@
     });
 
     function hideLoadingPage() {
-        var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
 
-        loadingPage.style.animation = "slideUpAndFadeOut 1s ease-in-out";
+        loadingPage.style.animation = "slideUpAndFadeOut 2s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
             loadingPage.style.display = "none";
-            document.body.style.overflow = "visible";
+            document.body.style.overflow = "auto";
         });
     }
+
+
+    const logoTrigger = document.querySelectorAll(".logo-hover-zone");
+
+    logoTrigger.forEach((logoTrigger) => {
+        logoTrigger.addEventListener("mouseenter", () => {
+            if (!isPlaying) {
+                isPlaying = true;
+                startPlayback(currentFrame === 0, () => {
+                    isPlaying = false;
+                });
+            }
+        });
+    });
+
 
     // Check for touch devices and handle accordingly
     const checkTouchDevice = () => {

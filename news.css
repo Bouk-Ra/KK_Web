@@ -35,37 +35,33 @@ html {
     box-sizing: border-box;
 }
 .news-box {
-  width: 500px;
-  height: auto;
-  overflow: hidden;
-  background-color: rgb(255, 255, 255);
-  float: left;
-  position: absolute;
-  cursor: grab;
-  border-radius: 20px;
-  box-sizing: border-box;
-  border: 1px solid black;
+    width: 500px;
+    height: auto;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    float: left;
+    position: absolute;
+    cursor: grab;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 1px solid black;
 }
 .news-box {
     transition: opacity 0.1s ease-in-out, filter 0.2s ease-in-out;
 }
 
 .backgroundImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: .3 ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: .3 ease;
 
 }
 
 body {
     margin: 0;
     padding: 0;
-}
-
-.shaker:hover {
-    animation: shaker 4s ease forwards!important;
 }
 
 .news-btn__container {
@@ -147,17 +143,7 @@ img {
     margin-bottom: 10px;
 }
 
-.close-btn:hover img {
-    animation: close .7s ease forwards;
-}
 
-.play-btn:hover img{
-    animation: play 1s ease infinite;
-}
-
-.enter-btn:hover img{
-    animation: enter .7s ease forwards;
-}
 
 @keyframes shaker {
     0%, 10% {
@@ -223,31 +209,52 @@ img {
 
 
 
-/* Button Hover Animation */
-.news-btn__animation {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-.news-btn__animation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: var(--color1);
-    transition: .4s ease;
-    z-index: -1;
+@media (hover: hover) {
 
+    .shaker:hover {
+        animation: shaker 4s ease forwards!important;
+    }
+    
+    /* Button Hover Animation */
+    .news-btn__animation {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .news-btn__animation::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--color1);
+        transition: .4s ease;
+        z-index: -1;
+
+    }
+
+    .news-btn__animation:hover:before {
+        width: 100%;
+    }
+    .news-btn__animation:hover img {
+        filter: invert(1);
+    }
+
+    .close-btn:hover img {
+        animation: close .7s ease forwards;
+    }
+    
+    .play-btn:hover img{
+        animation: play 1s ease infinite;
+    }
+    
+    .enter-btn:hover img{
+        animation: enter .7s ease forwards;
+    }
 }
 
-.news-btn__animation:hover:before {
-    width: 100%;
-}
-.news-btn__animation:hover img {
-    filter: invert(1);
-}
+
 
 
 

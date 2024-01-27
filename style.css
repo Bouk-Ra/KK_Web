@@ -94,31 +94,7 @@ path {
 	padding: 0!important;
 }
 
-/* Button Hover Animation */
-.btn__animation {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-}
-.btn__animation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: var(--color2);
-    transition: .4s ease;
-    z-index: -1;
 
-}
-
-.btn__animation:hover:before {
-    width: 100%;
-}
-.btn__animation:hover {
-    color: var(--color1);
-}
 
 
 
@@ -153,17 +129,17 @@ path {
 }
 
 .header-logo {
+    height: 100%;
     z-index: 999;
     overflow: hidden;
+    transform: scale(1.008);
+    transform: translateY(50%);
 }
 
 canvas.logo {
     width: 100%;
     height: auto;
-    /* position: absolute;
-    top: 0; */
     image-rendering: pixelated;
-    transform: scale(1.008);
 }
 
 .logo-hover-zone__container {
@@ -409,16 +385,17 @@ button.nav-bar-btn {
 body {
     margin: 0;
     transition: background-color .3s ease;
+    overflow: hidden;
 }
 
 #loading-page {
     z-index: 9999;
+    background-color: white;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1221,3 +1198,32 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+@media (hover: hover) {
+    /* Button Hover Animation */
+    .btn__animation {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .btn__animation::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--color2);
+        transition: .4s ease;
+        z-index: -1;
+
+    }
+
+    .btn__animation:hover:before {
+        width: 100%;
+    }
+    .btn__animation:hover {
+        color: var(--color1);
+    }
+}
+
