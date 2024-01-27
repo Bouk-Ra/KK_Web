@@ -129,17 +129,17 @@ path {
 }
 
 .header-logo {
-    height: 100%;
     z-index: 999;
     overflow: hidden;
-    transform: scale(1.008);
-    transform: translateY(50%);
 }
 
 canvas.logo {
     width: 100%;
     height: auto;
+    /* position: absolute;
+    top: 0; */
     image-rendering: pixelated;
+    transform: scale(1.008);
 }
 
 .logo-hover-zone__container {
@@ -385,17 +385,16 @@ button.nav-bar-btn {
 body {
     margin: 0;
     transition: background-color .3s ease;
-    overflow: hidden;
 }
 
 #loading-page {
     z-index: 9999;
-    background-color: white;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1226,4 +1225,3 @@ body {
         color: var(--color1);
     }
 }
-
