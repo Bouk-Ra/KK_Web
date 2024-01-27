@@ -246,6 +246,7 @@
         const logoYOffset = Math.max(0, (screenHeight - imageHeight) / 2.1);
     
         headerLogo.style.transform = `translateY(${logoYOffset}px)`;
+        headerLogo.style.transition = "opacity 1.2s ease";
     };
 
 })();
@@ -638,7 +639,7 @@
     window.addEventListener('scroll',() => {
         let nextScrollTop = window.scrollY;
     
-        if(preScrollTop < nextScrollTop && window.pageYOffset >= 0) {
+        if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1) {
             headerLogo.style.transition = ".3s ease";
             navBarMobile.style.transition = ".3s ease";
             navBarMobile.style.top = 0 + "px";
