@@ -173,6 +173,27 @@
         });
     });
 
+    let preScrollTop = 0;
+
+    window.addEventListener('scroll',() => {
+        if(window.innerWidth < 768) {
+            let nextScrollTop = window.scrollY;
+    
+            if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1 && !isPlaying) {
+                isPlaying = true;
+                startPlayback(true, () => {
+                    isPlaying = false;
+                });
+            }
+            else if (preScrollTop > nextScrollTop && !isPlaying){ 
+                isPlaying = true;
+                startPlayback(false, () => {
+                    isPlaying = false;
+                });
+            }
+            preScrollTop = nextScrollTop;
+        }
+    });
 
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -674,4 +695,35 @@
     });
     
 })();
+
+
+// if(window.innerWidth < 768) {
+//     const handleScroll = () => {
+//         const screenHeight = window.innerHeight;
+//         const scrollPosition = window.scrollY;
+
+//         const triggerPointTop = screenHeight * 0.5; // 스크롤 트리거 지점 (스크린의 50%)
+//         const triggerPointBottom = screenHeight * 0.7; // 다시 올라갈 때의 트리거 지점 (스크린의 50%)
+
+//         // 50% 아래로 내려갔을 때
+//         if (scrollPosition > 0 && !isPlaying) {
+//             console.log("down")
+//             isPlaying = true;
+//             startPlayback(true, () => {
+//                 isPlaying = false;
+//             });
+//         }
+
+//         // 다시 올라갔을 때
+//         if (scrollPosition < triggerPointBottom && !isPlaying) {
+//             console.log("up")
+//             isPlaying = true;
+//             startPlayback(false, () => {
+//                 isPlaying = false;
+//             });
+//         }
+//     };
+//     window.addEventListener('scroll', handleScroll);
+// }
+
 
