@@ -1,8 +1,8 @@
 
 
 :root {
-    --vw: 1vw;
-    --vh: 1vh;
+    /* --vw: 1vw;
+    --vh: 1vh; */
     --color1: rgb(0, 0, 0);
     --color2: rgb(255, 255, 255);
     --color3: #a4a4a4;
@@ -22,7 +22,7 @@
     --char-set-p1: 2.5em;
     --char-set-p1-ls: -0.1rem;
 
-
+    
     
 
   }
@@ -129,18 +129,20 @@ path {
 }
 
 .header-logo {
+    mix-blend-mode: exclusion;
+    filter: invert();
     opacity: 0;
     z-index: 10000;
     overflow: hidden;
-    transform: translateY(37vh);
-    transition: 1.2s 0.6s ease;
+    transform: translateY(var(--logo-y-offset));
+    transition: opacity 1.2s ease;
 }
 
 canvas.logo {
     width: 100%;
     height: auto;
-    image-rendering: pixelated;
-    transform: scale(0.7);
+    image-rendering: auto;
+    transform: scale(0.8);
     transition: 0.6s ease;
     animation: logoOn 2.4s 2s linear infinite;
 }
@@ -1094,22 +1096,18 @@ body {
         --char-set-p1-ls: -0.03em;
     }
     html {
+        scroll-snap-type: none!important;
         font-size: 16px!important;
     }
     body {
         background-color: var(--color2);
     }
-
+    .header-logo {
+        position: fixed;
+    }
     canvas.logo {
-        display: none!important;
+        transform: scale(0.9);
     }
-    .logo-hover-zone__container {
-        display: none!important;
-    }
-    .header-logo--mb {
-        display: block!important;
-    } 
-
     .nav-bar__container {
         visibility: hidden;
         position: absolute;
@@ -1148,7 +1146,7 @@ body {
     .welcome-text__container {
         position: relative;
         height: auto;
-        margin: 40px 0 50px 0;
+        margin-bottom: 50px;
         z-index: 888;
     }
     .renderSection {
@@ -1227,5 +1225,10 @@ body {
     }
     .btn__animation:hover {
         color: var(--color1);
+    }
+}
+@media (hover:none) {
+    .logo-hover-zone__container {
+        display: none;
     }
 }

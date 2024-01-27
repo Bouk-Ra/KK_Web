@@ -18,7 +18,6 @@
     window.addEventListener("resize", () => {
         if(window.innerWidth <= 767 ) {
             htmlElement.style.scrollSnapType = "none";
-            console.log("Hello");
         } else {
             htmlElement.style.scrollSnapType = "y mandatory";
         }
@@ -85,7 +84,7 @@
     const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
     loadingPage.id = 'loading-page';
 
-    const minimumLoadingTime = 3000;
+    let minimumLoadingTime = 3000;
     const startTime = new Date().getTime();
 
     const headerLogo = document.querySelector('.header-logo');
@@ -174,22 +173,50 @@
         });
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-        headerLogo.style.opacity = "1";
-        preloadImages().then(() => {
-            const elapsedTime = new Date().getTime() - startTime;
-            const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
 
-            setTimeout(() => {
-                hideLoadingPage();
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        (async () => {
+            centerImageVertically()
+            const hasVisited = sessionStorage.getItem('hasVisited');
+            async function preloadAndHide(loadingPageFunction) {
+                headerLogo.style.opacity = "1";
+                
+                await preloadImages();
+                headerLogo.style.transition = "opacity 1.2s ease, transform 1.2s 0.6s ease";
+                const elapsedTime = new Date().getTime() - startTime;
+                const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+        
                 setTimeout(() => {
-                    canvas.style.imageRendering = "auto";
-                }, 100);
-            }, remainingTime);
-        });
+                    loadingPageFunction();
+                    setTimeout(() => {
+                        canvas.style.imageRendering = "pixelated";
+                        canvas.style.imageRendering = "auto";
+                    }, 100);
+                }, remainingTime);
+            }
+        
+            if (!hasVisited) {
+                await preloadAndHide(hideLoadingPageOne);
+                sessionStorage.setItem('hasVisited', 'true');
+            } else {
+                minimumLoadingTime = 0;
+                headerLogo.style.transition = "none";
+                canvas.style.animation = "none";
+                headerLogo.style.transform = "translateY(0)";
+                headerLogo.style.zIndex = "9998";
+                canvas.style.transition = "none";
+                canvas.style.transform = "scale(1.008)";
+        
+                await preloadAndHide(hideLoadingPageTwo);
+            }
+        })();
+        
+
     });
 
-    function hideLoadingPage() {
+    function hideLoadingPageOne() {
         var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
 
         loadingPage.style.animation = "slideUpAndFadeOut 1s 1s ease-in-out";
@@ -203,17 +230,25 @@
         });
     }
 
-    // Check for touch devices and handle accordingly
-    const checkTouchDevice = () => {
-        const isTouchDevice = window.matchMedia("(hover: none)").matches;
-        canvas.style.display = isTouchDevice ? "none" : "block";
+    function hideLoadingPageTwo() {
+        var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
+        loadingPage.style.animation = "slideUpAndFadeOut 0.5s ease-in-out";
+        loadingPage.addEventListener("animationend", function () {
+            loadingPage.style.display = "none";
+            document.body.style.overflow = "auto";
+            logoTriggerContainer.style.pointerEvents = "auto";
+        });
+        
+    } 
+    function centerImageVertically() {
+        const screenHeight = window.innerHeight;
+        const imageHeight = headerLogo.getBoundingClientRect().height;
+        const logoYOffset = Math.max(0, (screenHeight - imageHeight) / 2.1);
+    
+        headerLogo.style.setProperty('--logo-y-offset', `${logoYOffset}px`);
     };
 
-    checkTouchDevice();
 })();
-
-
-
 
 
 // Toggle Switch (GRID <-> LIST)
@@ -574,4 +609,48 @@
     }
 
     window.addEventListener('scroll', wingingItHandler);
+})();
+
+
+
+
+(() => {
+    const headerLogo = document.querySelector('.header-logo');
+    const navBarMobile = document.querySelector('.nav-bar__container--mb');
+    const welcomeTextContainer = document.querySelector('.welcome-text__container');
+
+    navBarMobileHandler()
+    function navBarMobileHandler() {
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
+
+        navBarMobile.style.top = headerLogoHeight + "px";
+        if(window.innerWidth < 768) {
+            welcomeTextContainer.style.marginTop = headerLogoHeight + navBarMobileHeight + "px";
+        } else {
+            welcomeTextContainer.style.marginTop = "auto";
+        }
+        
+    }
+
+    let preScrollTop = 0;
+
+    window.addEventListener('scroll',() => {
+        let nextScrollTop = window.scrollY;
+    
+        if(preScrollTop < nextScrollTop) {
+            headerLogo.style.transition = "1s ease";
+            navBarMobile.style.transition = "1s ease";
+            navBarMobile.style.top = 0 + "px";
+            headerLogo.style.transform = "translateY(-100%)";
+        }
+        else { 
+            navBarMobileHandler()
+            headerLogo.style.transition = "1s ease";
+            navBarMobile.style.transition = "1s ease";
+            headerLogo.style.transform = "translateY(0%)";
+        }
+        preScrollTop = nextScrollTop;
+    });
+    window.addEventListener('resize', navBarMobileHandler);
 })();
