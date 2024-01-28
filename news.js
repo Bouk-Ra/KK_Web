@@ -81,42 +81,6 @@
     window.closeBox = closeBox;
 })();
 
-(() => {
-    function makeDraggable(element) {
-        let isDragging = false;
-        let offsetX, offsetY;
-
-        element.addEventListener("touchstart", function(event) {
-            event.preventDefault();
-            isDragging = true;
-            offsetX = event.touches[0].clientX - element.getBoundingClientRect().left;
-            offsetY = event.touches[0].clientY - element.getBoundingClientRect().top;
-        });
-
-        document.addEventListener("touchend", function() {
-            isDragging = false;
-        });
-
-        document.addEventListener("touchmove", function(event) {
-            if (isDragging) {
-                let mouseX = event.touches[0].clientX;
-                let mouseY = event.touches[0].clientY;
-
-                element.style.left = (mouseX - offsetX) / window.innerWidth * 100 + "vw";
-                element.style.top = (mouseY - offsetY) / window.innerHeight * 100 + "vh";
-            }
-        });
-    }
-
-    let draggableElements = document.querySelectorAll(".news-box");
-
-    draggableElements.forEach(function(element) {
-        makeDraggable(element);
-    });
-})();
-
-
-
 
 (() => {
     const newsSection = document.querySelector('.newsSection');
