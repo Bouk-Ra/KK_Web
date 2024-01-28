@@ -131,7 +131,6 @@ path {
 
 .header-logo {
     mix-blend-mode: exclusion;
-    /* filter: invert(); */
     opacity: 0;
     z-index: 10000;
     overflow: hidden;

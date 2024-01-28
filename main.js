@@ -1,4 +1,5 @@
 
+
 // Set --vh CSS variable
 (() => {
     const setVH = () => {
@@ -94,6 +95,11 @@
     const videoHeight = 308;
     const imageUrls = [];
 
+    const logoTriggerContainer = document.querySelector(".logo-hover-zone__container");
+    const logoTrigger = document.querySelectorAll(".logo-hover-zone");
+
+    const navBarMobile = document.querySelector('.nav-bar__container--mb');
+
     for (let i = 0; i <= 80; i++) {
         // imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}.png`);
         imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}-min.png`);
@@ -122,7 +128,7 @@
             });
         }));
     };
-
+    // loadImage();
     const loadImage = () => {
         const img = new Image();
         img.src = imageUrls[currentFrame];
@@ -157,11 +163,6 @@
         playFrame();
     };
 
-    loadImage();
-
-    const logoTriggerContainer = document.querySelector(".logo-hover-zone__container");
-    const logoTrigger = document.querySelectorAll(".logo-hover-zone");
-
     logoTrigger.forEach((logoTrigger) => {
         logoTrigger.addEventListener("mouseenter", () => {
             if (!isPlaying) {
@@ -183,23 +184,71 @@
                 isPlaying = true;
                 startPlayback(true, () => {
                     isPlaying = false;
+                    logoUp();
                 });
             }
             else if (preScrollTop > nextScrollTop && !isPlaying){ 
+                logoDown();
                 isPlaying = true;
                 startPlayback(false, () => {
                     isPlaying = false;
                 });
             }
             preScrollTop = nextScrollTop;
+            if(window.innerWidth >= 768) {
+                headerLogo.style.transform = "translateY(0%)";
+            }
         }
     });
+    
+    
+
+    navBarMobileHandler()
+    function navBarMobileHandler() {
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
+        const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
+        const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
+
+        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
+        document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
+    }
+    window.addEventListener('resize', navBarMobileHandler);
+
+    function logoUp() {
+        headerLogo.style.transition = ".3s ease";
+        navBarMobile.style.transition = ".3s ease";
+        navBarMobile.style.top = 0 + "px";
+        headerLogo.style.transform = "translateY(-120%)";
+    }
+
+    function logoDown() {
+        navBarMobileHandler()
+        headerLogo.style.transition = ".3s ease";
+        navBarMobile.style.transition = ".3s ease";
+        headerLogo.style.transform = "translateY(0%)";
+    }
 
 
+        // let scrollLoadPosition;
+        // scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
+    
     document.addEventListener("DOMContentLoaded", () => {
+    
+        // window.onbeforeunload = function() {
+        //     sessionStorage.setItem('scrollLoadPosition', window.scrollY);
+        // };
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('scrollLoadPosition', window.scrollY);
+        });
 
         (async () => {
             await centerImageVertically();
+            const scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
+            window.onbeforeunload = function() {
+                sessionStorage.setItem('scrollLoadPosition', window.scrollY);
+            };
             const hasVisited = sessionStorage.getItem('hasVisited');
             async function preloadAndHide(loadingPageFunction) {
                 headerLogo.style.opacity = "1";
@@ -218,10 +267,10 @@
                 }, remainingTime);
             }
         
-            if (!hasVisited) {
+            if (!hasVisited && parseInt(scrollLoadPosition) < window.innerHeight*0.1) {
                 await preloadAndHide(hideLoadingPageOne);
                 sessionStorage.setItem('hasVisited', 'true');
-            } else {
+            } else if (hasVisited || parseInt(scrollLoadPosition) !== 0){
                 minimumLoadingTime = 0;
                 headerLogo.style.transition = "none";
                 canvas.style.animation = "none";
@@ -267,7 +316,7 @@
         const logoYOffset = Math.max(0, (screenHeight - imageHeight) / 2.1);
     
         headerLogo.style.transform = `translateY(${logoYOffset}px)`;
-        headerLogo.style.transition = "opacity 1.2s ease";
+        // headerLogo.style.transition = "opacity 1.2s ease";
     };
 
 })();
@@ -652,47 +701,7 @@
 
 
 (() => {
-    const headerLogo = document.querySelector('.header-logo');
-    const navBarMobile = document.querySelector('.nav-bar__container--mb');
-    const welcomeTextContainer = document.querySelector('.welcome-text__container');
-
-    navBarMobileHandler()
-    function navBarMobileHandler() {
-        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
-        const headerLogoStyle = getComputedStyle(headerLogo);
-        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
-        const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
-        const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
-
-        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
-        document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
-    }
-    window.addEventListener('resize', navBarMobileHandler);
-
-    let preScrollTop = 0;
-
-    window.addEventListener('scroll',() => {
-        if(window.innerWidth < 768) {
-            let nextScrollTop = window.scrollY;
     
-            if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1) {
-                headerLogo.style.transition = ".3s ease";
-                navBarMobile.style.transition = ".3s ease";
-                navBarMobile.style.top = 0 + "px";
-                headerLogo.style.transform = "translateY(-120%)";
-            }
-            else { 
-                navBarMobileHandler()
-                headerLogo.style.transition = ".3s ease";
-                navBarMobile.style.transition = ".3s ease";
-                headerLogo.style.transform = "translateY(0%)";
-            }
-            preScrollTop = nextScrollTop;
-        }
-        if(window.innerWidth >= 768) {
-            headerLogo.style.transform = "translateY(0%)";
-        }
-    });
     
 })();
 
