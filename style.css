@@ -672,12 +672,12 @@ body {
 #project-gallery {
     position: relative;
     z-index: 100;
-    transition: 0.3s ease;
+    transition: opacity 0.3s ease; /* during filtering */
     opacity: 1;
 }
 
 #project-gallery div {
-    transition: 0.5s ease;
+    transition: opacity 0.5s ease; /* during filtering */
     opacity: 1;
 }
 .gallery__container {
