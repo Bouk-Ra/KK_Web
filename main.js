@@ -67,8 +67,6 @@
         } else {
             welcomePage.classList.remove('sticky-elem');
         }
-    
-        // console.log(navBarTop);
     }
 
     window.addEventListener('scroll', handerNavBar);
@@ -177,28 +175,29 @@
     let preScrollTop = 0;
 
     window.addEventListener('scroll',() => {
-        if(window.innerWidth < 768) {
-            let nextScrollTop = window.scrollY;
+        
+        const mainProjects = document.querySelector('.main-projects');
+        const mainProjectsRect = mainProjects.getBoundingClientRect();
+        let nextScrollTop = window.scrollY;
     
-            if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1 && !isPlaying) {
-                isPlaying = true;
-                startPlayback(true, () => {
-                    isPlaying = false;
-                    logoUp();
-                });
-            }
-            else if (preScrollTop > nextScrollTop && !isPlaying){ 
+        if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1 && !isPlaying) {
+            isPlaying = true;
+            startPlayback(true, () => {
+                isPlaying = false;
+                logoUp();
+            });
+        }
+        else if (preScrollTop > nextScrollTop && !isPlaying){ 
+            if (mainProjectsRect.top > window.innerHeight * -0.01) {
                 logoDown();
                 isPlaying = true;
                 startPlayback(false, () => {
                     isPlaying = false;
                 });
             }
-            preScrollTop = nextScrollTop;
-            if(window.innerWidth >= 768) {
-                headerLogo.style.transform = "translateY(0%)";
-            }
+
         }
+        preScrollTop = nextScrollTop;
     });
     
     
@@ -216,17 +215,18 @@
     }
     window.addEventListener('resize', navBarMobileHandler);
 
+
     function logoUp() {
-        headerLogo.style.transition = ".3s ease";
-        navBarMobile.style.transition = ".3s ease";
+        headerLogo.style.transition = ".4s ease-in-out";
+        navBarMobile.style.transition = ".4s ease-in-out";
         navBarMobile.style.top = 0 + "px";
         headerLogo.style.transform = "translateY(-120%)";
     }
 
     function logoDown() {
         navBarMobileHandler()
-        headerLogo.style.transition = ".3s ease";
-        navBarMobile.style.transition = ".3s ease";
+        headerLogo.style.transition = ".4s ease-in-out";
+        navBarMobile.style.transition = ".4s ease-in-out";
         headerLogo.style.transform = "translateY(0%)";
     }
 
@@ -382,7 +382,38 @@
 })();
 
 
-// Carousel
+// // Carousel(BEFORE Desktop)
+// (() => {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         const buttonsContainers = document.querySelectorAll('.carousel-buttons');
+    
+//         buttonsContainers.forEach((container) => {
+//             const firstButton = container.querySelector('.carousel-button');
+//             firstButton.classList.add('btn--active');
+//         });
+//     });
+    
+//     function carouselSlide(event, index) {
+//         const carousel = event.currentTarget.parentElement.parentElement.previousElementSibling.children[0];
+//         const btns = event.currentTarget.parentElement.children;
+        
+//         carousel.style.transform = `translateX(${-index * 100}%)`;
+    
+//         const buttonsArray = Array.from(btns);
+//         buttonsArray.forEach(function(button, i) {
+//             if (i === index) {
+//                 button.classList.add('btn--active');
+//             } else {
+//                 button.classList.remove('btn--active');
+//             }
+//         });
+//     }
+
+//     window.carouselSlide = carouselSlide;
+// })();
+
+
+// Carousel(WITH MOBILE)
 (() => {
     document.addEventListener('DOMContentLoaded', function() {
         const buttonsContainers = document.querySelectorAll('.carousel-buttons');
@@ -411,6 +442,130 @@
 
     window.carouselSlide = carouselSlide;
 })();
+
+(() => {
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousels = document.querySelectorAll('.carousel');
+        let startX = 0;
+        let isDragging = false;
+        let currentIndex = 0;
+        const slidesInView = 1; // 한 번에 보여지는 슬라이드 개수
+
+        carousels.forEach(carousel => {
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            carousel.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+
+                const currentX = e.touches[0].clientX;
+                const diffX = startX - currentX;
+
+                // 한 번에 보여지는 슬라이드 개수만큼으로 나눠서 이동
+                const moveAmount = Math.min(1, Math.max(-1, diffX / slidesInView));
+
+                // Adjust this threshold to control sensitivity
+                if (Math.abs(diffX) > 10) {
+                    // Swipe left or right based on the moveAmount
+                    moveCarouselItem(moveAmount);
+                }
+
+                startX = currentX;
+            });
+
+            function moveCarouselItem(moveAmount) {
+                const slides = Array.from(carousel.children);
+                const slideWidth = slides[0].offsetWidth; // 첫 번째 슬라이드의 폭을 기준으로 사용
+
+                // 현재 인덱스에 이동 양을 더해서 새로운 인덱스 계산
+                currentIndex += moveAmount;
+
+                const minIndex = 0;
+                const maxIndex = slides.length - slidesInView;
+
+                // 현재 인덱스를 최소/최대 값 사이로 조정
+                currentIndex = Math.max(minIndex, Math.min(maxIndex, currentIndex));
+                console.log("currentIndex",currentIndex,"moveAmount", moveAmount);
+
+                // 슬라이드의 새로운 위치를 계산하여 translateX 값으로 설정
+                const translateXValue = -currentIndex * slideWidth * slidesInView + 'px';
+                carousel.style.transform = `translateX(${translateXValue})`;
+
+                const currentSlideIndex = Math.round(currentIndex);
+                const currentSlide = slides[currentSlideIndex];
+
+                console.log(currentSlide);
+            }
+
+        });
+    });
+})();
+
+
+
+
+
+// (() => {
+//     document.addEventListener('DOMContentLoaded', function () {
+//         const carousels = document.querySelectorAll('.carousel');
+//         let startX = 0;
+//         let isDragging = false;
+//         let currentIndex = 0;
+//         const slidesInView = 1; // 한 번에 보여지는 슬라이드 개수
+
+//         carousels.forEach(carousel => {
+//             carousel.addEventListener('touchstart', (e) => {
+//                 startX = e.touches[0].clientX;
+//                 isDragging = true;
+//             });
+
+//             carousel.addEventListener('touchend', () => {
+//                 isDragging = false;
+//             });
+
+//             carousel.addEventListener('touchmove', (e) => {
+//                 if (!isDragging) return;
+
+//                 const currentX = e.touches[0].clientX;
+//                 const diffX = startX - currentX;
+
+//                 // Adjust this threshold to control sensitivity
+//                 if (diffX > 10) {
+//                     // Swipe left or right based on the moveAmount
+//                     moveToRight()
+//                     // moveCarouselItem(moveAmount);
+//                 } else if (diffX < -10){
+//                     console.log("move to left!");
+//                 }
+
+//                 startX = currentX;
+//             });
+
+//             function moveToRight() {
+//                 const slides = Array.from(carousel.children);
+//                 const slideWidth = slides[0].offsetWidth; // 첫 번째 슬라이드의 폭을 기준으로 사용$
+
+//                 const translateXValue = -1 * slideWidth + 'px';
+//                 let xValue = translateXValue;
+
+//                 carousel.style.transform = `translateX(${xValue})`;
+//                 xValue = xValue + translateXValue;
+                
+//                 console.log("move to right!", slideWidth);
+
+//             }
+
+//         });
+//     });
+// })();
+
+
 
 
 
@@ -442,9 +597,7 @@
 
         function updateMainProjectsHeight(sectionHeight) {
             if (mainProjects.clientHeight !== sectionHeight) {
-                // console.log('MainProjects Height has changed:', sectionHeight);
                 mainProjects.style.height = sectionHeight + 'px';
-                // console.log(mainProjects.clientHeight);
             }
         }
 
@@ -458,19 +611,27 @@
         const vh = window.innerHeight * 0.01;
         const welcomePageHeight = document.querySelector('.welcome-page').clientHeight;
         const newsSectionHeight = document.querySelector('.newsSection').clientHeight;
-        const renderSectionHeight = document.querySelector('.renderSection').clientHeight;
-        const renderSectionStyle = window.getComputedStyle(document.querySelector('.renderSection'));
-        const renderSectionMarginTop = parseInt(renderSectionStyle.getPropertyValue("margin-top"), 10);
+        const mainProjects = document.querySelector('.main-projects');
+        const mainProjectsHeight = mainProjects.clientHeight;
         const sectionPrimary = document.getElementById('section1');
-
-        
         const scrollPosition = window.scrollY;
         const screenHeight = window.innerHeight;
-        // const toggleStartOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop;
-        const toggleStartOffset = welcomePageHeight + newsSectionHeight*0.95 + renderSectionMarginTop;
-        const toggleHideOffset = welcomePageHeight + newsSectionHeight + renderSectionMarginTop + renderSectionHeight*0.8;
+
         const toggleButtons = document.querySelector('.projects-toggle__btns');
         
+        let toggleStartOffset;
+        let toggleHideOffset;
+
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+        if (isTouchDevice) {
+            toggleStartOffset = welcomePageHeight*0.9;
+            toggleHideOffset = welcomePageHeight + mainProjectsHeight-100;
+        } else {
+            toggleStartOffset = welcomePageHeight + newsSectionHeight*0.9;
+            toggleHideOffset = welcomePageHeight + newsSectionHeight + mainProjectsHeight-150;
+        }
+
         function showToggleButtons() {
             toggleButtons.style.opacity = '1';
             toggleButtons.style.visibility = 'visible';
@@ -496,7 +657,7 @@
         const wingingItContainerRect = wingingItContainer.getBoundingClientRect();
         const filterButtons = document.querySelector('.gallery-btns__container');
 
-        const filterHideOffset = toggleHideOffset + 50;
+        const filterHideOffset = toggleHideOffset + 20;
 
         function showFilterButtons() {
             filterButtons.style.opacity = '1';
@@ -704,35 +865,3 @@
     
     
 })();
-
-
-// if(window.innerWidth < 768) {
-//     const handleScroll = () => {
-//         const screenHeight = window.innerHeight;
-//         const scrollPosition = window.scrollY;
-
-//         const triggerPointTop = screenHeight * 0.5; // 스크롤 트리거 지점 (스크린의 50%)
-//         const triggerPointBottom = screenHeight * 0.7; // 다시 올라갈 때의 트리거 지점 (스크린의 50%)
-
-//         // 50% 아래로 내려갔을 때
-//         if (scrollPosition > 0 && !isPlaying) {
-//             console.log("down")
-//             isPlaying = true;
-//             startPlayback(true, () => {
-//                 isPlaying = false;
-//             });
-//         }
-
-//         // 다시 올라갔을 때
-//         if (scrollPosition < triggerPointBottom && !isPlaying) {
-//             console.log("up")
-//             isPlaying = true;
-//             startPlayback(false, () => {
-//                 isPlaying = false;
-//             });
-//         }
-//     };
-//     window.addEventListener('scroll', handleScroll);
-// }
-
-
