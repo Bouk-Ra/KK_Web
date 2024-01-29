@@ -408,8 +408,6 @@
         carousels.forEach(carousel => {
             carousel.style.height = carousel.clientWidth + "px";
             carousel.style.objectFit = "cover";
-            console.log(carousel.clientWidth);
-            console.log(carousel.clientWidth);
         });
     }
 

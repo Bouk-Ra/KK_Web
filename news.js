@@ -138,12 +138,14 @@
 
     function activeBox(event) {
         const newsState = document.querySelector('.news-state');
+        newsState.style.opacity = "0";
+        newsState.style.animation = "none";
         const currentBox = event.target;
         const siblingBoxes = Array.from(currentBox.parentNode.children).filter(child => child.classList.contains('news-box') && child !== currentBox);
-        newsState.style.opacity = "0";
         currentBox.style.filter = "invert(1)";
         currentBox.style.opacity = "0.8";
         currentBox.style.zIndex = "";
+        
 
         siblingBoxes.forEach(sibling => {
             sibling.style.zIndex = "";
@@ -280,10 +282,9 @@
         if (newsSection.getBoundingClientRect().top < (screenHeight * 0.1)) {
             newsState.style.animation = "flicker 0.5s forwards";
             newsState.style.opacity = "1";
-            newsNews.style.opacity = "1";
         } else {
             newsState.style.animation = "";
-            newsNews.style.opacity = "0";
+            // newsNews.style.opacity = "0";
         }
         const scrollPosition = window.scrollY;
         const newsCloseLine = welcomeSection.clientHeight + newsSection.clientHeight + vh * 120;
