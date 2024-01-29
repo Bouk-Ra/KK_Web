@@ -700,7 +700,6 @@
 
 
 (() => {
-
     window.addEventListener('DOMContentLoaded', () => {
         const allSoonLinks = document.querySelectorAll('.soon-link');
         allSoonLinks.forEach(soonLink => {
@@ -711,30 +710,79 @@
     function comingSoonItem(event) {
         const currentProject = event.currentTarget.closest('.main-project__x4--item');
         const carouselContainer = currentProject.querySelector('.carousel-container');
+        const carouselBtns = currentProject.querySelectorAll('.carousel-button');
         const slides = currentProject.querySelectorAll('.slide');
+        const allSoonLinks = currentProject.querySelectorAll('.soon-link')
         const soonText = currentProject.querySelector('.soon-text');
         carouselContainer.style.filter = "blur(5px)";
+
         slides.forEach(slide => {
             slide.style.filter = "blur(10px)";
             slide.style.opacity = "0.7";
         });
+        allSoonLinks.forEach(soonLink => {
+            soonLink.style.filter = "blur(3px)";
+        });
         soonText.style.animation = "flicker .5s infinite";
+        carouselBtns.forEach(button => {
+            button.style.filter = "blur(3px)";
+        });
     }
     window.comingSoonItem = comingSoonItem;
 
     function comingSoonReset(event) {
         const currentProject = event.currentTarget.closest('.main-project__x4--item');
         const carouselContainer = currentProject.querySelector('.carousel-container');
+        const carouselBtns = currentProject.querySelectorAll('.carousel-button');
         const slides = currentProject.querySelectorAll('.slide');
+        const allSoonLinks = currentProject.querySelectorAll('.soon-link')
         const soonText = currentProject.querySelector('.soon-text');
         carouselContainer.style.filter = "blur(0px)";
+
         slides.forEach(slide => {
             slide.style.filter = "blur(0px)";
             slide.style.opacity = "1";
         });
+        allSoonLinks.forEach(soonLink => {
+            soonLink.style.filter = "blur(0px)";
+        });
         soonText.style.animation = "none";
+        carouselBtns.forEach(button => {
+            button.style.filter = "blur(0px)";
+        });
+
     }
     window.comingSoonReset = comingSoonReset;
 })();
 
 
+(() => {
+    const seeProjectLinks = document.querySelectorAll('.see-project-btn');
+
+    function plusAnimator(event) {
+        const currentLink = event.currentTarget;
+        const currentPlus = currentLink.querySelector('.icon-plus');
+        currentPlus.style.animation = "moulin 1s infinite linear";
+
+        // mouseleave 이벤트 리스너 추가
+        currentLink.addEventListener('mouseleave', plusAnimRemover);
+        // mouseover 이벤트 리스너 제거
+        currentLink.removeEventListener('mouseover', plusAnimator);
+    }
+    
+    function plusAnimRemover(event) {
+        const currentLink = event.currentTarget;
+        const currentPlus = currentLink.querySelector('.icon-plus');
+        currentPlus.style.animation = "none";
+
+        // mouseover 이벤트 리스너 추가
+        currentLink.addEventListener('mouseover', plusAnimator);
+        // mouseleave 이벤트 리스너 제거
+        currentLink.removeEventListener('mouseleave', plusAnimRemover);
+    }
+
+    seeProjectLinks.forEach(link => {
+        // 초기에는 mouseover 이벤트 리스너만 추가
+        link.addEventListener('mouseover', plusAnimator);
+    });
+})();

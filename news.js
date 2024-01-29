@@ -323,3 +323,27 @@
 
 
 
+// (() => {
+//     const newsSection = document.querySelector('.newsSection');
+//     const bodyCopy = document.querySelector('.bodycopy');
+
+//     window.addEventListener('scroll', () => {
+//         const scrollPosition = window.scrollY;
+//         const welcomeSection = document.querySelector('.welcome-page');
+//         const renderSection = document.querySelector('.renderSection');
+//         const sectionOne = document.getElementById('section1');
+//         const sectionTwo = document.getElementById('section2');
+//         const norme = Math.max(-20, (scrollPosition / welcomeSection.clientHeight) * -20);
+//         let red = 255 + norme;
+//         let green = 255 + norme;
+//         let blue = 255 + norme;
+//         bodyCopy.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+//         if (renderSection.getBoundingClientRect().top < 100) {
+//             bodyCopy.style.backgroundColor = "rgb(" + 255 + "," + 255 + "," + 255 + ")";
+//         } else {
+//             if(window.innerWidth < 768) {
+//                 bodyCopy.style.backgroundColor = "rgb(" + 255 + "," + 255 + "," + 255 + ")";
+//             }
+//         }
+//     });
+// })();

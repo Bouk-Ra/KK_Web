@@ -219,7 +219,7 @@ canvas.logo {
 .nav-bar__bg {
     backdrop-filter: blur(10px);
     width: 100%;
-    height: 97px;
+    height: 95px;
     background-color: rgb(255, 255, 255, 0.8);
     position: fixed;
     mix-blend-mode: normal;
@@ -260,6 +260,7 @@ canvas.logo {
 }
 
 .gallery-btn--all {
+    display: block;
     transition: .5s ease;
 }
 
@@ -641,12 +642,6 @@ body {
     transition: transform 0.6s ease-in-out;
 }
 
-.main-project__single--img img:hover,
-.main-project__x2--img img:hover,
-.main-project__x3--img img:hover,
-.main-project__x4--img img:hover {
-	transform: scale(1.03);
-}
 
 .main-project--dscr {
     mix-blend-mode: exclusion;
@@ -712,6 +707,7 @@ body {
 
 .category-btn {
     cursor: pointer;
+    line-height: 1.1;
 }
 
 #project-gallery {
@@ -794,6 +790,7 @@ body {
     color: var(--color3);
     position: relative;
     overflow: visible;
+    line-height: 1.2;
 }
 
 
@@ -854,6 +851,12 @@ body {
     background-color: var(--color3); /* 활성화된 버튼의 색상 */
     opacity: 1;
 }
+
+.icon-plus {
+    filter: invert();
+    width: 0.6em;
+    display: inline-flex;
+}
 .see-project-btn {
     transform: 0.3 ease;
     font-size: 0.8rem;
@@ -864,6 +867,12 @@ body {
     font-size: 0.7rem;
     font-style: italic;
 }
+
+@keyframes moulin {
+    0% { transform: rotateZ(0deg);}
+    100% { transform: rotateZ(360deg);}
+}
+
 
 /* Main-Toggle */
 /* Main-Toggle */
@@ -1060,6 +1069,19 @@ body {
     will-change: transform;
 }
 
+.related-projects {
+    background-color: var(--color2);
+    mix-blend-mode: exclusion;
+    color: var(--color2);
+}
+
+.related-projects h2 {
+    font-size: 1rem;
+    padding: var(--padding-side);
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
 /* MEDIA QUERY */
 /* MEDIA QUERY */
 /* MEDIA QUERY */
@@ -1072,6 +1094,7 @@ body {
     padding-bottom: 0;
     box-sizing: border-box;
 }
+
 
 @media (max-width: 1050px) {
 
@@ -1128,7 +1151,7 @@ body {
         grid-template-columns: 1fr 1fr 4fr;
     }
     .nav-bar__bg {
-        height: 93px;
+        height: 89px;
     }
 
     .gallery-btns__container {
@@ -1153,6 +1176,8 @@ body {
     :root {
         --char-set-p1: 1.4em;
         --char-set-p1-ls: -0.03em;
+
+        --gap-big: 5px;
     }
     html {
         scroll-snap-type: none!important;
@@ -1227,6 +1252,9 @@ body {
     .see-project-btn {
         font-size: 0.6rem;
     }
+    .soon-text {
+        font-size: 0.6rem;
+    }
 
     .nav-bar {
         column-gap: 10px;
@@ -1263,6 +1291,22 @@ body {
 
     .other-page .header-logo {
         display: block;
+    }
+    .project-page--dscr {
+        margin-bottom: 25px;
+    }
+
+    .project-dscr--principal {
+        grid-column: span 4;
+        margin-bottom: 0.9rem;
+    }
+
+    .project-dscr--sub {
+        grid-column: span 2;
+    }
+
+    .related-projects {
+        margin-top: 25px;
     }
 
 }
@@ -1313,7 +1357,16 @@ body {
     }
     .soon-link .main-project__client {
         pointer-events: none;
-        cursor: wait;
+    }
+    .soon-btns .carousel-button {
+        pointer-events: none;
+    }
+
+    .main-project__single--img img:hover,
+    .main-project__x2--img img:hover,
+    .main-project__x3--img img:hover,
+    .main-project__x4--img img:hover {
+        transform: scale(1.03);
     }
 }
 @media (hover:none) {
