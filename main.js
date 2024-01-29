@@ -164,11 +164,7 @@
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
-<<<<<<< HEAD
-            if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1 && !isPlaying) {
-=======
             if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= window.innerHeight*0.3 && !isPlaying) {
->>>>>>> 2024_01_29_V2
                 isPlaying = true;
                 startPlayback(true, () => {
                     isPlaying = false;
