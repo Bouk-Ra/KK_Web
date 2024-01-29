@@ -190,6 +190,7 @@
         else if (preScrollTop > nextScrollTop && !isPlaying){ 
             if (mainProjectsRect.top > window.innerHeight * -0.01) {
                 logoDown();
+                navBarMobileHandler()
                 isPlaying = true;
                 startPlayback(false, () => {
                     isPlaying = false;
@@ -224,7 +225,6 @@
     }
 
     function logoDown() {
-        navBarMobileHandler()
         headerLogo.style.transition = ".4s ease-in-out";
         navBarMobile.style.transition = ".4s ease-in-out";
         headerLogo.style.transform = "translateY(0%)";
