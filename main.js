@@ -188,7 +188,7 @@
             });
         }
         else if (preScrollTop > nextScrollTop && !isPlaying){ 
-            if (mainProjectsRect.top > window.innerHeight * -0.01) {
+            if (window.scrollY < 400) {
                 logoDown();
                 navBarMobileHandler()
                 isPlaying = true;
