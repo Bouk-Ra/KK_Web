@@ -1,4 +1,50 @@
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
 
 :root {
     --vw: 1vw;
@@ -21,8 +67,6 @@
     
     --char-set-p1: 2.5em;
     --char-set-p1-ls: -0.1rem;
-
-    
     
 
   }
@@ -30,7 +74,7 @@
 html {
     color: var(--color1);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: var(--color1);
+    background-color: var(--color2);
     --screen-vh: calc(var(--vh) * 100);
     font-size: 20px!important;
     scroll-behavior: smooth;
@@ -135,6 +179,7 @@ path {
     z-index: 10000;
     overflow: hidden;
     transition: opacity 1.2s ease;
+    will-change: transform;
 }
 
 canvas.logo {
@@ -677,7 +722,7 @@ body {
 }
 
 #project-gallery div {
-    transition: opacity 0.5s ease; /* during filtering */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* during filtering */
     opacity: 1;
 }
 .gallery__container {
@@ -785,7 +830,8 @@ body {
     align-items: center;
 }
 
-.carousel-buttons span {
+.carousel-buttons .main-project__title, 
+.carousel-buttons .main-project__client{
     font-weight: 700;
     font-size: 0.9em;
 }
@@ -810,7 +856,13 @@ body {
 }
 .see-project-btn {
     transform: 0.3 ease;
-    font-size: 0.8em;
+    font-size: 0.8rem;
+}
+
+.soon-text {
+    transform: 0.3 ease;
+    font-size: 0.7rem;
+    font-style: italic;
 }
 
 /* Main-Toggle */
@@ -898,6 +950,11 @@ body {
     display: inline-flex;
 }
 
+.renderSection_other {
+    position: relative;
+    transition: top .4s ease-in-out;
+    will-change: transform;
+}
 
 .renderSection_other h2,
 .renderSection_other p,
@@ -907,24 +964,31 @@ body {
 }
 
 .project-page--dscr {
+    margin-top: 20px;
     display: grid;
     padding: 0 var(--padding-side);
-    grid-template-columns: 2fr 1fr 1fr;
-    column-gap: var(--gap-big);
-    font-size: 0.7em;
-}
-
-.project-page--dscr .project--dscr--discipline {
-    grid-row: span 2;
-}
-
-.related-projects h2 {
-    padding: 0 var(--padding-side);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-big);
+    font-size: 0.8rem;
+    mix-blend-mode: difference;
+    color: var(--color2);
     font-weight: 400;
-    letter-spacing: -0.04rem;
-    margin-bottom: 5px;
+    letter-spacing: -0.01rem;
+    line-height: 1.1;
 }
 
+.project-page--dscr ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-dscr--principal {
+    grid-column: span 2;
+}
+
+.project-dscr--principal h2 {
+    margin-bottom: 0.7rem;
+}
 
 .info-item p {
     margin: 0;
@@ -989,7 +1053,12 @@ body {
 }
 
 
-
+.other-page {
+    display: none;
+}
+.other-page .header-logo {
+    will-change: transform;
+}
 
 /* MEDIA QUERY */
 /* MEDIA QUERY */
@@ -1071,9 +1140,6 @@ body {
         width: 100%;
     }
 
-    .related-projects .main-project__x3 .main-project__x3--item:last-child {
-        display: none;
-    }
     .footer {
         padding: var(--padding-side);
     }
@@ -1186,6 +1252,19 @@ body {
     .main-project__x4, .main-project__x3 {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .related-projects .main-project__x3 .main-project__x3--item:last-child {
+        display: none;
+    }
+
+    .other-page {
+        display: block;
+    }
+
+    .other-page .header-logo {
+        display: block;
+    }
+
 }
 
 
@@ -1228,6 +1307,13 @@ body {
     }
     .btn__animation:hover {
         color: var(--color1);
+    }
+    .soon-link {
+        cursor: wait;
+    }
+    .soon-link .main-project__client {
+        pointer-events: none;
+        cursor: wait;
     }
 }
 @media (hover:none) {

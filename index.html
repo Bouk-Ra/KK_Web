@@ -11,16 +11,8 @@
 <body>
 
     <div>
-        <div id="kaamkaaj-script"></div>
+        <div id="kaamkaaj-loading"></div>
     </div>
-
-    <!-- <header class="header--mb">
-        <div class="header-logo--mb" style="display: none;">
-            <img src="https://files.cargocollective.com/c1706458/KK-Logo_black.png" alt="KAAMKAAJ"/>
-        </div>
-    </header> -->
-    
-
  
     <div class="logo-hover-zone__container">
         <div class="logo-hover-zone"></div>
@@ -31,10 +23,6 @@
         <div class="logo-hover-zone"></div>
         <div class="logo-hover-zone"></div>
     </div>
-
-
-
-
 
     <section class="welcome-page">
         <header class="header-logo">
@@ -62,8 +50,8 @@
         <div class="nav-bar__container">
             <nav class="nav-bar">
                 <div class="nav-bar__column">
-                <a href="#" style="color: white;"><span>KAAM KAAJ</span></a>
-                <p class="kaamkaaj-is">Design Services, London, UK<br>Local + Global Services.</p>
+                    <a href="#" style="color: white;"><span>KAAM KAAJ</span></a>
+                    <p class="kaamkaaj-is">Design Services, London, UK<br>Local + Global Services.</p>
                 </div>
                 <div class="nav-bar__column">
                 <div class="projects-toggle__btns">
@@ -75,10 +63,10 @@
                 </div>
                 </div>
                 <div class="nav-bar__column">
-                <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='#main-projects'">WORK</button>
-                <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='info/info.html'">INFO</button>
-                <button type="button" class="nav-bar-btn btn__animation">SHOP</button>
-                <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='mailto:info@kaamkaaj.work'">CONTACT</button>
+                    <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='#main-projects'">WORK</button>
+                    <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='info/info.html'">INFO</button>
+                    <button type="button" class="nav-bar-btn btn__animation">SHOP</button>
+                    <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='mailto:info@kaamkaaj.work'">CONTACT</button>
                 </div>
             </nav>
         </div>          
@@ -101,78 +89,92 @@
         <div class="news-state">
             <img class="news-state--news" src="icon/news.png"/>
         </div>
-
-        <div class="news-box shaker" id="news-box1--font" style="top: 10%; left: 20%;" onmouseenter="handleMouseEnter(0)" onmouseleave="handleMouseLeave(0)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
+        <div class="news-box__container">
+            <div class="news-box shaker" id="news-box1--font" style="top: 10%; left: 20%;" onmouseenter="handleMouseEnter(0)" onmouseleave="handleMouseLeave(0)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(0)" onmouseleave="stopSlideshow(0)">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>TYPEFACE</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Latest Font</span>
+                    <span class="news-title">Rukh Out Now</span>
                 </div>
-                <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(0)" onmouseleave="stopSlideshow(0)">
-                    <img src="icon/play.png" alt="">
+            </div>
+    
+            <div class="news-box shaker" id="news-box2--press" style="top: 30%; left: 7%;" onmouseenter="handleMouseEnter(1)" onmouseleave="handleMouseLeave(1)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(1)" onmouseleave="stopSlideshow(1)">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>ARTICLE</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Latest Press</span>
+                    <span class="news-title">LCC Shows on TBI</span>
                 </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
+            </div>
+    
+            <div class="news-box shaker news-soon" id="news-box3--project" style="top: 25%; left: 65%;" onmouseenter="handleMouseEnter(2)" onmouseleave="handleMouseLeave(2)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(2)" onmouseleave="stopSlideshow(2)">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>UPCOMING</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Latest Project</span>
+                    <span class="news-title">South-Asian vibes futurism with RA + Splice</span>
                 </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Latest Font</span>
-                <span class="news-title">Rukh Out Now</span>
+            </div>
+    
+            <div class="news-box shaker" id="news-box0--see-all" style="top: 63%; left: 55%;" onmouseenter="handleMouseEnterExcp(event)" onmouseleave="handleMouseLeaveExcp(event)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>PROJECTS</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Work</span>
+                    <span class="news-title">View All Projects</span>
+                </div>
             </div>
         </div>
-
-        <div class="news-box shaker" id="news-box2--press" style="top: 30%; left: 7%;" onmouseenter="handleMouseEnter(1)" onmouseleave="handleMouseLeave(1)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
-                </div>
-                <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(1)" onmouseleave="stopSlideshow(1)">
-                    <img src="icon/play.png" alt="">
-                </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
-                </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Latest Press</span>
-                <span class="news-title">LCC Shows on TBI</span>
-            </div>
-        </div>
-
-        <div class="news-box shaker" id="news-box3--project" style="top: 25%; left: 65%;" onmouseenter="handleMouseEnter(2)" onmouseleave="handleMouseLeave(2)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
-                </div>
-                <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(2)" onmouseleave="stopSlideshow(2)">
-                    <img src="icon/play.png" alt="">
-                </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
-                </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Latest Project</span>
-                <span class="news-title">South-Asian vibes futurism with RA + Splice</span>
-            </div>
-        </div>
-
-        <div class="news-box shaker" id="news-box0--see-all" style="top: 63%; left: 55%;" onmouseenter="handleMouseEnterExcp(event)" onmouseleave="handleMouseLeaveExcp(event)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
-                </div>
-                <div class="play-btn news-btn__animation">
-                    <img src="icon/play.png" alt="">
-                </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
-                </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Work</span>
-                <span class="news-title">View All Projects</span>
-            </div>
-        </div>
+        
 
     </section>
 
@@ -198,7 +200,7 @@
                         </div>
                     </div>
                     <div class="main-project--dscr">
-                        <span class="main-project__title invert-hover">School to Swoosh</span>
+                        <a href="#"><span class="main-project__title invert-hover">School to Swoosh</span></a>
                         <span class="main-project__client invert-hover">Nike, 2023</span>
                         <div class="carousel-buttons">
                             <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
@@ -227,7 +229,7 @@
                             </div>
                         </div>
                         <div class="main-project--dscr">
-                            <span class="main-project__title invert-hover">Splice Connections Live</span>
+                            <a href=""><span class="main-project__title invert-hover">Splice Connections Live</span></a>
                             <span class="main-project__client invert-hover">Splice X Resident Advisor, 2023</span>
                             <div class="carousel-buttons">
                                 <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
@@ -253,7 +255,7 @@
                         </div>
             
                         <div class="main-project--dscr">
-                            <span class="main-project__title invert-hover">More Denim Please</span>
+                            <a href=""><span class="main-project__title invert-hover">More Denim Please</span></a>
                             <span class="main-project__client invert-hover">Levi's X Anyways, 2023</span>
                             <div class="carousel-buttons">
                                 <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
@@ -320,12 +322,13 @@
                                 </div>
                     
                                 <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">N.A.C.H.O.</span>
-                                    <span class="main-project__client invert-hover">Nobell, Coming Soon</span>
+                                    <a><span class="main-project__title invert-hover soon-link" onmouseover="comingSoonItem(event)" onmouseleave="comingSoonReset(event)">N.A.C.H.O.</span></a>
+                                    <span class="main-project__client invert-hover soon-link" onmouseover="comingSoonItem(event)" onmouseleave="comingSoonReset(event)">Nobell, Coming Soon</span>
                                     <div class="carousel-buttons">
                                         <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
                                         <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
                                         <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <span class="soon-text">Coming soon!</span>
                                     </div>
                                 </div>
                             </div>

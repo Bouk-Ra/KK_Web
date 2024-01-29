@@ -37,23 +37,6 @@
 })();
 
 
-
-// Animation setup for paths in the main group
-(() => {
-    const setupMainPathsAnimation = () => {
-        const kkScriptMainPaths = document.querySelectorAll('.kaamkaaj-script-path');
-
-        kkScriptMainPaths.forEach((path, index) => {
-            const length = path.getTotalLength();
-            path.style.setProperty('--length', length);
-            path.style.setProperty('--delay', `${index * 100}ms`);
-            path.style.setProperty('--duration', `${length * 2}ms`);
-        });
-    };
-
-    document.addEventListener('DOMContentLoaded', setupMainPathsAnimation);
-})();
-
 // Handle sticky effect for navigation bar
 (() => {
     function handerNavBar() {
@@ -80,7 +63,7 @@
 (() => {
 
     // Loading page setup with minimum loading time
-    const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
+    const loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
     loadingPage.id = 'loading-page';
 
     let minimumLoadingTime = 3000;
@@ -179,24 +162,29 @@
         const mainProjects = document.querySelector('.main-projects');
         const mainProjectsRect = mainProjects.getBoundingClientRect();
         let nextScrollTop = window.scrollY;
-    
-        if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1 && !isPlaying) {
-            isPlaying = true;
-            startPlayback(true, () => {
-                isPlaying = false;
-                logoUp();
-            });
-        }
-        else if (preScrollTop > nextScrollTop && !isPlaying){ 
-            if (window.scrollY < 400) {
-                logoDown();
-                navBarMobileHandler()
+        
+        if (window.innerWidth < 768) {
+            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= window.innerHeight*0.3 && !isPlaying) {
                 isPlaying = true;
-                startPlayback(false, () => {
+                startPlayback(true, () => {
                     isPlaying = false;
+                    logoUp();
                 });
             }
+            else if (preScrollTop > nextScrollTop && !isPlaying){ 
+                if (window.scrollY < window.innerHeight*0.4) {
+                    logoDown();
+                    navBarMobileHandler()
+                    isPlaying = true;
+                    startPlayback(false, () => {
+                        isPlaying = false;
+                    });
+                }
+            }
+        }
 
+        if (window.innerWidth >= 768 || window.scrollY === 0) {
+            headerLogo.style.transform = "translateY(0%)";
         }
         preScrollTop = nextScrollTop;
     });
@@ -287,7 +275,7 @@
     });
 
     function hideLoadingPageOne() {
-        var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
+        var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
 
         loadingPage.style.animation = "slideUpAndFadeOut 1s 1s ease-in-out";
         canvas.style.animation = "none"
@@ -301,7 +289,7 @@
     }
 
     function hideLoadingPageTwo() {
-        var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
+        var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
         loadingPage.style.animation = "slideUpAndFadeOut 0.5s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
             loadingPage.style.display = "none";
@@ -712,6 +700,41 @@
 
 
 (() => {
-    
-    
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const allSoonLinks = document.querySelectorAll('.soon-link');
+        allSoonLinks.forEach(soonLink => {
+            soonLink.classList.remove('invert-hover');
+        });
+    })
+
+    function comingSoonItem(event) {
+        const currentProject = event.currentTarget.closest('.main-project__x4--item');
+        const carouselContainer = currentProject.querySelector('.carousel-container');
+        const slides = currentProject.querySelectorAll('.slide');
+        const soonText = currentProject.querySelector('.soon-text');
+        carouselContainer.style.filter = "blur(5px)";
+        slides.forEach(slide => {
+            slide.style.filter = "blur(10px)";
+            slide.style.opacity = "0.7";
+        });
+        soonText.style.animation = "flicker .5s infinite";
+    }
+    window.comingSoonItem = comingSoonItem;
+
+    function comingSoonReset(event) {
+        const currentProject = event.currentTarget.closest('.main-project__x4--item');
+        const carouselContainer = currentProject.querySelector('.carousel-container');
+        const slides = currentProject.querySelectorAll('.slide');
+        const soonText = currentProject.querySelector('.soon-text');
+        carouselContainer.style.filter = "blur(0px)";
+        slides.forEach(slide => {
+            slide.style.filter = "blur(0px)";
+            slide.style.opacity = "1";
+        });
+        soonText.style.animation = "none";
+    }
+    window.comingSoonReset = comingSoonReset;
 })();
+
+
