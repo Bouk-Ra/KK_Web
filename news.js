@@ -85,9 +85,9 @@
 (() => {
     const newsSection = document.querySelector('.newsSection');
     const imageGroups = [
-        ['img/image1.webp', 'img/image2.jpg', 'img/image3.jpg'],
-        ['img/image4.jpg', 'img/image5.jpg', 'img/image6.jpg'],
-        ['img/image7.jpg', 'img/image8.jpg', 'img/image9.jpg'],
+        ['https://files.cargocollective.com/c1706458/kk_news_rukh_1.jpg', 'https://files.cargocollective.com/c1706458/kk_news_rukh_2.jpg', 'https://files.cargocollective.com/c1706458/kk_news_rukh_3.jpg'],
+        ['https://files.cargocollective.com/c1706458/kk_news_lcc_1.jpg', 'https://files.cargocollective.com/c1706458/kk_news_lcc_2.jpg', 'https://files.cargocollective.com/c1706458/kk_news_lcc_3.jpg'],
+        ['https://files.cargocollective.com/c1706458/kk_news_splice_1.jpg', 'https://files.cargocollective.com/c1706458/kk_news_splice_2.jpg', 'https://files.cargocollective.com/c1706458/kk_news_splice_3.jpg'],
         // Add more image groups as needed
     ];
     const currentIndex = [0, 0, 0];

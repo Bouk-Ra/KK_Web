@@ -372,6 +372,10 @@
 
 // // Carousel(BEFORE Desktop)
 (() => {
+    const carousels = document.querySelectorAll('.main-project__x4--item .carousel');
+
+    window.addEventListener('resize', carouselResizer);
+    document.addEventListener('DOMContentLoaded', carouselResizer);
     document.addEventListener('DOMContentLoaded', function() {
         const buttonsContainers = document.querySelectorAll('.carousel-buttons');
     
@@ -379,6 +383,9 @@
             const firstButton = container.querySelector('.carousel-button');
             firstButton.classList.add('btn--active');
         });
+
+        
+
     });
     
     function carouselSlide(event, index) {
@@ -394,6 +401,15 @@
             } else {
                 button.classList.remove('btn--active');
             }
+        });
+    }
+
+    function carouselResizer() {
+        carousels.forEach(carousel => {
+            carousel.style.height = carousel.clientWidth + "px";
+            carousel.style.objectFit = "cover";
+            console.log(carousel.clientWidth);
+            console.log(carousel.clientWidth);
         });
     }
 
@@ -723,7 +739,6 @@
         allSoonLinks.forEach(soonLink => {
             soonLink.style.filter = "blur(3px)";
         });
-        soonText.style.animation = "flicker .5s infinite";
         carouselBtns.forEach(button => {
             button.style.filter = "blur(3px)";
         });
@@ -746,7 +761,6 @@
         allSoonLinks.forEach(soonLink => {
             soonLink.style.filter = "blur(0px)";
         });
-        soonText.style.animation = "none";
         carouselBtns.forEach(button => {
             button.style.filter = "blur(0px)";
         });
@@ -786,3 +800,6 @@
         link.addEventListener('mouseover', plusAnimator);
     });
 })();
+
+
+
