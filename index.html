@@ -11,7 +11,7 @@
 <body>
 
     <div>
-        <div id="kaamkaaj-script"></div>
+        <div id="kaamkaaj-loading"></div>
     </div>
 
     <!-- <header class="header--mb">
@@ -101,78 +101,92 @@
         <div class="news-state">
             <img class="news-state--news" src="icon/news.png"/>
         </div>
-
-        <div class="news-box shaker" id="news-box1--font" style="top: 10%; left: 20%;" onmouseenter="handleMouseEnter(0)" onmouseleave="handleMouseLeave(0)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
+        <div class="news-box__container">
+            <div class="news-box shaker" id="news-box1--font" style="top: 10%; left: 20%;" onmouseenter="handleMouseEnter(0)" onmouseleave="handleMouseLeave(0)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(0)" onmouseleave="stopSlideshow(0)">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>TYPEFACE</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Latest Font</span>
+                    <span class="news-title">Rukh Out Now</span>
                 </div>
-                <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(0)" onmouseleave="stopSlideshow(0)">
-                    <img src="icon/play.png" alt="">
+            </div>
+    
+            <div class="news-box shaker" id="news-box2--press" style="top: 30%; left: 7%;" onmouseenter="handleMouseEnter(1)" onmouseleave="handleMouseLeave(1)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(1)" onmouseleave="stopSlideshow(1)">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>ARTICLE</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Latest Press</span>
+                    <span class="news-title">LCC Shows on TBI</span>
                 </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
+            </div>
+    
+            <div class="news-box shaker news-soon" id="news-box3--project" style="top: 25%; left: 65%;" onmouseenter="handleMouseEnter(2)" onmouseleave="handleMouseLeave(2)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(2)" onmouseleave="stopSlideshow(2)">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>UPCOMING</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Latest Project</span>
+                    <span class="news-title">South-Asian vibes futurism with RA + Splice</span>
                 </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Latest Font</span>
-                <span class="news-title">Rukh Out Now</span>
+            </div>
+    
+            <div class="news-box shaker" id="news-box0--see-all" style="top: 63%; left: 55%;" onmouseenter="handleMouseEnterExcp(event)" onmouseleave="handleMouseLeaveExcp(event)">
+                <nav class="news-btn__container">
+                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+                        <img src="icon/close.png" alt="">
+                    </div>
+                    <div class="play-btn news-btn__animation">
+                        <img src="icon/play.png" alt="">
+                    </div>
+                    <div class="enter-btn news-btn__animation">
+                        <img src="icon/arrow.png" alt="">
+                    </div>
+                    <div class="news-category">
+                        <span>PROJECTS</span>
+                    </div>
+                </nav>
+                <div class="news-text__container">
+                    <span class="news-theme">Work</span>
+                    <span class="news-title">View All Projects</span>
+                </div>
             </div>
         </div>
-
-        <div class="news-box shaker" id="news-box2--press" style="top: 30%; left: 7%;" onmouseenter="handleMouseEnter(1)" onmouseleave="handleMouseLeave(1)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
-                </div>
-                <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(1)" onmouseleave="stopSlideshow(1)">
-                    <img src="icon/play.png" alt="">
-                </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
-                </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Latest Press</span>
-                <span class="news-title">LCC Shows on TBI</span>
-            </div>
-        </div>
-
-        <div class="news-box shaker" id="news-box3--project" style="top: 25%; left: 65%;" onmouseenter="handleMouseEnter(2)" onmouseleave="handleMouseLeave(2)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
-                </div>
-                <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(2)" onmouseleave="stopSlideshow(2)">
-                    <img src="icon/play.png" alt="">
-                </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
-                </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Latest Project</span>
-                <span class="news-title">South-Asian vibes futurism with RA + Splice</span>
-            </div>
-        </div>
-
-        <div class="news-box shaker" id="news-box0--see-all" style="top: 63%; left: 55%;" onmouseenter="handleMouseEnterExcp(event)" onmouseleave="handleMouseLeaveExcp(event)">
-            <nav class="news-btn__container">
-                <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                    <img src="icon/close.png" alt="">
-                </div>
-                <div class="play-btn news-btn__animation">
-                    <img src="icon/play.png" alt="">
-                </div>
-                <div class="enter-btn news-btn__animation">
-                    <img src="icon/arrow.png" alt="">
-                </div>
-            </nav>
-            <div class="news-text__container">
-                <span class="news-theme">Work</span>
-                <span class="news-title">View All Projects</span>
-            </div>
-        </div>
+        
 
     </section>
 
@@ -326,6 +340,7 @@
                                         <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
                                         <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
                                         <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                                        <a class="soon-btn" href="#">Coming soon!</a>
                                     </div>
                                 </div>
                             </div>

@@ -139,7 +139,8 @@
     function activeBox(event) {
         const newsState = document.querySelector('.news-state');
         const currentBox = event.target;
-        const siblingBoxes = Array.from(currentBox.parentNode.children).filter(child => child !== currentBox);
+        const siblingBoxes = Array.from(currentBox.parentNode.children).filter(child => child.classList.contains('news-box') && child !== currentBox);
+        newsState.style.opacity = "0";
         currentBox.style.filter = "invert(1)";
         currentBox.style.opacity = "0.8";
         currentBox.style.zIndex = "";
@@ -150,12 +151,20 @@
             sibling.style.filter = "blur(3px)";
             // sibling의 자식들에게 filter를 적용
         });
+
+        // UPCOMING 강조
+        if(currentBox.classList.contains('news-soon')) {
+            const newsCategory = currentBox.querySelector('.news-category');
+            newsCategory.style.animation = "flicker .5s infinite";
+        }
+
         increaseZIndex(event);
         function increaseZIndex(event) {
             const currentBox = event.target;
-            const currentZIndex = parseInt(currentBox.style.zIndex) || 0; // 현재 zIndex 값을 가져옴
-            currentBox.style.zIndex = currentZIndex + 997; // 1을 뺀 값을 다시 설정
+            const currentZIndex = parseInt(currentBox.style.zIndex) || 0;
+            currentBox.style.zIndex = currentZIndex + 997; 
         }
+        
     }
 
     function nonActiveBox(event) {
@@ -171,6 +180,12 @@
             sibling.style.filter = "blur(0px)";
             // sibling의 자식들에게 filter를 적용
         });
+
+        // UPCOMING 강조
+        if(currentBox.classList.contains('news-soon')) {
+            const newsCategory = currentBox.querySelector('.news-category');
+            newsCategory.style.animation = "";
+        }
     }
 
 

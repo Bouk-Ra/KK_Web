@@ -37,6 +37,23 @@
 })();
 
 
+
+// Animation setup for paths in the main group
+(() => {
+    const setupMainPathsAnimation = () => {
+        const kkScriptMainPaths = document.querySelectorAll('.kaamkaaj-script-path');
+
+        kkScriptMainPaths.forEach((path, index) => {
+            const length = path.getTotalLength();
+            path.style.setProperty('--length', length);
+            path.style.setProperty('--delay', `${index * 100}ms`);
+            path.style.setProperty('--duration', `${length * 2}ms`);
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', setupMainPathsAnimation);
+})();
+
 // Handle sticky effect for navigation bar
 (() => {
     function handerNavBar() {
@@ -63,7 +80,7 @@
 (() => {
 
     // Loading page setup with minimum loading time
-    const loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
+    const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
     loadingPage.id = 'loading-page';
 
     let minimumLoadingTime = 3000;
@@ -275,7 +292,7 @@
     });
 
     function hideLoadingPageOne() {
-        var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
+        var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
 
         loadingPage.style.animation = "slideUpAndFadeOut 1s 1s ease-in-out";
         canvas.style.animation = "none"
@@ -289,7 +306,7 @@
     }
 
     function hideLoadingPageTwo() {
-        var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
+        var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
         loadingPage.style.animation = "slideUpAndFadeOut 0.5s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
             loadingPage.style.display = "none";
