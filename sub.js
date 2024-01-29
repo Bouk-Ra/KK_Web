@@ -37,6 +37,7 @@
 })();
 
 
+<<<<<<< HEAD
 
 // Animation setup for paths in the main group
 (() => {
@@ -81,6 +82,12 @@
 
     // Loading page setup with minimum loading time
     const loadingPage = document.getElementById('kaamkaaj-script').parentNode;
+=======
+(() => {
+
+    // Loading page setup with minimum loading time
+    const loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
+>>>>>>> 2024_01_29_V2
     loadingPage.id = 'loading-page';
 
     let minimumLoadingTime = 3000;
@@ -93,9 +100,12 @@
     const videoHeight = 308;
     const imageUrls = [];
 
+<<<<<<< HEAD
     const logoTriggerContainer = document.querySelector(".logo-hover-zone__container");
     const logoTrigger = document.querySelectorAll(".logo-hover-zone");
 
+=======
+>>>>>>> 2024_01_29_V2
     const navBarMobile = document.querySelector('.nav-bar__container--mb');
 
     for (let i = 0; i <= 80; i++) {
@@ -161,6 +171,7 @@
         playFrame();
     };
 
+<<<<<<< HEAD
     logoTrigger.forEach((logoTrigger) => {
         logoTrigger.addEventListener("mouseenter", () => {
             if (!isPlaying) {
@@ -171,13 +182,18 @@
             }
         });
     });
+=======
+>>>>>>> 2024_01_29_V2
 
     let preScrollTop = 0;
 
     window.addEventListener('scroll',() => {
         
+<<<<<<< HEAD
         const mainProjects = document.querySelector('.main-projects');
         const mainProjectsRect = mainProjects.getBoundingClientRect();
+=======
+>>>>>>> 2024_01_29_V2
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
@@ -205,8 +221,11 @@
         }
         preScrollTop = nextScrollTop;
     });
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> 2024_01_29_V2
 
     navBarMobileHandler()
     function navBarMobileHandler() {
@@ -222,17 +241,39 @@
     window.addEventListener('resize', navBarMobileHandler);
 
 
+<<<<<<< HEAD
+=======
+    const otherPageRender = document.querySelector('.renderSection_other');
+    window.addEventListener('resize', renderSectionOtherHandler);
+
+    function renderSectionOtherHandler() {
+        if(window.innerWidth > 767) {
+            otherPageRender.style.top = 0 + "px";
+        } else {
+            if(window.scrollY < window.innerHeight*0.4) {
+                otherPageRender.style.top = headerLogo.clientHeight + "px";
+            }
+        }
+    } 
+
+
+>>>>>>> 2024_01_29_V2
     function logoUp() {
         headerLogo.style.transition = ".4s ease-in-out";
         navBarMobile.style.transition = ".4s ease-in-out";
         navBarMobile.style.top = 0 + "px";
         headerLogo.style.transform = "translateY(-120%)";
+<<<<<<< HEAD
+=======
+        otherPageRender.style.top = 0 + "px";
+>>>>>>> 2024_01_29_V2
     }
 
     function logoDown() {
         headerLogo.style.transition = ".4s ease-in-out";
         navBarMobile.style.transition = ".4s ease-in-out";
         headerLogo.style.transform = "translateY(0%)";
+<<<<<<< HEAD
     }
 
 
@@ -307,10 +348,52 @@
 
     function hideLoadingPageTwo() {
         var loadingPage = document.getElementById('kaamkaaj-script').parentNode;
+=======
+        otherPageRender.style.top = headerLogo.clientHeight + 5 + "px";
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+    
+        async function preloadAndHide(loadingPageFunction) {
+            
+            await preloadImages();
+            const elapsedTime = new Date().getTime() - startTime;
+            const remainingTime = Math.max(0, elapsedTime);
+
+            headerLogo.style.opacity = "1";
+            headerLogo.style.transition = "opacity 1.2s ease, transform 1.2s 0.6s ease";
+            headerLogo.style.transition = "none";
+            headerLogo.style.transform = "translateY(0)";
+            headerLogo.style.zIndex = "9998";
+            canvas.style.animation = "none";
+            canvas.style.transition = "none";
+            canvas.style.transform = "scale(1.008)";
+            if (window.innerWidth > 767) {
+                otherPageRender.style.top = headerLogo.clientHeight + "px";
+            } else {
+                otherPageRender.style.top = headerLogo.clientHeight + 5 + "px";
+            }
+    
+            setTimeout(() => {
+                loadingPageFunction();
+                setTimeout(() => {
+                    canvas.style.imageRendering = "pixelated";
+                    canvas.style.imageRendering = "auto";
+                }, 100);
+            }, remainingTime);
+        }
+
+        await preloadAndHide(hideLoadingPageOther);
+    });
+
+    function hideLoadingPageOther() {
+        var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
+>>>>>>> 2024_01_29_V2
         loadingPage.style.animation = "slideUpAndFadeOut 0.5s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
             loadingPage.style.display = "none";
             document.body.style.overflow = "auto";
+<<<<<<< HEAD
             logoTriggerContainer.style.pointerEvents = "auto";
         });
         
@@ -385,6 +468,124 @@
     window.toggleSection = toggleSection;
     window.scrollToSection = scrollToSection;
 })();
+=======
+        });
+    } 
+})();
+
+// (() => {
+//     document.addEventListener("DOMContentLoaded", otherPageHandler);
+    
+//     function otherPageHandler() {
+//         const headerLogo = document.querySelector('.header-logo');
+//         const navBarMoible = document.querySelector('.nav-bar--mb');
+//         const otherPageRender = document.querySelector('.renderSection_other');
+    
+//         const otherPageRenderTop = headerLogo.clientHeight + navBarMoible.clientHeight + 5;
+        
+//         if (window.innerWidth > 767) {
+//             otherPageRender.style.top = 0 + "px";
+//         } else {
+//             otherPageRender.style.top = otherPageRenderTop + "px";
+//         }
+//     }
+// })(); 
+    
+//     document.addEventListener("DOMContentLoaded", async () => {
+//         window.addEventListener('beforeunload', function() {
+//             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
+//         });
+    
+//         async function preloadAndHide(loadingPageFunction) {
+//             headerLogo.style.opacity = "1";
+            
+//             await preloadImages();
+//             headerLogo.style.transition = "opacity 1.2s ease, transform 1.2s 0.6s ease";
+//             const elapsedTime = new Date().getTime() - startTime;
+//             const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+    
+//             setTimeout(() => {
+//                 loadingPageFunction();
+//                 setTimeout(() => {
+//                     canvas.style.imageRendering = "pixelated";
+//                     canvas.style.imageRendering = "auto";
+//                 }, 100);
+//             }, remainingTime);
+//         }
+    
+//         await centerImageVertically();
+//         const scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
+//         window.onbeforeunload = function() {
+//             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
+//         };
+//         const hasVisited = sessionStorage.getItem('hasVisited');
+    
+//         if (!window.innerWidth > 767) {
+//             if (!hasVisited && parseInt(scrollLoadPosition) < window.innerHeight * 0.1) {
+//                 await preloadAndHide(hideLoadingPageOne);
+//                 sessionStorage.setItem('hasVisited', 'true');
+//             } else {
+//                 minimumLoadingTime = 0;
+//                 headerLogo.style.transition = "none";
+//                 canvas.style.animation = "none";
+//                 headerLogo.style.transform = "translateY(0)";
+//                 headerLogo.style.zIndex = "9998";
+//                 canvas.style.transition = "none";
+//                 canvas.style.transform = "scale(1.008)";
+    
+//                 await preloadAndHide(hideLoadingPageTwo);
+//             }
+//         } else {
+//             minimumLoadingTime = 0;
+//             headerLogo.style.transition = "none";
+//             canvas.style.animation = "none";
+//             headerLogo.style.transform = "translateY(0)";
+//             headerLogo.style.zIndex = "9998";
+//             canvas.style.transition = "none";
+//             canvas.style.transform = "scale(1.008)";
+    
+//             await preloadAndHide(hideLoadingPageTwo);
+    
+//             if (!hasVisited && parseInt(scrollLoadPosition) < window.innerHeight * 0.1) {
+//                 sessionStorage.setItem('hasVisited', 'true');
+//             }
+//         }
+//     });
+        
+//     function hideLoadingPageOne() {
+//         var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
+
+//         loadingPage.style.animation = "slideUpAndFadeOut 1s 1s ease-in-out";
+//         canvas.style.animation = "none"
+//         headerLogo.style.transform = "translateY(0)";
+//         canvas.style.transform = "scale(1.008)"
+//         loadingPage.addEventListener("animationend", function () {
+//             loadingPage.style.display = "none";
+//             document.body.style.overflow = "auto";
+//         });
+//     }
+
+//     function hideLoadingPageTwo() {
+//         var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
+//         loadingPage.style.animation = "slideUpAndFadeOut 0.5s ease-in-out";
+//         loadingPage.addEventListener("animationend", function () {
+//             loadingPage.style.display = "none";
+//             document.body.style.overflow = "auto";
+//         });
+        
+//     } 
+//     function centerImageVertically() {
+//         const screenHeight = window.innerHeight;
+//         const imageHeight = headerLogo.getBoundingClientRect().height;
+//         const logoYOffset = Math.max(0, (screenHeight - imageHeight) / 2.1);
+    
+//         headerLogo.style.transform = `translateY(${logoYOffset}px)`;
+//         // headerLogo.style.transition = "opacity 1.2s ease";
+//     };
+
+// })();
+
+>>>>>>> 2024_01_29_V2
 
 
 // // Carousel(BEFORE Desktop)
@@ -421,6 +622,7 @@
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -684,6 +886,8 @@
 })();
 
 
+=======
+>>>>>>> 2024_01_29_V2
 // Winging It Trigger
 (() => {
     const wingingItPaths = document.querySelectorAll('.winging-it--path');
@@ -714,9 +918,12 @@
 })();
 
 
+<<<<<<< HEAD
 
 
 (() => {
     
     
 })();
+=======
+>>>>>>> 2024_01_29_V2

@@ -164,7 +164,11 @@
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
+<<<<<<< HEAD
             if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1 && !isPlaying) {
+=======
+            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= window.innerHeight*0.3 && !isPlaying) {
+>>>>>>> 2024_01_29_V2
                 isPlaying = true;
                 startPlayback(true, () => {
                     isPlaying = false;
@@ -700,6 +704,41 @@
 
 
 (() => {
-    
-    
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const allSoonLinks = document.querySelectorAll('.soon-link');
+        allSoonLinks.forEach(soonLink => {
+            soonLink.classList.remove('invert-hover');
+        });
+    })
+
+    function comingSoonItem(event) {
+        const currentProject = event.currentTarget.closest('.main-project__x4--item');
+        const carouselContainer = currentProject.querySelector('.carousel-container');
+        const slides = currentProject.querySelectorAll('.slide');
+        const soonText = currentProject.querySelector('.soon-text');
+        carouselContainer.style.filter = "blur(5px)";
+        slides.forEach(slide => {
+            slide.style.filter = "blur(10px)";
+            slide.style.opacity = "0.7";
+        });
+        soonText.style.animation = "flicker .5s infinite";
+    }
+    window.comingSoonItem = comingSoonItem;
+
+    function comingSoonReset(event) {
+        const currentProject = event.currentTarget.closest('.main-project__x4--item');
+        const carouselContainer = currentProject.querySelector('.carousel-container');
+        const slides = currentProject.querySelectorAll('.slide');
+        const soonText = currentProject.querySelector('.soon-text');
+        carouselContainer.style.filter = "blur(0px)";
+        slides.forEach(slide => {
+            slide.style.filter = "blur(0px)";
+            slide.style.opacity = "1";
+        });
+        soonText.style.animation = "none";
+    }
+    window.comingSoonReset = comingSoonReset;
 })();
+
+
