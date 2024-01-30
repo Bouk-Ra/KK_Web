@@ -189,7 +189,6 @@
         preScrollTop = nextScrollTop;
     });
     
-    
 
     navBarMobileHandler()
     function navBarMobileHandler() {
