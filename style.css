@@ -1442,7 +1442,8 @@ body {
 
 }
 @media (hover:none) {
-    .video--thumb {
+    .video--thumb,
+    .img--thumb {
         display: none;
     }
     .img--thumb-mb {
