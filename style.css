@@ -196,9 +196,9 @@ canvas.logo {
 }
 
 @keyframes logoOn {
-    0% {opacity: 1;}
-    50% {opacity: 0.1;}
-    100% {opacity: 1;}
+    0% {opacity: 100%;}
+    50% {opacity: 20%;}
+    100% {opacity: 100%;}
 }
 
 .logo-hover-zone__container {
@@ -857,8 +857,21 @@ body {
     opacity: 1;
 }
 
+/* .see-project-btn:hover {
+    animation: opacity 1s linear infinite;
+}
+
 .see-project-btn:hover .icon-plus {
     animation: moulin 2s linear infinite;
+} */
+
+.see-see:hover {
+    .see-project-btn {
+        animation: opacity 1s linear infinite;
+    }
+    .icon-plus {
+        animation: moulin 2s linear infinite;
+    }
 }
 
 .icon-plus {
@@ -882,7 +895,11 @@ body {
     100% { transform: rotateZ(360deg);}
 }
 
-
+@keyframes opacity {
+    0% { opacity: 100%; }
+    50% { opacity: 50%; }
+    0% { opacity: 100%};
+}
 /* Main-Toggle */
 /* Main-Toggle */
 /* Main-Toggle */
@@ -1386,6 +1403,10 @@ body {
         .main-project__client,
         .carousel-button {
             filter: blur(2px);
+        }
+
+        .soon-text {
+            animation: opacity 1s linear infinite;
         }
     }
 

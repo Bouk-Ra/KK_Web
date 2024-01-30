@@ -225,6 +225,7 @@ img {
         z-index: 1;
         overflow: hidden;
     }
+
     .news-btn__animation::before {
         content: '';
         position: absolute;
@@ -235,7 +236,6 @@ img {
         background-color: var(--color1);
         transition: .4s ease;
         z-index: -1;
-
     }
 
     .news-btn__animation:hover:before {
@@ -258,12 +258,7 @@ img {
     }
 }
 
-
-
-
-
 .welcome-page, .newsSection, .renderSection{
     position: relative !important;
     scroll-snap-align: start;
 }
-
