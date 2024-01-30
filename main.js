@@ -109,7 +109,7 @@
             });
         }));
     };
-    
+
     // loadImage();
     const loadImage = () => {
         const img = new Image();
@@ -165,7 +165,7 @@
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
-            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= window.innerHeight*0.3 && !isPlaying) {
+            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= 200 && !isPlaying) {
                 isPlaying = true;
                 startPlayback(true, () => {
                     isPlaying = false;
