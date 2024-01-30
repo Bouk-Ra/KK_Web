@@ -307,7 +307,7 @@
         const renderSection = document.querySelector('.renderSection');
         const sectionOne = document.getElementById('section1');
         const sectionTwo = document.getElementById('section2');
-        const norme = Math.max(-20, (scrollPosition / welcomeSection.clientHeight) * -20);
+        const norme = Math.max(-40, (scrollPosition / welcomeSection.clientHeight) * -40);
         let red = 255 + norme;
         let green = 255 + norme;
         let blue = 255 + norme;
