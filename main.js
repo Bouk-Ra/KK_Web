@@ -742,36 +742,36 @@ const loadImage = () => {
 
 
 
-(() => {
-    const arrowCursor = document.querySelector('.custom-cursor');
-    const navButtons = document.querySelectorAll('.nav-bar-btn');
+// (() => {
+//     const arrowCursor = document.querySelector('.custom-cursor');
+//     const navButtons = document.querySelectorAll('.nav-bar-btn');
 
-    if(window.scrollY >= 0 && window.scrollY < window.innerHeight*2) {
-        document.addEventListener('mousemove', (e) => {
-            arrowCursor.style.left = e.clientX + 'px';
-            arrowCursor.style.top = e.clientY + 'px';
-        });
-        navButtons.forEach(button => {
-            button.addEventListener('mouseover', () => {
-                arrowCursor.style.opacity = "0";
-            })
-            button.addEventListener('mouseleave', () => {
-                arrowCursor.style.opacity = "1";
-            })
-        })
-    }
+//     if(window.scrollY >= 0 && window.scrollY < window.innerHeight*2) {
+//         document.addEventListener('mousemove', (e) => {
+//             arrowCursor.style.left = e.clientX + 'px';
+//             arrowCursor.style.top = e.clientY + 'px';
+//         });
+//         navButtons.forEach(button => {
+//             button.addEventListener('mouseover', () => {
+//                 arrowCursor.style.opacity = "0";
+//             })
+//             button.addEventListener('mouseleave', () => {
+//                 arrowCursor.style.opacity = "1";
+//             })
+//         })
+//     }
 
 
-    document.addEventListener('scroll', cursorHandler);
+//     document.addEventListener('scroll', cursorHandler);
 
-    function cursorHandler() {
-        if (window.scrollY > window.innerHeight*0.6) {
-            arrowCursor.style.display = "none"
-            document.body.style.cursor = "auto";
-        } else {
-            arrowCursor.style.display = "block"
-            document.body.style.cursor = "none";
-        }
-    } 
+//     function cursorHandler() {
+//         if (window.scrollY > window.innerHeight*0.6) {
+//             arrowCursor.style.display = "none"
+//             document.body.style.cursor = "auto";
+//         } else {
+//             arrowCursor.style.display = "block"
+//             document.body.style.cursor = "none";
+//         }
+//     } 
 
-})();
+// })();
