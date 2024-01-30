@@ -200,7 +200,7 @@
 
     function logoUp() {
         headerLogo.style.transition = ".3s ease-in-out";
-        navBarMobile.style.transition = ".4s ease-in-out";
+        navBarMobile.style.transition = ".3s ease-in-out";
         navBarMobile.style.top = 0 + "px";
         headerLogo.style.transform = "translateY(-120%)";
     }
@@ -212,7 +212,7 @@
 
         navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         headerLogo.style.transition = ".3s ease-in-out";
-        navBarMobile.style.transition = ".4s ease-in-out";
+        navBarMobile.style.transition = ".3s ease-in-out";
         headerLogo.style.transform = "translateY(0%)";
     }
 
