@@ -197,7 +197,7 @@
         const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
         const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
 
-        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
+        // navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
     }
 
