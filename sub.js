@@ -1,6 +1,13 @@
 
 
 // Set --vh CSS variable
+
+(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+        document.body.style.cursor = "auto";
+    });
+})();
+
 (() => {
     const setVH = () => {
         const vh = window.innerHeight * 0.01;

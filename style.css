@@ -897,13 +897,12 @@ body {
     animation: moulin 2s linear infinite;
 } */
 
-.see-see:hover {
-    .see-project-btn {
-        animation: opacity 1s linear infinite;
-    }
-    .icon-plus {
-        animation: moulin 2s linear infinite;
-    }
+.see-see:hover .see-project-btn {
+    animation: opacity 1s linear infinite;
+}
+
+.see-see:hover .icon-plus {
+    animation: moulin 2s linear infinite;
 }
 
 .icon-plus {
@@ -930,7 +929,7 @@ body {
 @keyframes opacity {
     0% { opacity: 100%; }
     50% { opacity: 50%; }
-    0% { opacity: 100%};
+    0% { opacity: 100%; }
 }
 /* Main-Toggle */
 /* Main-Toggle */
@@ -1549,20 +1548,14 @@ body {
         cursor: wait !important;
     }
     
-    .soon-soon:hover {
-        .carousel-container {
-            filter: blur(5px);
-        }
+    .soon-soon:hover .carousel-container {
+        filter: blur(5px);
+    }
     
-        .main-project__title,
-        .main-project__client,
-        .carousel-button {
-            filter: blur(2px);
-        }
-
-        .soon-text {
-            animation: opacity 1s linear infinite;
-        }
+    .soon-soon:hover .main-project__title,
+    .soon-soon:hover .main-project__client,
+    .soon-soon:hover .carousel-button {
+        filter: blur(2px);
     }
 
 }
