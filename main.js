@@ -782,3 +782,54 @@
         })
     })    
 })();
+
+
+
+(() => {
+    // 페이지 로드 이벤트 대기
+    document.addEventListener("DOMContentLoaded", async () => {
+        // .preload 클래스를 가진 이미지 엘리먼트들을 선택
+        const preloadImages = Array.from(document.querySelectorAll('.preload'));
+
+        // .preload 클래스를 가진 이미지들만 먼저 로드
+        await preloadImagesAndVideos(preloadImages);
+
+        // 나머지 로딩 프로세스 수행
+        // ... 추가적인 로딩 코드 ...
+
+        console.log('All images loaded!');
+    });
+
+    // 이미지 및 비디오를 로드하는 함수
+    const preloadImagesAndVideos = (allImagesAndVideos) => {
+        return Promise.all(allImagesAndVideos.map((element) => {
+            return new Promise((resolve) => {
+                if (element instanceof HTMLImageElement && element.src) {
+                    // 이미지 엘리먼트이며 유효한 src 속성이 있는 경우
+                    const img = new Image();
+                    img.src = element.src;
+                    img.onload = resolve;
+                    img.onerror = (error) => {
+                        console.error('Error loading image:', element, error);
+                        // 이미지 로드에 실패해도 계속 진행
+                        resolve();
+                    };
+                } else if (element instanceof HTMLVideoElement) {
+                    // 비디오 엘리먼트인 경우
+                    element.load();
+                    element.onloadeddata = resolve;
+                    element.onerror = (error) => {
+                        console.error('Error loading video:', element, error);
+                        // 비디오 로드에 실패해도 계속 진행
+                        resolve();
+                    };
+                } else {
+                    // 무시할 조건에 해당하는 경우
+                    console.log('Ignoring element:', element);
+                    resolve();  // 무시하고 성공 처리
+                }
+            });
+        }));
+    };
+
+})();
