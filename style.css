@@ -1374,6 +1374,15 @@ body {
 }
 
 @media (hover: hover) {
+
+    .video--thumb,
+    .img--thumb {
+        display: block;
+    }
+    .img--thumb-mb {
+        display: none;
+    }
+
     /* Button Hover Animation */
     .btn__animation {
         position: relative;
@@ -1433,6 +1442,13 @@ body {
 
 }
 @media (hover:none) {
+    .video--thumb {
+        display: none;
+    }
+    .img--thumb-mb {
+        display: block;
+    }
+
     .logo-hover-zone__container {
         display: none;
     }
