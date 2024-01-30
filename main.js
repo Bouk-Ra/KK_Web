@@ -174,7 +174,6 @@
             else if (preScrollTop > nextScrollTop && !isPlaying){ 
                 if (window.scrollY < 100) {
                     logoDown();
-                    navBarMobileHandler()
                     isPlaying = true;
                     startPlayback(false, () => {
                         isPlaying = false;
@@ -212,6 +211,11 @@
     }
 
     function logoDown() {
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
+
+        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         headerLogo.style.transition = ".4s ease-in-out";
         navBarMobile.style.transition = ".4s ease-in-out";
         headerLogo.style.transform = "translateY(0%)";
