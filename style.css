@@ -1582,12 +1582,10 @@ body {
     .newsSection {
         display: none;
     }
+    .icon-plus {
+        animation: moulin 2s linear infinite;
+    }
 }
-
-
-
-
-/* 
 
 
 body {
@@ -1604,4 +1602,4 @@ body {
 
     body:hover .custom-cursor {
     mix-blend-mode: exclusion;
-} */
+}
