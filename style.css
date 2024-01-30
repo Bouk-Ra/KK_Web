@@ -855,6 +855,10 @@ body {
     opacity: 1;
 }
 
+.see-project-btn:hover .icon-plus {
+    animation: moulin 2s linear infinite;
+}
+
 .icon-plus {
     filter: invert();
     width: 0.6em;

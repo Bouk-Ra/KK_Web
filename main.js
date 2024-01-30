@@ -769,35 +769,16 @@
 
 
 (() => {
-    const seeProjectLinks = document.querySelectorAll('.see-project-btn');
-
-    function plusAnimator(event) {
-        const currentLink = event.currentTarget;
-        const currentPlus = currentLink.querySelector('.icon-plus');
-        currentPlus.style.animation = "moulin 1s infinite linear";
-
-        // mouseleave 이벤트 리스너 추가
-        currentLink.addEventListener('mouseleave', plusAnimRemover);
-        // mouseover 이벤트 리스너 제거
-        currentLink.removeEventListener('mouseover', plusAnimator);
-    }
-    
-    function plusAnimRemover(event) {
-        const currentLink = event.currentTarget;
-        const currentPlus = currentLink.querySelector('.icon-plus');
-        currentPlus.style.animation = "none";
-
-        // mouseover 이벤트 리스너 추가
-        currentLink.addEventListener('mouseover', plusAnimator);
-        // mouseleave 이벤트 리스너 제거
-        currentLink.removeEventListener('mouseleave', plusAnimRemover);
-    }
-
-    seeProjectLinks.forEach(link => {
-        // 초기에는 mouseover 이벤트 리스너만 추가
-        link.addEventListener('mouseover', plusAnimator);
-    });
+    window.addEventListener('pageshow', function(event) {
+        const videos = document.querySelectorAll('.videos');
+        videos.forEach(video => {
+            video.play();
+        })
+    })    
+    window.addEventListener('visibilitychange', function(event) {
+        const videos = document.querySelectorAll('.videos');
+        videos.forEach(video => {
+            video.play();
+        })
+    })    
 })();
-
-
-
