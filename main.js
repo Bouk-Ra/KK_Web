@@ -113,30 +113,44 @@
 
     const imageCache = {}; // 이미지 캐시 객체
 
-const loadImage = () => {
-        const imgUrl = imageUrls[currentFrame];
+    // const loadImage = () => {
+    //         const imgUrl = imageUrls[currentFrame];
 
-        // 이미지가 캐시에 있는 경우
-        if (imageCache[imgUrl]) {
+    //         // 이미지가 캐시에 있는 경우
+    //         if (imageCache[imgUrl]) {
+    //             canvas.width = videoWidth;
+    //             canvas.height = videoHeight;
+    //             ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //             ctx.drawImage(imageCache[imgUrl], 0, 0, videoWidth, videoHeight);
+    //         } else {
+    //             // 이미지를 로드하고 캔버스에 그린 후 캐시에 저장
+    //             const img = new Image();
+    //             img.src = imgUrl;
+
+    //             img.onload = () => {
+    //                 canvas.width = videoWidth;
+    //                 canvas.height = videoHeight;
+    //                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //                 ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
+
+    //                 // 이미지를 캐시에 저장
+    //                 imageCache[imgUrl] = img;
+    //             };
+    //         }
+    //     };
+
+
+    // loadImage();
+    const loadImage = () => {
+        const img = new Image();
+        img.src = imageUrls[currentFrame];
+
+        img.onload = () => {
             canvas.width = videoWidth;
             canvas.height = videoHeight;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(imageCache[imgUrl], 0, 0, videoWidth, videoHeight);
-        } else {
-            // 이미지를 로드하고 캔버스에 그린 후 캐시에 저장
-            const img = new Image();
-            img.src = imgUrl;
-
-            img.onload = () => {
-                canvas.width = videoWidth;
-                canvas.height = videoHeight;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
-
-                // 이미지를 캐시에 저장
-                imageCache[imgUrl] = img;
-            };
-        }
+            ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
+        };
     };
 
     const startPlayback = (forward, callback) => {
