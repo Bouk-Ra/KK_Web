@@ -164,7 +164,7 @@
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
-            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= window.innerHeight*0.3 && !isPlaying) {
+            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= window.screen.availHeight*0.2 && !isPlaying) {
                 isPlaying = true;
                 startPlayback(true, () => {
                     isPlaying = false;
@@ -172,7 +172,7 @@
                 });
             }
             else if (preScrollTop > nextScrollTop && !isPlaying){ 
-                if (window.scrollY < window.innerHeight*0.4) {
+                if (window.scrollY < window.screen.availHeight*0.2) {
                     logoDown();
                     navBarMobileHandler()
                     isPlaying = true;
