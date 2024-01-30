@@ -189,9 +189,9 @@
                 });
             }
             else if (preScrollTop > nextScrollTop && !isPlaying){ 
-                if (window.scrollY < window.innerHeight*0.4) {
+                if (window.scrollY < 200) {
                     logoDown();
-                    navBarMobileHandler()
+                    // navBarMobileHandler()
                     isPlaying = true;
                     startPlayback(false, () => {
                         isPlaying = false;
@@ -219,6 +219,8 @@
         navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
     }
+
+    
     window.addEventListener('resize', navBarMobileHandler);
 
 
@@ -230,8 +232,12 @@
     }
 
     function logoDown() {
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
         headerLogo.style.transition = ".4s ease-in-out";
         navBarMobile.style.transition = ".4s ease-in-out";
+        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         headerLogo.style.transform = "translateY(0%)";
     }
 
