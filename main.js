@@ -222,7 +222,6 @@
       }
 
       if (!isTouchDevice()) {
-        console.log("touchtouche")
         window.addEventListener('resize', () => {
             const headerLogoHeight = headerLogo.getBoundingClientRect().height;
             const headerLogoStyle = getComputedStyle(headerLogo);
@@ -232,14 +231,8 @@
     }
       
 
-        // let scrollLoadPosition;
-        // scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
-    
     document.addEventListener("DOMContentLoaded", () => {
     
-        // window.onbeforeunload = function() {
-        //     sessionStorage.setItem('scrollLoadPosition', window.scrollY);
-        // };
         window.addEventListener('beforeunload', function() {
             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
         });
@@ -725,6 +718,15 @@
     window.addEventListener('scroll', wingingItHandler);
 })();
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var videos = document.querySelectorAll('.video');
+
+    videos.forEach(function(video) {
+        video.play();
+    });
+});
 
 
 // (() => {
