@@ -236,14 +236,9 @@ const loadImage = () => {
     }
 
 
-        // let scrollLoadPosition;
-        // scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
-    
+
     document.addEventListener("DOMContentLoaded", () => {
     
-        // window.onbeforeunload = function() {
-        //     sessionStorage.setItem('scrollLoadPosition', window.scrollY);
-        // };
         window.addEventListener('beforeunload', function() {
             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
         });
@@ -257,7 +252,7 @@ const loadImage = () => {
             const hasVisited = sessionStorage.getItem('hasVisited');
             async function preloadAndHide(loadingPageFunction) {
                 headerLogo.style.opacity = "1";
-                
+
                 await preloadImages();
                 headerLogo.style.transition = "opacity 1.2s ease, transform 1.2s 0.6s ease";
                 const elapsedTime = new Date().getTime() - startTime;
@@ -299,6 +294,7 @@ const loadImage = () => {
         headerLogo.style.transform = "translateY(0)";
         canvas.style.transform = "scale(1.008)"
         loadingPage.addEventListener("animationend", function () {
+            document.body.style.cursor = "none";
             loadingPage.style.display = "none";
             document.body.style.overflow = "auto";
             logoTriggerContainer.style.pointerEvents = "auto";
@@ -309,6 +305,7 @@ const loadImage = () => {
         var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
         loadingPage.style.animation = "slideUpAndFadeOut 0.5s ease-in-out";
         loadingPage.addEventListener("animationend", function () {
+            document.body.style.cursor = "none";
             loadingPage.style.display = "none";
             document.body.style.overflow = "auto";
             logoTriggerContainer.style.pointerEvents = "auto";
@@ -745,3 +742,36 @@ const loadImage = () => {
 })();
 
 
+
+
+// (() => {
+//     const arrowCursor = document.querySelector('.custom-cursor');
+//     const navButtons = document.querySelectorAll('.nav-bar-btn');
+
+//     document.addEventListener('mousemove', (e) => {
+//         arrowCursor.style.left = e.clientX + 'px';
+//         arrowCursor.style.top = e.clientY + 'px';
+//     });
+//     navButtons.forEach(button => {
+//         button.addEventListener('mouseover', () => {
+//             arrowCursor.style.opacity = "0";
+//         })
+//         button.addEventListener('mouseleave', () => {
+//             arrowCursor.style.opacity = "1";
+//         })
+//     })
+
+
+//     document.addEventListener('scroll', cursorHandler);
+
+//     function cursorHandler() {
+//         if (window.scrollY > window.innerHeight*0.6) {
+//             arrowCursor.style.display = "none"
+//             document.body.style.cursor = "auto";
+//         } else {
+//             arrowCursor.style.display = "block"
+//             document.body.style.cursor = "none";
+//         }
+//     } 
+
+// })();
