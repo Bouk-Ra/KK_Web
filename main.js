@@ -110,37 +110,6 @@
         }));
     };
     // loadImage();
-
-    const imageCache = {}; // 이미지 캐시 객체
-
-    // const loadImage = () => {
-    //         const imgUrl = imageUrls[currentFrame];
-
-    //         // 이미지가 캐시에 있는 경우
-    //         if (imageCache[imgUrl]) {
-    //             canvas.width = videoWidth;
-    //             canvas.height = videoHeight;
-    //             ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //             ctx.drawImage(imageCache[imgUrl], 0, 0, videoWidth, videoHeight);
-    //         } else {
-    //             // 이미지를 로드하고 캔버스에 그린 후 캐시에 저장
-    //             const img = new Image();
-    //             img.src = imgUrl;
-
-    //             img.onload = () => {
-    //                 canvas.width = videoWidth;
-    //                 canvas.height = videoHeight;
-    //                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //                 ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
-
-    //                 // 이미지를 캐시에 저장
-    //                 imageCache[imgUrl] = img;
-    //             };
-    //         }
-    //     };
-
-
-    // loadImage();
     const loadImage = () => {
         const img = new Image();
         img.src = imageUrls[currentFrame];
@@ -250,9 +219,14 @@
     }
 
 
-
+        // let scrollLoadPosition;
+        // scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
+    
     document.addEventListener("DOMContentLoaded", () => {
     
+        // window.onbeforeunload = function() {
+        //     sessionStorage.setItem('scrollLoadPosition', window.scrollY);
+        // };
         window.addEventListener('beforeunload', function() {
             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
         });
@@ -266,7 +240,7 @@
             const hasVisited = sessionStorage.getItem('hasVisited');
             async function preloadAndHide(loadingPageFunction) {
                 headerLogo.style.opacity = "1";
-
+                
                 await preloadImages();
                 headerLogo.style.transition = "opacity 1.2s ease, transform 1.2s 0.6s ease";
                 const elapsedTime = new Date().getTime() - startTime;
@@ -334,6 +308,7 @@
     };
 
 })();
+
 
 
 // Toggle Switch (GRID <-> LIST)
