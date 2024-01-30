@@ -109,7 +109,6 @@
             });
         }));
     };
-
     // loadImage();
     const loadImage = () => {
         const img = new Image();
@@ -165,7 +164,7 @@
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
-            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= 200 && !isPlaying) {
+            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= window.innerHeight*0.3 && !isPlaying) {
                 isPlaying = true;
                 startPlayback(true, () => {
                     isPlaying = false;
@@ -173,7 +172,7 @@
                 });
             }
             else if (preScrollTop > nextScrollTop && !isPlaying){ 
-                if (window.scrollY < 200) {
+                if (window.scrollY < window.innerHeight*0.4) {
                     logoDown();
                     navBarMobileHandler()
                     isPlaying = true;
@@ -219,9 +218,14 @@
     }
 
 
-
+        // let scrollLoadPosition;
+        // scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
+    
     document.addEventListener("DOMContentLoaded", () => {
     
+        // window.onbeforeunload = function() {
+        //     sessionStorage.setItem('scrollLoadPosition', window.scrollY);
+        // };
         window.addEventListener('beforeunload', function() {
             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
         });
@@ -235,7 +239,7 @@
             const hasVisited = sessionStorage.getItem('hasVisited');
             async function preloadAndHide(loadingPageFunction) {
                 headerLogo.style.opacity = "1";
-
+                
                 await preloadImages();
                 headerLogo.style.transition = "opacity 1.2s ease, transform 1.2s 0.6s ease";
                 const elapsedTime = new Date().getTime() - startTime;
@@ -303,6 +307,8 @@
     };
 
 })();
+
+
 
 
 // Toggle Switch (GRID <-> LIST)
