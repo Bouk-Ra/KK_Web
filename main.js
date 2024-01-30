@@ -774,10 +774,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function cursorHandler() {
         if (window.scrollY > window.innerHeight*0.6) {
             arrowCursor.style.display = "none"
-            document.body.style.cursor = "auto";
+            // document.body.style.cursor = "auto";
         } else {
             arrowCursor.style.display = "block"
-            document.body.style.cursor = "none";
+            // document.body.style.cursor = "none";
         }
     } 
 
