@@ -728,6 +728,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+(() => {
+    const listSideImage = document.querySelector('.main-projects-list__side');
+    const listSideImageRect = listSideImage.getBoundingClientRect();
+    const navBar = document.querySelector('.nav-bar');
+
+    window.addEventListener('scroll', sideImageHandler);
+
+    function sideImageHandler() {
+        if(listSideImageRect.top <= navBar.clientHeight) {
+            listSideImage.style.position = "fixed";
+            listSideImage.style.top = navBar.clientHeight + "px";
+            listSideImage.style.right = 10 + "px";
+        } else {
+            listSideImage.style.position = "relative";
+            listSideImage.style.top = "";
+            listSideImage.style.right = 10 + "px";
+        }
+    }
+
+} )();
 
 // (() => {
 //     const arrowCursor = document.querySelector('.custom-cursor');
