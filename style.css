@@ -1450,19 +1450,18 @@ body {
 
 
 
-  /* body {
-    cursor: auto;
-  }
+body {
+    cursor: none;
+}
 
-  .custom-cursor {
+.custom-cursor {
     mix-blend-mode: exclusion;
     position: fixed;
     width: 70px;
     height: auto;
     transform: translate(-50%, -93%);
-    transition: opacity .2s ease;
-  }
+}
 
-  body:hover .custom-cursor {
+    body:hover .custom-cursor {
     mix-blend-mode: exclusion;
-  } */
+}
