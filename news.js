@@ -348,3 +348,39 @@
 //         }
 //     });
 // })();
+
+
+
+// 이미지 로딩을 위한 Promise를 반환하는 함수
+function loadImage(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(url);
+        img.onerror = reject;
+        img.src = url;
+    });
+}
+
+// 페이지 로드가 완료된 후 실행되는 함수
+document.addEventListener("DOMContentLoaded", async () => {
+    const imageGroups = [
+        ['https://files.cargocollective.com/c1706458/kk_news_rukh_1.jpg', 'https://files.cargocollective.com/c1706458/kk_news_rukh_2.jpg', 'https://files.cargocollective.com/c1706458/kk_news_rukh_3.jpg'],
+        ['https://files.cargocollective.com/c1706458/kk_news_lcc_1.jpg', 'https://files.cargocollective.com/c1706458/kk_news_lcc_2.jpg', 'https://files.cargocollective.com/c1706458/kk_news_lcc_3.jpg'],
+        ['https://files.cargocollective.com/c1706458/kk_news_splice_1.jpg', 'https://files.cargocollective.com/c1706458/kk_news_splice_2.jpg', 'https://files.cargocollective.com/c1706458/kk_news_splice_3.jpg'],
+        // Add more image groups as needed
+    ];
+
+    // 이미지 그룹을 순회하며 이미지를 로드
+    for (const group of imageGroups) {
+        for (const imageUrl of group) {
+            await loadImage(imageUrl);
+        }
+    }
+
+    // 이미지들이 로드된 후에 추가적인 작업 수행
+    console.log('All images preloaded!');
+
+    // ... 나머지 초기화 또는 로딩 프로세스 ...
+});
+
+

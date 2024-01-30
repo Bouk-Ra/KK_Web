@@ -653,7 +653,6 @@ body {
     flex-direction: column;
     line-height: 1;
     letter-spacing: -0.03rem;
-    margin-bottom: 1.5em;
 }
 
 .main-project__title {
@@ -706,6 +705,9 @@ body {
     grid-template-columns: repeat(4, 1fr);
 }
 
+.main-project__x4--item {
+    margin-bottom: 1.5rem;
+}
 
 .category-btn {
     cursor: pointer;
@@ -1359,15 +1361,6 @@ body {
     .btn__animation:hover {
         color: var(--color1);
     }
-    .soon-link {
-        cursor: wait;
-    }
-    .soon-link .main-project__client {
-        pointer-events: none;
-    }
-    .soon-btns .carousel-button {
-        pointer-events: none;
-    }
 
     .main-project__single--img img:hover,
     .main-project__x2--img img:hover,
@@ -1375,6 +1368,27 @@ body {
     .main-project__x4--img img:hover {
         transform: scale(1.03);
     }
+
+    .soon-soon .main-project--dscr {
+        pointer-events: none;
+    }
+    
+    .soon-soon {
+        cursor: wait !important;
+    }
+    
+    .soon-soon:hover {
+        .carousel-container {
+            filter: blur(5px);
+        }
+    
+        .main-project__title,
+        .main-project__client,
+        .carousel-button {
+            filter: blur(2px);
+        }
+    }
+
 }
 @media (hover:none) {
     .logo-hover-zone__container {

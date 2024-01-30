@@ -110,16 +110,33 @@
         }));
     };
     // loadImage();
-    const loadImage = () => {
-        const img = new Image();
-        img.src = imageUrls[currentFrame];
 
-        img.onload = () => {
+    const imageCache = {}; // 이미지 캐시 객체
+
+const loadImage = () => {
+        const imgUrl = imageUrls[currentFrame];
+
+        // 이미지가 캐시에 있는 경우
+        if (imageCache[imgUrl]) {
             canvas.width = videoWidth;
             canvas.height = videoHeight;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
-        };
+            ctx.drawImage(imageCache[imgUrl], 0, 0, videoWidth, videoHeight);
+        } else {
+            // 이미지를 로드하고 캔버스에 그린 후 캐시에 저장
+            const img = new Image();
+            img.src = imgUrl;
+
+            img.onload = () => {
+                canvas.width = videoWidth;
+                canvas.height = videoHeight;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
+
+                // 이미지를 캐시에 저장
+                imageCache[imgUrl] = img;
+            };
+        }
     };
 
     const startPlayback = (forward, callback) => {
@@ -712,62 +729,6 @@
 
 
 
-
-(() => {
-    window.addEventListener('DOMContentLoaded', () => {
-        const allSoonLinks = document.querySelectorAll('.soon-link');
-        allSoonLinks.forEach(soonLink => {
-            soonLink.classList.remove('invert-hover');
-        });
-    })
-
-    function comingSoonItem(event) {
-        const currentProject = event.currentTarget.closest('.main-project__x4--item');
-        const carouselContainer = currentProject.querySelector('.carousel-container');
-        const carouselBtns = currentProject.querySelectorAll('.carousel-button');
-        const slides = currentProject.querySelectorAll('.slide');
-        const allSoonLinks = currentProject.querySelectorAll('.soon-link')
-        const soonText = currentProject.querySelector('.soon-text');
-        carouselContainer.style.filter = "blur(5px)";
-
-        slides.forEach(slide => {
-            slide.style.filter = "blur(10px)";
-            slide.style.opacity = "0.7";
-        });
-        allSoonLinks.forEach(soonLink => {
-            soonLink.style.filter = "blur(3px)";
-        });
-        carouselBtns.forEach(button => {
-            button.style.filter = "blur(3px)";
-        });
-    }
-    window.comingSoonItem = comingSoonItem;
-
-    function comingSoonReset(event) {
-        const currentProject = event.currentTarget.closest('.main-project__x4--item');
-        const carouselContainer = currentProject.querySelector('.carousel-container');
-        const carouselBtns = currentProject.querySelectorAll('.carousel-button');
-        const slides = currentProject.querySelectorAll('.slide');
-        const allSoonLinks = currentProject.querySelectorAll('.soon-link')
-        const soonText = currentProject.querySelector('.soon-text');
-        carouselContainer.style.filter = "blur(0px)";
-
-        slides.forEach(slide => {
-            slide.style.filter = "blur(0px)";
-            slide.style.opacity = "1";
-        });
-        allSoonLinks.forEach(soonLink => {
-            soonLink.style.filter = "blur(0px)";
-        });
-        carouselBtns.forEach(button => {
-            button.style.filter = "blur(0px)";
-        });
-
-    }
-    window.comingSoonReset = comingSoonReset;
-})();
-
-
 (() => {
     window.addEventListener('pageshow', function(event) {
         const videos = document.querySelectorAll('.videos');
@@ -784,52 +745,3 @@
 })();
 
 
-
-(() => {
-    // 페이지 로드 이벤트 대기
-    document.addEventListener("DOMContentLoaded", async () => {
-        // .preload 클래스를 가진 이미지 엘리먼트들을 선택
-        const preloadImages = Array.from(document.querySelectorAll('.preload'));
-
-        // .preload 클래스를 가진 이미지들만 먼저 로드
-        await preloadImagesAndVideos(preloadImages);
-
-        // 나머지 로딩 프로세스 수행
-        // ... 추가적인 로딩 코드 ...
-
-        console.log('All images loaded!');
-    });
-
-    // 이미지 및 비디오를 로드하는 함수
-    const preloadImagesAndVideos = (allImagesAndVideos) => {
-        return Promise.all(allImagesAndVideos.map((element) => {
-            return new Promise((resolve) => {
-                if (element instanceof HTMLImageElement && element.src) {
-                    // 이미지 엘리먼트이며 유효한 src 속성이 있는 경우
-                    const img = new Image();
-                    img.src = element.src;
-                    img.onload = resolve;
-                    img.onerror = (error) => {
-                        console.error('Error loading image:', element, error);
-                        // 이미지 로드에 실패해도 계속 진행
-                        resolve();
-                    };
-                } else if (element instanceof HTMLVideoElement) {
-                    // 비디오 엘리먼트인 경우
-                    element.load();
-                    element.onloadeddata = resolve;
-                    element.onerror = (error) => {
-                        console.error('Error loading video:', element, error);
-                        // 비디오 로드에 실패해도 계속 진행
-                        resolve();
-                    };
-                } else {
-                    // 무시할 조건에 해당하는 경우
-                    console.log('Ignoring element:', element);
-                    resolve();  // 무시하고 성공 처리
-                }
-            });
-        }));
-    };
-
-})();
