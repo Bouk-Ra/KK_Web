@@ -201,9 +201,9 @@
         document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
     }
 
-    if(!window.innerWidth > 767) {
-        window.addEventListener('resize', navBarMobileHandler);
-    }
+    // if(!window.innerWidth > 767) {
+    //     window.addEventListener('resize', navBarMobileHandler);
+    // }
 
 
     function logoUp() {
