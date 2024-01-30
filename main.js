@@ -200,7 +200,10 @@
         navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
     }
-    window.addEventListener('resize', navBarMobileHandler);
+
+    if(!window.innerWidth > 767) {
+        window.addEventListener('resize', navBarMobileHandler);
+    }
 
 
     function logoUp() {
