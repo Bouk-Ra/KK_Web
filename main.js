@@ -707,24 +707,6 @@
 
 
 
-(() => {
-    window.addEventListener('pageshow', function(event) {
-        const videos = document.querySelectorAll('.videos');
-        videos.forEach(video => {
-            video.play();
-        })
-    })    
-    window.addEventListener('visibilitychange', function(event) {
-        const videos = document.querySelectorAll('.videos');
-        videos.forEach(video => {
-            video.play();
-        })
-    })    
-})();
-
-
-
-
 // (() => {
 //     const arrowCursor = document.querySelector('.custom-cursor');
 //     const navButtons = document.querySelectorAll('.nav-bar-btn');
