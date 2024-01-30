@@ -217,6 +217,21 @@
     }
 
 
+    function isTouchDevice() {
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+      }
+
+      if (!isTouchDevice()) {
+        console.log("touchtouche")
+        window.addEventListener('resize', () => {
+            const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+            const headerLogoStyle = getComputedStyle(headerLogo);
+            const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
+            navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
+        });
+    }
+      
+
         // let scrollLoadPosition;
         // scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
     
