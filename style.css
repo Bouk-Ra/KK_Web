@@ -1658,3 +1658,7 @@ body:hover .custom-cursor {
     justify-content: center;
     align-items: center;
 }
+
+.main-project--dscr {
+    overflow: visible;
+}

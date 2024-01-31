@@ -84,7 +84,8 @@
     ctx.canvas.ownerDocument.defaultView.willReadFrequently = true;
     for (let i = 0; i <= 80; i++) {
         // imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}.png`);
-        imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}-min.png`);
+        imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}-min-min.webp`);
+        // https://files.cargocollective.com/c1706458/KK_morph_00078-min-min.webp
     }
 
     let currentFrame = 0;
@@ -92,7 +93,7 @@
 
     const firstImage = new Image();
     // firstImage.src = `https://files.cargocollective.com/c1706458/KK_morph_${String(0).padStart(5, '0')}.png`;
-    firstImage.src = `https://files.cargocollective.com/c1706458/KK_morph_${String(0).padStart(5, '0')}-min.png`;
+    firstImage.src = `https://files.cargocollective.com/c1706458/KK_morph_${String(0).padStart(5, '0')}-min-min.webp`;
     firstImage.onload = () => {
         canvas.width = videoWidth;
         canvas.height = videoHeight;
