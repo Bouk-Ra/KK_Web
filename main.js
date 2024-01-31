@@ -81,6 +81,7 @@
 
     const navBarMobile = document.querySelector('.nav-bar__container--mb');
 
+    ctx.canvas.ownerDocument.defaultView.willReadFrequently = true;
     for (let i = 0; i <= 80; i++) {
         // imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}.png`);
         imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}-min.png`);
@@ -110,16 +111,43 @@
         }));
     };
     // loadImage();
-    const loadImage = () => {
-        const img = new Image();
-        img.src = imageUrls[currentFrame];
+    // const loadImage = () => {
+    //     const img = new Image();
+    //     img.src = imageUrls[currentFrame];
 
-        img.onload = () => {
-            canvas.width = videoWidth;
-            canvas.height = videoHeight;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
-        };
+    //     img.onload = () => {
+    //         canvas.width = videoWidth;
+    //         canvas.height = videoHeight;
+    //         ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //         ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
+    //     };
+    // };
+
+
+    const imageCache = {}; // 이미지 캐시 객체 추가
+
+    const loadImage = () => {
+        if (imageCache[currentFrame]) {
+            // 이미지가 이미 캐시에 있는 경우
+            const cachedImage = imageCache[currentFrame];
+            displayImage(cachedImage);
+        } else {
+            // 이미지를 로딩하고 캐시에 추가
+            const img = new Image();
+            img.src = imageUrls[currentFrame];
+
+            img.onload = () => {
+                imageCache[currentFrame] = img; // 이미지를 캐시에 추가
+                displayImage(img);
+            };
+        }
+    };
+
+    const displayImage = (image) => {
+        canvas.width = videoWidth;
+        canvas.height = videoHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(image, 0, 0, videoWidth, videoHeight);
     };
 
     const startPlayback = (forward, callback) => {
@@ -774,11 +802,46 @@ document.addEventListener('DOMContentLoaded', function () {
     function cursorHandler() {
         if (window.scrollY > window.innerHeight*0.6) {
             arrowCursor.style.display = "none"
-            document.body.style.cursor = "auto";
+            // document.body.style.cursor = "auto";
         } else {
             arrowCursor.style.display = "block"
-            document.body.style.cursor = "none";
+            // document.body.style.cursor = "none";
         }
     } 
 
 })();
+
+
+
+
+
+
+
+(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+        const videos = document.querySelectorAll('.video--thumb');
+
+        window.addEventListener('popstate   ', () => {
+            videos.forEach(video => {
+                video.pause();
+                console.log(video)
+            });
+            setTimeout(() => {
+                videos.forEach(video => {
+                    video.play();
+                    console.log('play')
+                });
+            }, 500);
+        });
+    });
+})(); 
+
+window.addEventListener('popstate', function(event) {
+    // 뒤로가기 버튼이 클릭되었을 때 실행되는 코드
+    console.log('뒤로가기 이벤트 발생!');
+  });
+
+  window.addEventListener('popstate', function(event) {
+    // 앞으로가기 버튼이 클릭되었을 때 실행되는 코드
+    console.log('앞으로가기 이벤트 발생!');
+  });
