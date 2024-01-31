@@ -187,8 +187,6 @@
 
     window.addEventListener('scroll',() => {
         
-        const mainProjects = document.querySelector('.main-projects');
-        const mainProjectsRect = mainProjects.getBoundingClientRect();
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
@@ -215,16 +213,6 @@
         }
         preScrollTop = nextScrollTop;
     });
-    
-    window.addEventListener('DOMContentLoaded', () => {
-        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
-        const headerLogoStyle = getComputedStyle(headerLogo);
-        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
-        const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
-        const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
-        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
-        document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
-    })
 
     function logoUp() {
         headerLogo.style.transition = ".3s ease-in-out";
@@ -243,7 +231,16 @@
         navBarMobile.style.transition = ".3s ease-in-out";
         headerLogo.style.transform = "translateY(0%)";
     }
-
+    
+    window.addEventListener('DOMContentLoaded', () => {
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
+        const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
+        const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
+        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
+        document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
+    })
 
     function isTouchDevice() {
         return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
@@ -844,4 +841,4 @@ window.addEventListener('popstate', function(event) {
   window.addEventListener('popstate', function(event) {
     // 앞으로가기 버튼이 클릭되었을 때 실행되는 코드
     console.log('앞으로가기 이벤트 발생!');
-  });
+});

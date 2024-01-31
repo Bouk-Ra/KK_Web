@@ -62,6 +62,7 @@
 
     const navBarMobile = document.querySelector('.nav-bar__container--mb');
 
+    ctx.canvas.ownerDocument.defaultView.willReadFrequently = true;
     for (let i = 0; i <= 80; i++) {
         // imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}.png`);
         imageUrls.push(`https://files.cargocollective.com/c1706458/KK_morph_${String(i).padStart(5, '0')}-min.png`);
@@ -91,16 +92,42 @@
         }));
     };
     // loadImage();
-    const loadImage = () => {
-        const img = new Image();
-        img.src = imageUrls[currentFrame];
+    // const loadImage = () => {
+    //     const img = new Image();
+    //     img.src = imageUrls[currentFrame];
 
-        img.onload = () => {
-            canvas.width = videoWidth;
-            canvas.height = videoHeight;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
-        };
+    //     img.onload = () => {
+    //         canvas.width = videoWidth;
+    //         canvas.height = videoHeight;
+    //         ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //         ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
+    //     };
+    // };
+
+    const imageCache = {}; // 이미지 캐시 객체 추가
+
+    const loadImage = () => {
+        if (imageCache[currentFrame]) {
+            // 이미지가 이미 캐시에 있는 경우
+            const cachedImage = imageCache[currentFrame];
+            displayImage(cachedImage);
+        } else {
+            // 이미지를 로딩하고 캐시에 추가
+            const img = new Image();
+            img.src = imageUrls[currentFrame];
+
+            img.onload = () => {
+                imageCache[currentFrame] = img; // 이미지를 캐시에 추가
+                displayImage(img);
+            };
+        }
+    };
+
+    const displayImage = (image) => {
+        canvas.width = videoWidth;
+        canvas.height = videoHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(image, 0, 0, videoWidth, videoHeight);
     };
 
     const startPlayback = (forward, callback) => {
@@ -133,7 +160,7 @@
         let nextScrollTop = window.scrollY;
         
         if (window.innerWidth < 768) {
-            if(preScrollTop < nextScrollTop && window.scrollY >= window.innerHeight*0.1 && !isPlaying) {
+            if(preScrollTop < nextScrollTop && window.scrollY && window.scrollY >= 100 && !isPlaying) {
                 isPlaying = true;
                 startPlayback(true, () => {
                     isPlaying = false;
@@ -141,9 +168,8 @@
                 });
             }
             else if (preScrollTop > nextScrollTop && !isPlaying){ 
-                if (window.scrollY < window.innerHeight*0.4) {
+                if (window.scrollY < 100) {
                     logoDown();
-                    navBarMobileHandler()
                     isPlaying = true;
                     startPlayback(false, () => {
                         isPlaying = false;
@@ -157,20 +183,6 @@
         }
         preScrollTop = nextScrollTop;
     });
-
-    navBarMobileHandler()
-    function navBarMobileHandler() {
-        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
-        const headerLogoStyle = getComputedStyle(headerLogo);
-        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
-        const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
-        const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
-
-        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
-        document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
-    }
-    window.addEventListener('resize', navBarMobileHandler);
-
 
     const otherPageRender = document.querySelector('.renderSection_other');
     window.addEventListener('resize', renderSectionOtherHandler);
@@ -187,19 +199,32 @@
 
 
     function logoUp() {
-        headerLogo.style.transition = ".4s ease-in-out";
-        navBarMobile.style.transition = ".4s ease-in-out";
+        headerLogo.style.transition = ".3s ease-in-out";
+        navBarMobile.style.transition = ".3s ease-in-out";
         navBarMobile.style.top = 0 + "px";
         headerLogo.style.transform = "translateY(-120%)";
-        otherPageRender.style.top = 0 + "px";
     }
 
     function logoDown() {
-        headerLogo.style.transition = ".4s ease-in-out";
-        navBarMobile.style.transition = ".4s ease-in-out";
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
+
+        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
+        headerLogo.style.transition = ".3s ease-in-out";
+        navBarMobile.style.transition = ".3s ease-in-out";
         headerLogo.style.transform = "translateY(0%)";
-        otherPageRender.style.top = headerLogo.clientHeight + 5 + "px";
     }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
+        const navBarMobileHeight = navBarMobile.getBoundingClientRect().height;
+        const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
+        navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
+        document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
+    })
 
     document.addEventListener("DOMContentLoaded", async () => {
     
@@ -245,117 +270,6 @@
     } 
 })();
 
-// (() => {
-//     document.addEventListener("DOMContentLoaded", otherPageHandler);
-    
-//     function otherPageHandler() {
-//         const headerLogo = document.querySelector('.header-logo');
-//         const navBarMoible = document.querySelector('.nav-bar--mb');
-//         const otherPageRender = document.querySelector('.renderSection_other');
-    
-//         const otherPageRenderTop = headerLogo.clientHeight + navBarMoible.clientHeight + 5;
-        
-//         if (window.innerWidth > 767) {
-//             otherPageRender.style.top = 0 + "px";
-//         } else {
-//             otherPageRender.style.top = otherPageRenderTop + "px";
-//         }
-//     }
-// })(); 
-    
-//     document.addEventListener("DOMContentLoaded", async () => {
-//         window.addEventListener('beforeunload', function() {
-//             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
-//         });
-    
-//         async function preloadAndHide(loadingPageFunction) {
-//             headerLogo.style.opacity = "1";
-            
-//             await preloadImages();
-//             headerLogo.style.transition = "opacity 1.2s ease, transform 1.2s 0.6s ease";
-//             const elapsedTime = new Date().getTime() - startTime;
-//             const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
-    
-//             setTimeout(() => {
-//                 loadingPageFunction();
-//                 setTimeout(() => {
-//                     canvas.style.imageRendering = "pixelated";
-//                     canvas.style.imageRendering = "auto";
-//                 }, 100);
-//             }, remainingTime);
-//         }
-    
-//         await centerImageVertically();
-//         const scrollLoadPosition = sessionStorage.getItem('scrollLoadPosition') || 0;
-//         window.onbeforeunload = function() {
-//             sessionStorage.setItem('scrollLoadPosition', window.scrollY);
-//         };
-//         const hasVisited = sessionStorage.getItem('hasVisited');
-    
-//         if (!window.innerWidth > 767) {
-//             if (!hasVisited && parseInt(scrollLoadPosition) < window.innerHeight * 0.1) {
-//                 await preloadAndHide(hideLoadingPageOne);
-//                 sessionStorage.setItem('hasVisited', 'true');
-//             } else {
-//                 minimumLoadingTime = 0;
-//                 headerLogo.style.transition = "none";
-//                 canvas.style.animation = "none";
-//                 headerLogo.style.transform = "translateY(0)";
-//                 headerLogo.style.zIndex = "9998";
-//                 canvas.style.transition = "none";
-//                 canvas.style.transform = "scale(1.008)";
-    
-//                 await preloadAndHide(hideLoadingPageTwo);
-//             }
-//         } else {
-//             minimumLoadingTime = 0;
-//             headerLogo.style.transition = "none";
-//             canvas.style.animation = "none";
-//             headerLogo.style.transform = "translateY(0)";
-//             headerLogo.style.zIndex = "9998";
-//             canvas.style.transition = "none";
-//             canvas.style.transform = "scale(1.008)";
-    
-//             await preloadAndHide(hideLoadingPageTwo);
-    
-//             if (!hasVisited && parseInt(scrollLoadPosition) < window.innerHeight * 0.1) {
-//                 sessionStorage.setItem('hasVisited', 'true');
-//             }
-//         }
-//     });
-        
-//     function hideLoadingPageOne() {
-//         var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
-
-//         loadingPage.style.animation = "slideUpAndFadeOut 1s 1s ease-in-out";
-//         canvas.style.animation = "none"
-//         headerLogo.style.transform = "translateY(0)";
-//         canvas.style.transform = "scale(1.008)"
-//         loadingPage.addEventListener("animationend", function () {
-//             loadingPage.style.display = "none";
-//             document.body.style.overflow = "auto";
-//         });
-//     }
-
-//     function hideLoadingPageTwo() {
-//         var loadingPage = document.getElementById('kaamkaaj-loading').parentNode;
-//         loadingPage.style.animation = "slideUpAndFadeOut 0.5s ease-in-out";
-//         loadingPage.addEventListener("animationend", function () {
-//             loadingPage.style.display = "none";
-//             document.body.style.overflow = "auto";
-//         });
-        
-//     } 
-//     function centerImageVertically() {
-//         const screenHeight = window.innerHeight;
-//         const imageHeight = headerLogo.getBoundingClientRect().height;
-//         const logoYOffset = Math.max(0, (screenHeight - imageHeight) / 2.1);
-    
-//         headerLogo.style.transform = `translateY(${logoYOffset}px)`;
-//         // headerLogo.style.transition = "opacity 1.2s ease";
-//     };
-
-// })();
 
 
 

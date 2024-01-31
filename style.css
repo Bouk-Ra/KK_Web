@@ -798,12 +798,14 @@ body {
 /* SECTION 2 -- LIST */
 /* SECTION 2 -- LIST */
 
+.main-projects-list__side {
+    pointer-events: none;
+}
 
 .main-projects-list__item:first-child {
     display: flex;
     flex-direction: column;
     font-size: 30px;
-    z-index: 1000;
 }
 
 .main-projects-list__item:last-child {
@@ -811,7 +813,6 @@ body {
     height: 100%;
     position: sticky;
     top: var(--nav-height);
-    z-index: 99;
 }
 .main-projects-list__item:last-child img{
     width: 30vw;
@@ -829,7 +830,7 @@ body {
     color: var(--color3);
     position: relative;
     overflow: visible;
-    line-height: 1.2;
+    line-height: 1;
 }
 
 
