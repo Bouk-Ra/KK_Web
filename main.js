@@ -745,13 +745,6 @@
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    var videos = document.querySelectorAll('.video');
-
-    videos.forEach(function(video) {
-        video.play();
-    });
-});
 
 (() => {
     const listSideImage = document.querySelector('.main-projects-list__side');
@@ -809,36 +802,3 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 
-
-
-
-
-
-(() => {
-    document.addEventListener('DOMContentLoaded', () => {
-        const videos = document.querySelectorAll('.video--thumb');
-
-        window.addEventListener('popstate   ', () => {
-            videos.forEach(video => {
-                video.pause();
-                console.log(video)
-            });
-            setTimeout(() => {
-                videos.forEach(video => {
-                    video.play();
-                    console.log('play')
-                });
-            }, 500);
-        });
-    });
-})(); 
-
-window.addEventListener('popstate', function(event) {
-    // 뒤로가기 버튼이 클릭되었을 때 실행되는 코드
-    console.log('뒤로가기 이벤트 발생!');
-  });
-
-  window.addEventListener('popstate', function(event) {
-    // 앞으로가기 버튼이 클릭되었을 때 실행되는 코드
-    console.log('앞으로가기 이벤트 발생!');
-});
