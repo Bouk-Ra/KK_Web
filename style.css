@@ -1638,6 +1638,7 @@ body {
     width: 70px;
     height: auto;
     transform: translate(-50%, -93%);
+    transition: .5s cubic-bezier(0.02, 0.67, 0.25, 1);
 }
 
 body:hover .custom-cursor {
