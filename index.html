@@ -10,851 +10,852 @@
 </head>
 <body>
     <div class="custom-cursor"><img src="https://files.cargocollective.com/c1706458/arrowDown.png" alt=""></div>
-    <div>
-        <div id="kaamkaaj-loading"></div>
+    <div id="loading-page">
+      <div id="kaamkaaj-loading"></div>
     </div>
- 
+    
     <div class="logo-hover-zone__container">
-        <div class="logo-hover-zone"></div>
-        <div class="logo-hover-zone"></div>
-        <div class="logo-hover-zone"></div>
-        <div class="logo-hover-zone"></div>
-        <div class="logo-hover-zone"></div>
-        <div class="logo-hover-zone"></div>
-        <div class="logo-hover-zone"></div>
+      <div class="logo-hover-zone"></div>
+      <div class="logo-hover-zone"></div>
+      <div class="logo-hover-zone"></div>
+      <div class="logo-hover-zone"></div>
+      <div class="logo-hover-zone"></div>
+      <div class="logo-hover-zone"></div>
+      <div class="logo-hover-zone"></div>
     </div>
-
+    
     <section class="welcome-page">
-        <header class="header-logo">
-            <canvas class="logo" width="3000" height="308" style="display: block;"></canvas>
-        </header>   
-        <div class="nav-bar__bg">
+      <header class="header-logo">
+        <canvas class="logo" width="3000" height="308" style="display: block;"></canvas>
+      </header>   
+      <div class="nav-bar__bg">
+      </div>
+      <div class="gallery-btns__container">
+        <div class="gallery-btns">
+          <div class="gallery-btns__column">
+            <span class="gallery-btns--filter">Filter:</span>
+          </div>
+          <div class="gallery-btns__column">
+            <span class="gallery-btn--all category-btn btn--active" onclick="filterImages('all'); toggleActive(this); location.href='#before-gallery'">All</span>
+          </div>
+          <div class="gallery-btns__column gallery-btns--list">
+            <span class="gallery-btn--project category-btn" onclick="filterImages('ft__visual-identity'); toggleActive(this); location.href='#before-gallery'">Visual Identity</span>
+            <span class="gallery-btn--project category-btn" onclick="filterImages('ft__typography'); toggleActive(this); location.href='#before-gallery'">Typography</span>
+            <span class="gallery-btn--project category-btn" onclick="filterImages('ft__editorial'); toggleActive(this); location.href='#before-gallery'">Editorial</span>
+            <span class="gallery-btn--project category-btn" onclick="filterImages('ft__digial'); toggleActive(this); location.href='#before-gallery'">Digital</span>
+            <span class="gallery-btn--project category-btn" onclick="filterImages('ft__kk-projects'); toggleActive(this); location.href='#before-gallery'">KK Projects</span>
+          </div>
         </div>
-        <div class="gallery-btns__container">
-            <div class="gallery-btns">
-                <div class="gallery-btns__column">
-                    <span class="gallery-btns--filter">Filter:</span>
-                </div>
-                <div class="gallery-btns__column">
-                    <span class="gallery-btn--all category-btn btn--active" onclick="filterImages('all'); toggleActive(this); location.href='#before-gallery'">All</span>
-                </div>
-                <div class="gallery-btns__column gallery-btns--list">
-                    <span class="gallery-btn--project category-btn" onclick="filterImages('ft__visual-identity'); toggleActive(this); location.href='#before-gallery'">Visual Identity</span>
-                    <span class="gallery-btn--project category-btn" onclick="filterImages('ft__typography'); toggleActive(this); location.href='#before-gallery'">Typography</span>
-                    <span class="gallery-btn--project category-btn" onclick="filterImages('ft__editorial'); toggleActive(this); location.href='#before-gallery'">Editorial</span>
-                    <span class="gallery-btn--project category-btn" onclick="filterImages('ft__digial'); toggleActive(this); location.href='#before-gallery'">Digital</span>
-                    <span class="gallery-btn--project category-btn" onclick="filterImages('ft__kk-projects'); toggleActive(this); location.href='#before-gallery'">KK Projects</span>
-                </div>
+      </div>
+      <div class="nav-bar__container">
+        <nav class="nav-bar">
+          <div class="nav-bar__column">
+            <a href="https://kaamkaaj.work/home" style="color: white;"><span>KAAM KAAJ</span></a>
+            <p class="kaamkaaj-is">Design Services, London, UK<br>Local + Global Services.</p>
+          </div>
+          <div class="nav-bar__column">
+            <div class="projects-toggle__btns">
+              <div class="projects-toggle__btns__container">
+                <span>View: </span>
+                <span class="projects-toggle__btn toggleActive__btn" id="section1__btn" onclick="toggleSection('section1'); scrollToSection('section1');">Featured</span>
+                <span class="projects-toggle__btn" id="section2__btn" onclick="toggleSection('section2'); scrollToSection('section2');">Index</span>
+              </div>
             </div>
-        </div>
-        <div class="nav-bar__container">
-            <nav class="nav-bar">
-                <div class="nav-bar__column">
-                    <a href="https://kaamkaaj.work/home" style="color: white;"><span>KAAM KAAJ</span></a>
-                    <p class="kaamkaaj-is">Design Services, London, UK<br>Local + Global Services.</p>
-                </div>
-                <div class="nav-bar__column">
-                <div class="projects-toggle__btns">
-                    <div class="projects-toggle__btns__container">
-                        <span>View: </span>
-                        <span class="projects-toggle__btn toggleActive__btn" id="section1__btn" onclick="toggleSection('section1'); scrollToSection('section1');">Featured</span>
-                        <span class="projects-toggle__btn" id="section2__btn" onclick="toggleSection('section2'); scrollToSection('section2');">Index</span>
-                    </div>
-                </div>
-                </div>
-                <div class="nav-bar__column">
-                    <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='#main-projects'">WORK</button>
-                    <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='https://kaamkaaj.work/information'">INFO</button>
-                    <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='https://kaamkaaj.work/shop_loading'">SHOP</button>
-                    <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='mailto:info@kaamkaaj.work'">CONTACT</button>
-                </div>
-            </nav>
-        </div>          
-    </section>
-    <div class="nav-bar__container--mb">
-        <nav class="nav-bar--mb">
+          </div>
+          <div class="nav-bar__column">
             <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='#main-projects'">WORK</button>
             <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='https://kaamkaaj.work/information'">INFO</button>
             <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='https://kaamkaaj.work/shop_loading'">SHOP</button>
             <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='mailto:info@kaamkaaj.work'">CONTACT</button>
+          </div>
         </nav>
+      </div>          
+    </section>
+    <div class="nav-bar__container--mb">
+      <nav class="nav-bar--mb">
+        <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='#main-projects'">WORK</button>
+        <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='https://kaamkaaj.work/information'">INFO</button>
+        <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='https://kaamkaaj.work/shop_loading'">SHOP</button>
+        <button type="button" class="nav-bar-btn btn__animation" onclick="location.href='mailto:info@kaamkaaj.work'">CONTACT</button>
+      </nav>
     </div>
     <div class="welcome-text__container">
-        <p>
-            Kaam Kaaj, a design studio specialising <br> in visual identities + typography.
-        </p>
+      <p>
+        Kaam Kaaj, a design studio specialising <br> in visual identities + typography.
+      </p>
     </div>
-
+    
     <section class="newsSection">
-        <div class="news-state">
-            <img class="news-state--news" src="https://files.cargocollective.com/c1706458/NEWS_Ed.png"/>
+      <div class="news-state">
+        <img class="news-state--news" src="https://files.cargocollective.com/c1706458/NEWS_Ed.png">
+      </div>
+      <div class="news-box__container">
+        <div class="news-box shaker" id="news-box1--font" style="top: 10%; left: 20%;" onmouseenter="handleMouseEnter(0)" onmouseleave="handleMouseLeave(0)">
+          <nav class="news-btn__container">
+            <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+              <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
+            </div>
+            <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(0)" onmouseleave="stopSlideshow(0)">
+              <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
+            </div>
+            <div class="enter-btn news-btn__animation">
+              <a href="https://kaamkaaj.work/RUKH" class="image-link"><img src="https://files.cargocollective.com/c1706458/arrow.png" alt=""></a>
+            </div>
+            <div class="news-category">
+              <span>TYPEFACE</span>
+            </div>
+          </nav>
+          <div class="news-text__container">
+            <span class="news-theme">Latest Font</span>
+            <a class="news-title" href="https://kaamkaaj.work/RUKH"><span>Rukh Out Now</span></a>
+          </div>
         </div>
-        <div class="news-box__container">
-            <div class="news-box shaker" id="news-box1--font" style="top: 10%; left: 20%;" onmouseenter="handleMouseEnter(0)" onmouseleave="handleMouseLeave(0)">
-                <nav class="news-btn__container">
-                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                        <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
-                    </div>
-                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(0)" onmouseleave="stopSlideshow(0)">
-                        <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
-                    </div>
-                    <div class="enter-btn news-btn__animation">
-                        <a href="https://kaamkaaj.work/RUKH"><img src="https://files.cargocollective.com/c1706458/arrow.png" alt=""></a>
-                    </div>
-                    <div class="news-category">
-                        <span>TYPEFACE</span>
-                    </div>
-                </nav>
-                <div class="news-text__container">
-                    <span class="news-theme">Latest Font</span>
-                    <a class="news-title" href="https://kaamkaaj.work/RUKH"><span>Rukh Out Now</span></a>
-                </div>
-            </div>
     
-            <div class="news-box shaker" id="news-box2--press" style="top: 30%; left: 7%;" onmouseenter="handleMouseEnter(1)" onmouseleave="handleMouseLeave(1)">
-                <nav class="news-btn__container">
-                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                        <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
-                    </div>
-                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(1)" onmouseleave="stopSlideshow(1)">
-                        <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
-                    </div>
-                    <div class="enter-btn news-btn__animation">
-                        <a target='_blank' href="https://the-brandidentity.com/interview/engage-in-work-that-aligns-with-your-souls-calling-kaam-kaaj-on-the-shared-joy-of-their-practice"><img src="https://files.cargocollective.com/c1706458/arrow.png" alt=""></a>
-                    </div>
-                    <div class="news-category">
-                        <span>ARTICLE</span>
-                    </div>
-                </nav>
-                <div class="news-text__container">
-                    <span class="news-theme">Latest Press</span>
-                    <a class="news-title" target='_blank' href="https://the-brandidentity.com/interview/engage-in-work-that-aligns-with-your-souls-calling-kaam-kaaj-on-the-shared-joy-of-their-practice"><span>LCC Shows on TBI</span></a>
-                </div>
+        <div class="news-box shaker" id="news-box2--press" style="top: 30%; left: 7%;" onmouseenter="handleMouseEnter(1)" onmouseleave="handleMouseLeave(1)">
+          <nav class="news-btn__container">
+            <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+              <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
             </div>
-    
-            <div class="news-box shaker news-soon" id="news-box3--project" style="top: 25%; left: 65%;" onmouseenter="handleMouseEnter(2)" onmouseleave="handleMouseLeave(2)">
-                <nav class="news-btn__container">
-                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                        <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
-                    </div>
-                    <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(2)" onmouseleave="stopSlideshow(2)">
-                        <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
-                    </div>
-                    <div class="enter-btn news-btn__animation">
-                        <img src="https://files.cargocollective.com/c1706458/arrow.png" alt="">
-                    </div>
-                    <div class="news-category">
-                        <span>UPCOMING</span>
-                    </div>
-                </nav>
-                <div class="news-text__container">
-                    <span class="news-theme">Latest Project</span>
-                    <span class="news-title">South-Asian vibes futurism with RA + Splice</span>
-                </div>
+            <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(1)" onmouseleave="stopSlideshow(1)">
+              <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
             </div>
-    
-            <div class="news-box shaker" id="news-box0--see-all" style="top: 63%; left: 55%;" onmouseenter="handleMouseEnterExcp(event)" onmouseleave="handleMouseLeaveExcp(event)">
-                <nav class="news-btn__container">
-                    <div class="close-btn news-btn__animation" onclick="closeBox(event)">
-                        <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
-                    </div>
-                    <div class="play-btn news-btn__animation">
-                        <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
-                    </div>
-                    <div class="enter-btn news-btn__animation">
-                        <a href="#main-projects"><img src="https://files.cargocollective.com/c1706458/arrow.png" alt=""></a>
-                    </div>
-                    <div class="news-category">
-                        <span>PROJECTS</span>
-                    </div>
-                </nav>
-                <div class="news-text__container">
-                    <span class="news-theme">Work</span>
-                    <a class="news-title" href="#main-projects"><span>View All Projects</span></a>
-                </div>
+            <div class="enter-btn news-btn__animation">
+              <a target="_blank" href="https://the-brandidentity.com/interview/engage-in-work-that-aligns-with-your-souls-calling-kaam-kaaj-on-the-shared-joy-of-their-practice" class="image-link"><img src="https://files.cargocollective.com/c1706458/arrow.png" alt=""></a>
             </div>
+            <div class="news-category">
+              <span>ARTICLE</span>
+            </div>
+          </nav>
+          <div class="news-text__container">
+            <span class="news-theme">Latest Press</span>
+            <a class="news-title" target="_blank" href="https://the-brandidentity.com/interview/engage-in-work-that-aligns-with-your-souls-calling-kaam-kaaj-on-the-shared-joy-of-their-practice"><span>LCC Shows on TBI</span></a>
+          </div>
         </div>
-        
-
+    
+        <div class="news-box shaker news-soon" id="news-box3--project" style="top: 25%; left: 65%;" onmouseenter="handleMouseEnter(2)" onmouseleave="handleMouseLeave(2)">
+          <nav class="news-btn__container">
+            <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+              <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
+            </div>
+            <div class="play-btn news-btn__animation" onmouseenter="playSlideshow(2)" onmouseleave="stopSlideshow(2)">
+              <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
+            </div>
+            <div class="enter-btn news-btn__animation">
+              <img src="https://files.cargocollective.com/c1706458/arrow.png" alt="">
+            </div>
+            <div class="news-category">
+              <span>UPCOMING</span>
+            </div>
+          </nav>
+          <div class="news-text__container">
+            <span class="news-theme">Latest Project</span>
+            <span class="news-title">South-Asian vibes futurism with RA + Splice</span>
+          </div>
+        </div>
+    
+        <div class="news-box shaker" id="news-box0--see-all" style="top: 63%; left: 55%;" onmouseenter="handleMouseEnterExcp(event)" onmouseleave="handleMouseLeaveExcp(event)">
+          <nav class="news-btn__container">
+            <div class="close-btn news-btn__animation" onclick="closeBox(event)">
+              <img src="https://files.cargocollective.com/c1706458/close.png" alt="">
+            </div>
+            <div class="play-btn news-btn__animation">
+              <img src="https://files.cargocollective.com/c1706458/play.png" alt="">
+            </div>
+            <div class="enter-btn news-btn__animation">
+              <a href="#main-projects" class="image-link"><img src="https://files.cargocollective.com/c1706458/arrow.png" alt=""></a>
+            </div>
+            <div class="news-category">
+              <span>PROJECTS</span>
+            </div>
+          </nav>
+          <div class="news-text__container">
+            <span class="news-theme">Work</span>
+            <a class="news-title" href="#main-projects"><span>View All Projects</span></a>
+          </div>
+        </div>
+      </div>
+    
+    
     </section>
-
+    
     <section class="renderSection">
-        <!-- Project section -->
-        <!-- Project section -->
-        <div id ="main-projects" class="main-projects">
-            <!-- Project section--GRID STARTSTARTSTART -->
-            <!-- Project section--GRID STARTSTARTSTART -->
-            <section id="section1" class="section toggleActive">
-                <!-- SCHOOL TO SWOOSH -->
-                <div class="main-project__single see-see">
-                    <div class="main-project__single--img carousel-container">
-                        <div class="carousel">
-                            <div class="slide" data-index="0">
-                                <video src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-STS-Horizontal-Reverse-Animation.webm" class="video--thumb" width="100%" height="100%" loop muted autoplay playsinline></video>
-                                <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/a12e05ffb1129e2c6e0fe7c5afc73e338895c9f7abcd00b3b26b4f74c6ab61f2/Kaam-Kaaj-STS-Horizontal-Reverse-Animation-min.gif" />
-                            </div>
-                            <div class="slide" data-index="1">
-                                <img src="https://freight.cargo.site/t/original/i/660206c25f21870fa0ad4594a7efbebc7ebe44382518b7aa142f4b89f1a47ed5/Kaam-Kaaj-STS-Nike-00.jpg">
-                            </div>
-                            <div class="slide" data-index="2">
-                                <img src="https://freight.cargo.site/t/original/i/dbb4108abff86295586ae3ffba89e763ae38cad8c918f6e82e181cc3492b6489/Kaam-Kaaj-STS-Nike-02-min.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-project--dscr">
-                        <a href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH"><span class="main-project__title invert-hover">School to Swoosh</span></a>
-                        <span class="main-project__client invert-hover">Nike, 2023</span>
-                        <div class="carousel-buttons">
-                            <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                            <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                            <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                            <a class="see-project-btn" href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                        </div>
-                    </div>
-                </div>            
-            
-                <div class="space-divider"></div>
-            
-                <div class="main-project__x2">
-                    <!-- Splice Connections Live -->
-                    <div class="main-project__x2--column soon-soon">
-                        <div class="main-project__x2--img carousel-container">
-                            <div class="carousel">
-                                <div class="slide">
-                                    <video src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Splice-x-RA-04.mp4" class="video--thumb" width="100%" height="100%" loop muted autoplay playsinline></video>
-                                    <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/c88df387b1cdcbd38206fc9535ecd7a61b7f58610585f8c9ebd32460849b6ced/Kaam-Kaaj-Splice-x-RA-04_1-min.gif" alt="">
-                                </div>
-                                <div class="slide">
-                                    <img src="https://freight.cargo.site/t/original/i/07fa6a1c73bb9cd2d8d2ef2fcf8296aabe4007bb167ffd976c1eb17bb320f048/Kaam-Kaaj-Splice-x-RA-03_1-min.gif" alt="">
-                                </div>
-                                <div class="slide">
-                                    <img src="https://freight.cargo.site/t/original/i/f707ddc485a7ee1eb82b785891f9524b5435a1226d32953ebb3284c5ed84b511/Kaam-Kaaj-Splice-x-RA-02_1-min.gif" alt="">
-                                </div>                                                        
-                            </div>
-                        </div>
-                        <div class="main-project--dscr">
-                            <a href="javascript:void(0);"><span class="main-project__title invert-hover">Splice Connections Live</span></a>
-                            <span class="main-project__client invert-hover">Splice X Resident Advisor, 2023</span>
-                            <div class="carousel-buttons">
-                                <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                <span class="soon-text">Coming soon!</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Rukh Typeface -->
-                    <div class="main-project__x2--column see-see">
-                        <div class="main-project__x2--img carousel-container">
-                            <div class="carousel">
-                                <div class="slide">
-                                    <img src="https://freight.cargo.site/t/original/i/5217bcadd45e505c97151d312f29912384383c6bed72153ae23666c78ca6f6c1/Kaam-Kaaj-Rukh-Typeface-3.jpg">
-                                </div>
-                                <div class="slide">
-                                    <img src="https://freight.cargo.site/t/original/i/b45835ff8b2af8e897eb58ae3bf3cabae0b740d501d88b8c464db065e4589b22/Kaam-Kaaj-Rukh-Typeface-1.jpg">
-                                </div>
-                                <div class="slide">
-                                    <img src="https://freight.cargo.site/t/original/i/a31ddbc548152c86fb28fd9c32f20bbb0ea127e5b85dbb350266bbd5fdc71bb3/Kaam-Kaaj-Rukh-Typeface-2.jpg">
-                                </div>                                                        
-                            </div>
-                        </div>
-            
-                        <div class="main-project--dscr">
-                            <a href="https://kaamkaaj.work/RUKH"><span class="main-project__title invert-hover">Rukh Typeface</span></a>
-                            <span class="main-project__client invert-hover">Kaam Kaaj, 2024</span>
-                            <div class="carousel-buttons">
-                                <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                <a class="see-project-btn" href="https://kaamkaaj.work/RUKH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                            </div>
-                        </div>
-                    </div>
+      <!-- Project section -->
+      <!-- Project section -->
+      <div id="main-projects" class="main-projects">
+        <!-- Project section--GRID STARTSTARTSTART -->
+        <!-- Project section--GRID STARTSTARTSTART -->
+        <section id="section1" class="section toggleActive">
+          <!-- SCHOOL TO SWOOSH -->
+          <div class="main-project__single see-see">
+            <div class="main-project__single--img carousel-container">
+              <div class="carousel">
+                <div class="slide" data-index="0">
+                  <video src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-STS-Horizontal-Reverse-Animation.webm" class="video--thumb" width="100%" height="100%" loop="" muted="" autoplay="" playsinline=""></video>
+                  <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/a12e05ffb1129e2c6e0fe7c5afc73e338895c9f7abcd00b3b26b4f74c6ab61f2/Kaam-Kaaj-STS-Horizontal-Reverse-Animation-min.gif">
                 </div>
-
-                <div class="space-divider"></div>
-                
+                <div class="slide" data-index="1">
+                  <img src="https://freight.cargo.site/t/original/i/660206c25f21870fa0ad4594a7efbebc7ebe44382518b7aa142f4b89f1a47ed5/Kaam-Kaaj-STS-Nike-00.jpg">
+                </div>
+                <div class="slide" data-index="2">
+                  <img src="https://freight.cargo.site/t/original/i/dbb4108abff86295586ae3ffba89e763ae38cad8c918f6e82e181cc3492b6489/Kaam-Kaaj-STS-Nike-02-min.jpg">
+                </div>
+              </div>
+            </div>
+            <div class="main-project--dscr">
+              <a href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH"><span class="main-project__title invert-hover">School to Swoosh</span></a>
+              <span class="main-project__client invert-hover">Nike, 2023</span>
+              <div class="carousel-buttons">
+                <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                <a class="see-project-btn" href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+              </div>
+            </div>
+          </div>            
+    
+          <div class="space-divider"></div>
+    
+          <div class="main-project__x2">
+            <!-- Splice Connections Live -->
+            <div class="main-project__x2--column soon-soon">
+              <div class="main-project__x2--img carousel-container">
+                <div class="carousel">
+                  <div class="slide">
+                    <video src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Splice-x-RA-04.mp4" class="video--thumb" width="100%" height="100%" loop="" muted="" autoplay="" playsinline=""></video>
+                    <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/c88df387b1cdcbd38206fc9535ecd7a61b7f58610585f8c9ebd32460849b6ced/Kaam-Kaaj-Splice-x-RA-04_1-min.gif" alt="">
+                  </div>
+                  <div class="slide">
+                    <img src="https://freight.cargo.site/t/original/i/07fa6a1c73bb9cd2d8d2ef2fcf8296aabe4007bb167ffd976c1eb17bb320f048/Kaam-Kaaj-Splice-x-RA-03_1-min.gif" alt="">
+                  </div>
+                  <div class="slide">
+                    <img src="https://freight.cargo.site/t/original/i/f707ddc485a7ee1eb82b785891f9524b5435a1226d32953ebb3284c5ed84b511/Kaam-Kaaj-Splice-x-RA-02_1-min.gif" alt="">
+                  </div>                                                        
+                </div>
+              </div>
+              <div class="main-project--dscr">
+                <a href="javascript:void(0);"><span class="main-project__title">Splice Connections Live</span></a>
+                <span class="main-project__client">Splice X Resident Advisor, 2023</span>
+                <div class="carousel-buttons">
+                  <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                  <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                  <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                  <span class="soon-text">Coming soon!</span>
+                </div>
+              </div>
+            </div>
+            <!-- Rukh Typeface -->
+            <div class="main-project__x2--column see-see">
+              <div class="main-project__x2--img carousel-container">
+                <div class="carousel">
+                  <div class="slide">
+                    <img src="https://freight.cargo.site/t/original/i/5217bcadd45e505c97151d312f29912384383c6bed72153ae23666c78ca6f6c1/Kaam-Kaaj-Rukh-Typeface-3.jpg">
+                  </div>
+                  <div class="slide">
+                    <img src="https://freight.cargo.site/t/original/i/b45835ff8b2af8e897eb58ae3bf3cabae0b740d501d88b8c464db065e4589b22/Kaam-Kaaj-Rukh-Typeface-1.jpg">
+                  </div>
+                  <div class="slide">
+                    <img src="https://freight.cargo.site/t/original/i/a31ddbc548152c86fb28fd9c32f20bbb0ea127e5b85dbb350266bbd5fdc71bb3/Kaam-Kaaj-Rukh-Typeface-2.jpg">
+                  </div>                                                        
+                </div>
+              </div>
+    
+              <div class="main-project--dscr">
+                <a href="https://kaamkaaj.work/RUKH"><span class="main-project__title invert-hover">Rukh Typeface</span></a>
+                <span class="main-project__client invert-hover">Kaam Kaaj, 2024</span>
+                <div class="carousel-buttons">
+                  <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                  <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                  <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                  <a class="see-project-btn" href="https://kaamkaaj.work/RUKH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="space-divider"></div>
+    
+          <!-- LCC SHOWS 2023 -->
+          <div class="main-project__single see-see">
+            <div class="main-project__single--img carousel-container">
+              <div class="carousel">
+                <div class="slide">
+                  <img src="https://freight.cargo.site/t/original/i/d0dd2444bba482bfb40d6586e3c7de481a45532eccc04e1d1c1db7d3709d9526/Kaam-Kaaj-LCC-Shows-2023-01.jpg">
+                </div>
+                <div class="slide">
+                  <img src="https://freight.cargo.site/t/original/i/bbe38fc7f925799e6e77201d16e48f93082037071cf343c12936bfb973c4e459/Kaam-Kaaj-LCC-Shows-2023-02.jpg">
+                </div>
+                <div class="slide">
+                  <img src="https://freight.cargo.site/t/original/i/eeefbdb0f4922367b754d659c18edcaa3b1569546344024561740b124fa1c25d/Kaam-Kaaj-LCC-Shows-2023-03.jpg">
+                </div>
+              </div>
+            </div>
+    
+            <div class="main-project--dscr">
+              <a href="https://kaamkaaj.work/LCC-SHOWS-2023"><span class="main-project__title invert-hover">LCC Shows 2023</span></a>
+              <span class="main-project__client invert-hover">University of the Arts London, 2023</span>
+              <div class="carousel-buttons">
+                <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                <a class="see-project-btn" href="https://kaamkaaj.work/LCC-SHOWS-2023">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+              </div>
+            </div>
+          </div>    
+    
+          <div id="before-gallery" class="space-divider"></div>
+          <div class="gallery__container">
+            <!-- x3 columns GRID -->
+            <!-- x3 columns GRID -->
+            <!-- x3 columns GRID -->
+            <!-- typography logo studio graphic digital -->
+            <div class="gallery" id="project-gallery">
+    
+              <div class="main-project__x4">
+                <!-- EndlessLoveShow -->
+                <div class="main-project__x4--item tag-img ft__digial" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-ENDLESSLOVESHOW-Website.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/d04f23f2151602029ecc272f178befa28a1f60ddec0287d04ee78fb82a9db0bf/Kaam-Kaaj-ENDLESSLOVESHOW-0_1-min.gif" alt="">
+                      </div>
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-ENDLESSLOVESHOW-01.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/dd169408168f779e013b3e7a059c13c7db3a1af92e2ed8cccd8f2643ec48a7e4/Kaam-Kaaj-ENDLESSLOVESHOW-01_1_1-min.gif" alt="">
+                      </div>
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-ENDLESSLOVESHOW-Website.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/e4ccdd958e4894b9b452bb0cb83e421efe4cbc003d529ed177c8d7458834b755/Kaam-Kaaj-ENDLESSLOVESHOW-01_2-min.gif" alt="">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <a><span class="main-project__title invert-hover">EndlessLoveShow</span></a>
+                    <span class="main-project__client invert-hover">Kazim Rashid, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- AIR MAX 97 -->
+                <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-AM97_Nike-02.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/2c0748cf9495da0feeea93ae3051abff34a467172339ea87e87fd714971e999d/Kaam-Kaaj-AM97_Nike-02-min.gif" alt="">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/ae51a02349e446d5de442ee59cab494edfcb7c32880fa36868cea9abb8bf8367/Kaam-Kaaj-AM97-Nike-01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/8eb1cb2b9b8fd93014a098a3cc20d9f5c38569d246f42a9ddd0f0b2ab520abea/Kaam-Kaaj-AM97-Nike-03.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <a href="https://kaamkaaj.work/AIRMAX-97"><span class="main-project__title invert-hover">AIR MAX 97</span></a>
+                    <span class="main-project__client invert-hover">Nike, 2022</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <a class="see-project-btn" href="https://kaamkaaj.work/AIRMAX-97">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- SPLICE CONNECTIONS LIVE -->
+                <div class="main-project__x4--item tag-img soon-soon ft__visual-identity" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/f707ddc485a7ee1eb82b785891f9524b5435a1226d32953ebb3284c5ed84b511/Kaam-Kaaj-Splice-x-RA-02_1-min.gif" alt="">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/72ecf9c5cda6bd918381fb8698b85d7ff26fb6a691bde9a2c65b595f7ae935a4/Kaam-Kaaj-Splice-x-RA-04_1-min.gif" alt="">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/07fa6a1c73bb9cd2d8d2ef2fcf8296aabe4007bb167ffd976c1eb17bb320f048/Kaam-Kaaj-Splice-x-RA-03_1-min.gif" alt="">
+                      </div>                                                       
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title">SPLICE CONNECTIONS LIVE</span>
+                    <span class="main-project__client">Splice x Resident Advisor, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <span class="soon-text">Coming soon!</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- ORGANIC TANNED LEATHER -->
+                <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-OTL-Ecco-Leather-03.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/3361f56efda50182ab798d73bb249f0be2c0fdf0fb3d45fa0a646f36328d82a8/Kaam-Kaaj-OTL-Ecco-Leather-02-min.gif">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/e5e3878b6f17c3c2423e8a288330a03bf8e14c782107724458efb67e253e2c44/Kaam-Kaaj-OTL-Ecco-Leather-01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/278ce0076fb757e39af58b373503d681dd711f85cfd20a9c9794b1905c7869d6/Kaam-Kaaj-OTL-Ecco-Leather-03.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <a href="https://kaamkaaj.work/ORGANIC-TANNED-LEATHER"><span class="main-project__title invert-hover">ORGANIC TANNED LEATHER</span></a>
+                    <span class="main-project__client invert-hover">Ecco Leather, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <a class="see-project-btn" href="https://kaamkaaj.work/ORGANIC-TANNED-LEATHER">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- MORE DENIM PLEASE -->
+                <div class="main-project__x4--item see-see tag-img ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/9b66d3193adfb4709e8f11ae7d43405b9744f5d06bff94fce9472ce2cd733238/Kaam-Kaaj-AnywaysxLevis_01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/698093b22ce055c412e0e8dbebcba653d35e5e91d1b3d0e2215d5ccee422fa07/Kaam-Kaaj-AnywaysxLevis-02.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/4888e6879fbfd89938dde02ff7a35531306ea87b7458018c73fedf2a08d082f4/Kaam-Kaaj-AnywaysxLevis-03.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <a href="https://kaamkaaj.work/MORE-DENIM-PLEASE"><span class="main-project__title invert-hover">More Denim Please</span></a>
+                    <span class="main-project__client invert-hover">Levi's X Anyways, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <a class="see-project-btn" href="https://kaamkaaj.work/MORE-DENIM-PLEASE">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- KAMDIDAR -->
+                <div class="main-project__x4--item tag-img ft__visual-identity ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Kamdidar-01.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/3322c8b398a6fcffda0dc629cc25e37c121dc7c0ecbf30f08e76c0a51af6bdb9/Kaam-Kaaj-Kamdidar-01_1-min.gif">
+                      </div>
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Kamdidar-02.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/e30dfbb829964ccd74f608630290451afa5c5d56b385d9c61e23cf90bad94679/Kaam-Kaaj-Kamdidar-011_1-min.gif">
+                      </div>
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Kamdidar-03.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/29cdee963116e5df2a779551bf034c188a2005eee243a9652fbd2eaebc8ca236/Kaam-Kaaj-Kamdidar-03_1-min.gif">
+                      </div>                                                             
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">KAMDIDAR</span>
+                    <span class="main-project__client invert-hover">Kamdidar, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- V&A MAKE SPACE -->
+                <div class="main-project__x4--item tag-img ft__visual-identity" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-V-A-02.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/13ca1d4c464ebb82b18aef77884f69153f7e2eca1bc1c13969b87866ddaf852c/Kaam-Kaaj-V-02_1-min.gif">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/4e0b7393bb112070d4cda18200cef83cb3f7b97921fdeb4689681ed603335cb6/Kaam-Kaaj-V-A-02.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/13118be5314192aa88c30a8fa0a421997fd8e8f6fa91c293e2cefb2705ac5714/Kaam-Kaaj-V-A-03.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">V&amp;A MAKE SPACE</span>
+                    <span class="main-project__client invert-hover">V&amp;A EAST, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <span class="soon-text">Coming soon!</span>
+                    </div>
+                  </div>
+                </div>
                 <!-- LCC SHOWS 2023 -->
-                <div class="main-project__single see-see">
-                    <div class="main-project__single--img carousel-container">
-                        <div class="carousel">
-                            <div class="slide">
-                                <img src="https://freight.cargo.site/t/original/i/d0dd2444bba482bfb40d6586e3c7de481a45532eccc04e1d1c1db7d3709d9526/Kaam-Kaaj-LCC-Shows-2023-01.jpg">
-                            </div>
-                            <div class="slide">
-                                <img src="https://freight.cargo.site/t/original/i/bbe38fc7f925799e6e77201d16e48f93082037071cf343c12936bfb973c4e459/Kaam-Kaaj-LCC-Shows-2023-02.jpg">
-                            </div>
-                            <div class="slide">
-                                <img src="https://freight.cargo.site/t/original/i/eeefbdb0f4922367b754d659c18edcaa3b1569546344024561740b124fa1c25d/Kaam-Kaaj-LCC-Shows-2023-03.jpg">
-                            </div>
-                        </div>
+                <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography ft__editorial" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/d7a1a4b543d734df5b98d2e5ad4212ec501449d0b6fc7d45e64273bdff587f55/Kaam-Kaaj-LCC-Shows-2023-00.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/fec37ffe47ba7322f5811d84d5402113b4d7fe742d0f6877e38431e45d79076a/Kaam-Kaaj-LCC-Shows-2023-01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/a35195234e88dd752fc556683aa6479cb67d206b7f828e85784193397eb7d64d/Kaam-Kaaj-LCC-Shows-2023-02.jpg">
+                      </div>                                                        
                     </div>
-            
-                    <div class="main-project--dscr">
-                        <a href="https://kaamkaaj.work/LCC-SHOWS-2023"><span class="main-project__title invert-hover">LCC Shows 2023</span></a>
-                        <span class="main-project__client invert-hover">University of the Arts London, 2023</span>
-                        <div class="carousel-buttons">
-                            <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                            <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                            <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                            <a class="see-project-btn" href="https://kaamkaaj.work/LCC-SHOWS-2023">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                        </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <a href="https://kaamkaaj.work/LCC-SHOWS-2023"><span class="main-project__title invert-hover">LCC SHOWS 2023</span></a>
+                    <span class="main-project__client invert-hover">Univeristy of the Arts London, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <a class="see-project-btn" href="https://kaamkaaj.work/LCC-SHOWS-2023">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
                     </div>
-                </div>    
-            
-                <div id="before-gallery" class="space-divider"></div>
-                <div class="gallery__container">
-                    <!-- x3 columns GRID -->
-                    <!-- x3 columns GRID -->
-                    <!-- x3 columns GRID -->
-                    <!-- typography logo studio graphic digital -->
-                    <div class="gallery" id="project-gallery">
-
-                        <div class="main-project__x4">
-                            <!-- EndlessLoveShow -->
-                            <div class="main-project__x4--item tag-img ft__digial">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-ENDLESSLOVESHOW-Website.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/d04f23f2151602029ecc272f178befa28a1f60ddec0287d04ee78fb82a9db0bf/Kaam-Kaaj-ENDLESSLOVESHOW-0_1-min.gif" alt="">
-                                        </div>
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-ENDLESSLOVESHOW-01.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/dd169408168f779e013b3e7a059c13c7db3a1af92e2ed8cccd8f2643ec48a7e4/Kaam-Kaaj-ENDLESSLOVESHOW-01_1_1-min.gif" alt="">
-                                        </div>
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-ENDLESSLOVESHOW-Website.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/e4ccdd958e4894b9b452bb0cb83e421efe4cbc003d529ed177c8d7458834b755/Kaam-Kaaj-ENDLESSLOVESHOW-01_2-min.gif" alt="">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <a><span class="main-project__title invert-hover">EndlessLoveShow</span></a>
-                                    <span class="main-project__client invert-hover">Kazim Rashid, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- AIR MAX 97 -->
-                            <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-AM97_Nike-02.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/2c0748cf9495da0feeea93ae3051abff34a467172339ea87e87fd714971e999d/Kaam-Kaaj-AM97_Nike-02-min.gif" alt="">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/ae51a02349e446d5de442ee59cab494edfcb7c32880fa36868cea9abb8bf8367/Kaam-Kaaj-AM97-Nike-01.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/8eb1cb2b9b8fd93014a098a3cc20d9f5c38569d246f42a9ddd0f0b2ab520abea/Kaam-Kaaj-AM97-Nike-03.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <a href="https://kaamkaaj.work/AIRMAX-97"><span class="main-project__title invert-hover">AIR MAX 97</span></a>
-                                    <span class="main-project__client invert-hover">Nike, 2022</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <a class="see-project-btn" href="https://kaamkaaj.work/AIRMAX-97">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- SPLICE CONNECTIONS LIVE -->
-                            <div class="main-project__x4--item tag-img soon-soon ft__visual-identity">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/f707ddc485a7ee1eb82b785891f9524b5435a1226d32953ebb3284c5ed84b511/Kaam-Kaaj-Splice-x-RA-02_1-min.gif" alt="">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/72ecf9c5cda6bd918381fb8698b85d7ff26fb6a691bde9a2c65b595f7ae935a4/Kaam-Kaaj-Splice-x-RA-04_1-min.gif" alt="">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/07fa6a1c73bb9cd2d8d2ef2fcf8296aabe4007bb167ffd976c1eb17bb320f048/Kaam-Kaaj-Splice-x-RA-03_1-min.gif" alt="">
-                                        </div>                                                       
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">SPLICE CONNECTIONS LIVE</span>
-                                    <span class="main-project__client invert-hover">Splice x Resident Advisor, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <span class="soon-text">Coming soon!</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ORGANIC TANNED LEATHER -->
-                            <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-OTL-Ecco-Leather-03.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/3361f56efda50182ab798d73bb249f0be2c0fdf0fb3d45fa0a646f36328d82a8/Kaam-Kaaj-OTL-Ecco-Leather-02-min.gif" />
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/e5e3878b6f17c3c2423e8a288330a03bf8e14c782107724458efb67e253e2c44/Kaam-Kaaj-OTL-Ecco-Leather-01.jpg" />
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/278ce0076fb757e39af58b373503d681dd711f85cfd20a9c9794b1905c7869d6/Kaam-Kaaj-OTL-Ecco-Leather-03.jpg" />
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <a href="https://kaamkaaj.work/ORGANIC-TANNED-LEATHER"><span class="main-project__title invert-hover">ORGANIC TANNED LEATHER</span></a>
-                                    <span class="main-project__client invert-hover">Ecco Leather, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <a class="see-project-btn" href="https://kaamkaaj.work/ORGANIC-TANNED-LEATHER">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- MORE DENIM PLEASE -->
-                            <div class="main-project__x4--item see-see tag-img ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/9b66d3193adfb4709e8f11ae7d43405b9744f5d06bff94fce9472ce2cd733238/Kaam-Kaaj-AnywaysxLevis_01.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/698093b22ce055c412e0e8dbebcba653d35e5e91d1b3d0e2215d5ccee422fa07/Kaam-Kaaj-AnywaysxLevis-02.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/4888e6879fbfd89938dde02ff7a35531306ea87b7458018c73fedf2a08d082f4/Kaam-Kaaj-AnywaysxLevis-03.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <a href="https://kaamkaaj.work/MORE-DENIM-PLEASE"><span class="main-project__title invert-hover">More Denim Please</span></a>
-                                    <span class="main-project__client invert-hover">Levi's X Anyways, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <a class="see-project-btn" href="https://kaamkaaj.work/MORE-DENIM-PLEASE">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- KAMDIDAR -->
-                            <div class="main-project__x4--item tag-img ft__visual-identity ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Kamdidar-01.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/3322c8b398a6fcffda0dc629cc25e37c121dc7c0ecbf30f08e76c0a51af6bdb9/Kaam-Kaaj-Kamdidar-01_1-min.gif" />
-                                        </div>
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Kamdidar-02.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/e30dfbb829964ccd74f608630290451afa5c5d56b385d9c61e23cf90bad94679/Kaam-Kaaj-Kamdidar-011_1-min.gif">
-                                        </div>
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-Kamdidar-03.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/29cdee963116e5df2a779551bf034c188a2005eee243a9652fbd2eaebc8ca236/Kaam-Kaaj-Kamdidar-03_1-min.gif">
-                                        </div>                                                             
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">KAMDIDAR</span>
-                                    <span class="main-project__client invert-hover">Kamdidar, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- V&A MAKE SPACE -->
-                            <div class="main-project__x4--item tag-img ft__visual-identity">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-V-A-02.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/13ca1d4c464ebb82b18aef77884f69153f7e2eca1bc1c13969b87866ddaf852c/Kaam-Kaaj-V-02_1-min.gif">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/4e0b7393bb112070d4cda18200cef83cb3f7b97921fdeb4689681ed603335cb6/Kaam-Kaaj-V-A-02.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/13118be5314192aa88c30a8fa0a421997fd8e8f6fa91c293e2cefb2705ac5714/Kaam-Kaaj-V-A-03.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">V&A MAKE SPACE</span>
-                                    <span class="main-project__client invert-hover">V&A EAST, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <span class="soon-text">Coming soon!</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- LCC SHOWS 2023 -->
-                            <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography ft__editorial">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/d7a1a4b543d734df5b98d2e5ad4212ec501449d0b6fc7d45e64273bdff587f55/Kaam-Kaaj-LCC-Shows-2023-00.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/fec37ffe47ba7322f5811d84d5402113b4d7fe742d0f6877e38431e45d79076a/Kaam-Kaaj-LCC-Shows-2023-01.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/a35195234e88dd752fc556683aa6479cb67d206b7f828e85784193397eb7d64d/Kaam-Kaaj-LCC-Shows-2023-02.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <a href="https://kaamkaaj.work/LCC-SHOWS-2023"><span class="main-project__title invert-hover">LCC SHOWS 2023</span></a>
-                                    <span class="main-project__client invert-hover">Univeristy of the Arts London, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <a class="see-project-btn" href="https://kaamkaaj.work/LCC-SHOWS-2023">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- RUKH -->
-                            <div class="main-project__x4--item see-see tag-img ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/5217bcadd45e505c97151d312f29912384383c6bed72153ae23666c78ca6f6c1/Kaam-Kaaj-Rukh-Typeface-3.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/b45835ff8b2af8e897eb58ae3bf3cabae0b740d501d88b8c464db065e4589b22/Kaam-Kaaj-Rukh-Typeface-1.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/a31ddbc548152c86fb28fd9c32f20bbb0ea127e5b85dbb350266bbd5fdc71bb3/Kaam-Kaaj-Rukh-Typeface-2.jpg">
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <a href="https://kaamkaaj.work/RUKH"><span class="main-project__title invert-hover">RUKH TYPEFACE</span></a>
-                                    <span class="main-project__client invert-hover">Kaam Kaaj, 2024</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <a class="see-project-btn" href="https://kaamkaaj.work/RUKH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- SCHOOL TO SWOOSH -->
-                            <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-STS-09.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/ad52a076359c00f87c626f4895141886722da2103ed73e33d78bc20a812726ed/Kaam-Kaaj-STS-08-min.gif">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/6fcf28f04bb6d3595afd2d06401d1c6c31dc0332c2c348ecca3b107fee021df1/Kaam-Kaaj-STS-Nike-01.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/39fdf66fa86e5683c4da8ed7626eec1d83837adbf9b618bb9484fe0f0ab3e8be/Kaam-Kaaj-STS-Nike-02.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <a href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH"><span class="main-project__title invert-hover">SCHOOL TO SWOOSH</span></a>
-                                    <span class="main-project__client invert-hover">Nike, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                        <a class="see-project-btn" href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"/></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- NEW HERE POSTER -->
-                            <div class="main-project__x4--item tag-img ft__kk-projects">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-New-Here-02.avif" />
-                                            <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/dbd41aa5f2ed4a04eed252dd2fe76ca4a5dfe04e6cf0a121c02939ac8deac6f7/86c8721662_1-min.gif" alt="">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/2ebd8503fcee8f564022d89f17e47de75742a9c40c5733da23f8a3fc6a575a81/Kaam-Kaaj-New-Here-Poster-01.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/b697b9721a540cf41e6b1d5dd364b2cea2aec51face6c74fe3c8f44ae791ec31/Kaam-Kaaj-New-Here-Poster-00.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">NEW HERE POSTER</span>
-                                    <span class="main-project__client invert-hover">Kaam Kaaj Projects, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>  
-                            <!-- WINGING IT -->
-                            <div class="main-project__x4--item tag-img ft__editorial ft__kk-projects">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/20342b8893c449ae93d31ea173d825a53a36d1f789cd921b99171afa0af51e13/Kaam-Kaaj-KK23ARC-1.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/2fa1ee296ba054eccd48c4f4920e7a13f2973d8e2008dcfc7a58806e352f0a27/Kaam-Kaaj-KK23ARC-2.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/56a09f882e477516b8bf79485fc2d89c14004a128e443a2f6dd74a8cdd7fc773/Kaam-Kaaj-KK23ARC-3.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">WINGING IT</span>
-                                    <span class="main-project__client invert-hover">Kaam Kaaj Projects, 2023</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- RAMLA ALI SISTERS CLUB -->
-                            <div class="main-project__x4--item tag-img ft__visual-identity ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/f4cc82e15aa28900ce3106f96d4353cab5ddcd5ed797d7a6866b545297f3d231/Kaam-Kaaj-RASC-Nike-3.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/147a66c7eee75718b4073c714c5dd95b89a8275fa4e94a38c8937e59065cf185/Kaam-Kaaj-RASC-Nike-2.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/8371815251ae42c6249d1971006c8ed0da0597df99c32555b65aba0db00bacd5/Kaam-Kaaj-RASC-Nike-1.jpg">
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">RAMLA ALI SISTERS CLUB</span>
-                                    <span class="main-project__client invert-hover">Nike, 2022</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- REFLECTIVE HANDS MUSIC -->
-                            <div class="main-project__x4--item tag-img ft__visual-identity ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/d20662e99b0fa393d1a850ba6fdb97c655d605c9109cdd7c019bb1c1d39880fc/Kaam-Kaaj-Anchorsong-cover.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/69034c4921e05a8d23d333d84b68f0b067b9df927631c891a542410351892dd7/Kaam-Kaaj-Camilla-Sparksss.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/2b4d6afc92f9c609165b152e69df05bf55928ec3a963911dd60c29ea214ae789/Kaam-Kaaj-Anna-Fox-Rochinski.jpg">
-                                        </div>                                                     
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">REFLECTIVE HANDS MUSIC</span>
-                                    <span class="main-project__client invert-hover">Reflective Hands, 2022</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 0f Passage -->
-                            <div class="main-project__x4--item tag-img ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/5c5438c68ff348546c4827e504264bad0e44dd79718ff52bd3e41fbcdfc4c7ec/Kaam-Kaaj-0fPassage-01.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/9d5a02a53be470b328589fec70011cf39c9787b8fedcec2720ad9566c0ef8805/Kaam-Kaaj-0fPassage-03.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/9f916ffa2c15cdd9a375353baeb826124465f86ee79b1594455bf0ef9e1d4549/Kaam-Kaaj-0fPassage-02.jpg">
-                                        </div>                                                       
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">OF PASSAGE</span>
-                                    <span class="main-project__client invert-hover">Marta Klara, 2022</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>  
-                            <!-- OPEN DOORS -->
-                            <div class="main-project__x4--item tag-img ft__visual-identity ft__typography">
-                                <div class="main-project__x4--img carousel-container">
-                                    <div class="carousel">
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/e5b3394c27b5a4b19cf87eb741cff96626ead2afb54ff33fa10e72b6ce674850/Kaam-Kaaj-Open-Doors-01.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/80fa89a2d8e4d7fae264d52f3a16d622b78dfbfee74e049ab23a643b4384cb80/Kaam-Kaaj-Open-Doors-02.jpg">
-                                        </div>
-                                        <div class="slide">
-                                            <img src="https://freight.cargo.site/t/original/i/37a18a394570b070991a9153396763b5def6cd84ac233c0ee03a774768abe8bd/Kaam-Kaaj-Open-Doors-03.jpg">
-                                        </div>                                                        
-                                    </div>
-                                </div>
-                    
-                                <div class="main-project--dscr">
-                                    <span class="main-project__title invert-hover">OPEN DOORS</span>
-                                    <span class="main-project__client invert-hover">Nike, 2021</span>
-                                    <div class="carousel-buttons">
-                                        <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
-                                        <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-
-            
-            </section>
-            <!-- Project section--GRID ENDENDENDEND -->
-            <!-- Project section--GRID ENDENDENDEND -->
-            <!-- Project section--LIST STARTSTARTSTART -->    
-            <!-- Project section--LIST STARTSTARTSTART -->
-            <section id="section2" class="section">
-                <div class="section2-container">
-                    <div class="main-projects-list__item">
-                        <a href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH"><span class="main-project-list__title invert-hover--nonmix">School to Swoosh</span></a>
-                        <a href="https://kaamkaaj.work/LCC-SHOWS-2023"><span class="main-project-list__title invert-hover--nonmix">LCC Shows 2023</span></a>
-                        <a href="https://kaamkaaj.work/MORE-DENIM-PLEASE"><span class="main-project-list__title invert-hover--nonmix">Levi’s x Anyways</span></a>
-                        <a href="https://kaamkaaj.work/RUKH"><span class="main-project-list__title invert-hover--nonmix">Rukh Typeface</span></a>
-                        <a href="https://kaamkaaj.work/ORGANIC-TANNED-LEATHER"><span class="main-project-list__title invert-hover--nonmix">Organic Tanned Leather</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Kamdidar</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Open Doors</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Splice x Resident Advisor</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Ramla Ali Sisters Club</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">V&A East Make Space</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">ENDLESSLOVESHOW</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">0f Passage</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">New Here</span></a>
-                        <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">KK23ARC</span></a>
-
-
-                    </div> 
-                    <div class="main-projects-list__item main-projects-list__side">
-                        <div class="main-projects-list__img"><!-- School To Swoosh -->
-                            <img src="https://freight.cargo.site/t/original/i/ad52a076359c00f87c626f4895141886722da2103ed73e33d78bc20a812726ed/Kaam-Kaaj-STS-08-min.gif" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- LCC Shows 2023 -->
-                            <img src="https://freight.cargo.site/t/original/i/a35195234e88dd752fc556683aa6479cb67d206b7f828e85784193397eb7d64d/Kaam-Kaaj-LCC-Shows-2023-02.jpg" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Levi’s x Anyways -->
-                            <img src="https://freight.cargo.site/t/original/i/9b66d3193adfb4709e8f11ae7d43405b9744f5d06bff94fce9472ce2cd733238/Kaam-Kaaj-AnywaysxLevis_01.jpg" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Rukh -->
-                            <img src="https://freight.cargo.site/t/original/i/5217bcadd45e505c97151d312f29912384383c6bed72153ae23666c78ca6f6c1/Kaam-Kaaj-Rukh-Typeface-3.jpg" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Organic Tanned Leather -->
-                            <img src="https://freight.cargo.site/t/original/i/3361f56efda50182ab798d73bb249f0be2c0fdf0fb3d45fa0a646f36328d82a8/Kaam-Kaaj-OTL-Ecco-Leather-02-min.gif" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Kamdidar -->
-                            <img src="https://freight.cargo.site/t/original/i/3322c8b398a6fcffda0dc629cc25e37c121dc7c0ecbf30f08e76c0a51af6bdb9/Kaam-Kaaj-Kamdidar-01_1-min.gif" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Open Doors -->
-                            <img src="https://freight.cargo.site/t/original/i/37a18a394570b070991a9153396763b5def6cd84ac233c0ee03a774768abe8bd/Kaam-Kaaj-Open-Doors-03.jpg" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Splice x RA -->
-                            <img src="https://freight.cargo.site/t/original/i/f707ddc485a7ee1eb82b785891f9524b5435a1226d32953ebb3284c5ed84b511/Kaam-Kaaj-Splice-x-RA-02_1-min.gif" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Ramla Ali Sisters Club -->
-                            <img src="https://freight.cargo.site/t/original/i/f4cc82e15aa28900ce3106f96d4353cab5ddcd5ed797d7a6866b545297f3d231/Kaam-Kaaj-RASC-Nike-3.jpg" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- V&A East Make Space -->
-                            <img src="https://freight.cargo.site/t/original/i/13ca1d4c464ebb82b18aef77884f69153f7e2eca1bc1c13969b87866ddaf852c/Kaam-Kaaj-V-02_1-min.gif" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- ENDLESSLOVESHOW -->
-                            <img src="https://freight.cargo.site/t/original/i/d04f23f2151602029ecc272f178befa28a1f60ddec0287d04ee78fb82a9db0bf/Kaam-Kaaj-ENDLESSLOVESHOW-0_1-min.gif" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- Of Passage -->
-                            <img src="https://freight.cargo.site/t/original/i/5c5438c68ff348546c4827e504264bad0e44dd79718ff52bd3e41fbcdfc4c7ec/Kaam-Kaaj-0fPassage-01.jpg" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- New Here -->
-                            <img src="https://freight.cargo.site/t/original/i/dbd41aa5f2ed4a04eed252dd2fe76ca4a5dfe04e6cf0a121c02939ac8deac6f7/86c8721662_1-min.gif" />
-                        </div>
-                        <div class="main-projects-list__img"><!-- KK23ARC -->
-                            <img src="https://freight.cargo.site/t/original/i/20342b8893c449ae93d31ea173d825a53a36d1f789cd921b99171afa0af51e13/Kaam-Kaaj-KK23ARC-1.jpg" />
-                        </div>
-
-                    </div> 
+                <!-- RUKH -->
+                <div class="main-project__x4--item see-see tag-img ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/5217bcadd45e505c97151d312f29912384383c6bed72153ae23666c78ca6f6c1/Kaam-Kaaj-Rukh-Typeface-3.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/b45835ff8b2af8e897eb58ae3bf3cabae0b740d501d88b8c464db065e4589b22/Kaam-Kaaj-Rukh-Typeface-1.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/a31ddbc548152c86fb28fd9c32f20bbb0ea127e5b85dbb350266bbd5fdc71bb3/Kaam-Kaaj-Rukh-Typeface-2.jpg">
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <a href="https://kaamkaaj.work/RUKH"><span class="main-project__title invert-hover">RUKH TYPEFACE</span></a>
+                    <span class="main-project__client invert-hover">Kaam Kaaj, 2024</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <a class="see-project-btn" href="https://kaamkaaj.work/RUKH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+                    </div>
+                  </div>
                 </div>
-
-            </section>
+                <!-- SCHOOL TO SWOOSH -->
+                <div class="main-project__x4--item see-see tag-img ft__visual-identity ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-STS-09.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/ad52a076359c00f87c626f4895141886722da2103ed73e33d78bc20a812726ed/Kaam-Kaaj-STS-08-min.gif">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/6fcf28f04bb6d3595afd2d06401d1c6c31dc0332c2c348ecca3b107fee021df1/Kaam-Kaaj-STS-Nike-01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/39fdf66fa86e5683c4da8ed7626eec1d83837adbf9b618bb9484fe0f0ab3e8be/Kaam-Kaaj-STS-Nike-02.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <a href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH"><span class="main-project__title invert-hover">SCHOOL TO SWOOSH</span></a>
+                    <span class="main-project__client invert-hover">Nike, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                      <a class="see-project-btn" href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH">See Project <img class="icon-plus" src="https://freight.cargo.site/t/original/i/d2e6e59222db93e164b30629301c49fa9259775948c7f4bd2b4ccac1f2870552/plus.png"></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- NEW HERE POSTER -->
+                <div class="main-project__x4--item tag-img ft__kk-projects" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img class="img--thumb" src="https://files.cargocollective.com/c1706458/Kaam-Kaaj-New-Here-02.avif">
+                        <img class="img--thumb-mb" src="https://freight.cargo.site/t/original/i/dbd41aa5f2ed4a04eed252dd2fe76ca4a5dfe04e6cf0a121c02939ac8deac6f7/86c8721662_1-min.gif" alt="">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/2ebd8503fcee8f564022d89f17e47de75742a9c40c5733da23f8a3fc6a575a81/Kaam-Kaaj-New-Here-Poster-01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/b697b9721a540cf41e6b1d5dd364b2cea2aec51face6c74fe3c8f44ae791ec31/Kaam-Kaaj-New-Here-Poster-00.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">NEW HERE POSTER</span>
+                    <span class="main-project__client invert-hover">Kaam Kaaj Projects, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>  
+                <!-- WINGING IT -->
+                <div class="main-project__x4--item tag-img ft__editorial ft__kk-projects" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/20342b8893c449ae93d31ea173d825a53a36d1f789cd921b99171afa0af51e13/Kaam-Kaaj-KK23ARC-1.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/2fa1ee296ba054eccd48c4f4920e7a13f2973d8e2008dcfc7a58806e352f0a27/Kaam-Kaaj-KK23ARC-2.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/56a09f882e477516b8bf79485fc2d89c14004a128e443a2f6dd74a8cdd7fc773/Kaam-Kaaj-KK23ARC-3.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">WINGING IT</span>
+                    <span class="main-project__client invert-hover">Kaam Kaaj Projects, 2023</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>
+    
+                <!-- RAMLA ALI SISTERS CLUB -->
+                <div class="main-project__x4--item tag-img ft__visual-identity ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/f4cc82e15aa28900ce3106f96d4353cab5ddcd5ed797d7a6866b545297f3d231/Kaam-Kaaj-RASC-Nike-3.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/147a66c7eee75718b4073c714c5dd95b89a8275fa4e94a38c8937e59065cf185/Kaam-Kaaj-RASC-Nike-2.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/8371815251ae42c6249d1971006c8ed0da0597df99c32555b65aba0db00bacd5/Kaam-Kaaj-RASC-Nike-1.jpg">
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">RAMLA ALI SISTERS CLUB</span>
+                    <span class="main-project__client invert-hover">Nike, 2022</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- REFLECTIVE HANDS MUSIC -->
+                <div class="main-project__x4--item tag-img ft__visual-identity ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/d20662e99b0fa393d1a850ba6fdb97c655d605c9109cdd7c019bb1c1d39880fc/Kaam-Kaaj-Anchorsong-cover.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/69034c4921e05a8d23d333d84b68f0b067b9df927631c891a542410351892dd7/Kaam-Kaaj-Camilla-Sparksss.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/2b4d6afc92f9c609165b152e69df05bf55928ec3a963911dd60c29ea214ae789/Kaam-Kaaj-Anna-Fox-Rochinski.jpg">
+                      </div>                                                     
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">REFLECTIVE HANDS MUSIC</span>
+                    <span class="main-project__client invert-hover">Reflective Hands, 2022</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 0f Passage -->
+                <div class="main-project__x4--item tag-img ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/5c5438c68ff348546c4827e504264bad0e44dd79718ff52bd3e41fbcdfc4c7ec/Kaam-Kaaj-0fPassage-01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/9d5a02a53be470b328589fec70011cf39c9787b8fedcec2720ad9566c0ef8805/Kaam-Kaaj-0fPassage-03.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/9f916ffa2c15cdd9a375353baeb826124465f86ee79b1594455bf0ef9e1d4549/Kaam-Kaaj-0fPassage-02.jpg">
+                      </div>                                                       
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">OF PASSAGE</span>
+                    <span class="main-project__client invert-hover">Marta Klara, 2022</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>  
+                <!-- OPEN DOORS -->
+                <div class="main-project__x4--item tag-img ft__visual-identity ft__typography" style="opacity: 1;">
+                  <div class="main-project__x4--img carousel-container">
+                    <div class="carousel">
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/e5b3394c27b5a4b19cf87eb741cff96626ead2afb54ff33fa10e72b6ce674850/Kaam-Kaaj-Open-Doors-01.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/80fa89a2d8e4d7fae264d52f3a16d622b78dfbfee74e049ab23a643b4384cb80/Kaam-Kaaj-Open-Doors-02.jpg">
+                      </div>
+                      <div class="slide">
+                        <img src="https://freight.cargo.site/t/original/i/37a18a394570b070991a9153396763b5def6cd84ac233c0ee03a774768abe8bd/Kaam-Kaaj-Open-Doors-03.jpg">
+                      </div>                                                        
+                    </div>
+                  </div>
+    
+                  <div class="main-project--dscr">
+                    <span class="main-project__title invert-hover">OPEN DOORS</span>
+                    <span class="main-project__client invert-hover">Nike, 2021</span>
+                    <div class="carousel-buttons">
+                      <div class="carousel-button" onclick="carouselSlide(event, 0)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 1)"></div>
+                      <div class="carousel-button" onclick="carouselSlide(event, 2)"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    
+        </section>
+        <!-- Project section--GRID ENDENDENDEND -->
+        <!-- Project section--GRID ENDENDENDEND -->
+        <!-- Project section--LIST STARTSTARTSTART -->    
+        <!-- Project section--LIST STARTSTARTSTART -->
+        <section id="section2" class="section">
+          <div class="section2-container">
+            <div class="main-projects-list__item">
+              <a href="https://kaamkaaj.work/SCHOOL-TO-SWOOSH"><span class="main-project-list__title invert-hover--nonmix">School to Swoosh</span></a>
+              <a href="https://kaamkaaj.work/LCC-SHOWS-2023"><span class="main-project-list__title invert-hover--nonmix">LCC Shows 2023</span></a>
+              <a href="https://kaamkaaj.work/MORE-DENIM-PLEASE"><span class="main-project-list__title invert-hover--nonmix">Levi’s x Anyways</span></a>
+              <a href="https://kaamkaaj.work/RUKH"><span class="main-project-list__title invert-hover--nonmix">Rukh Typeface</span></a>
+              <a href="https://kaamkaaj.work/ORGANIC-TANNED-LEATHER"><span class="main-project-list__title invert-hover--nonmix">Organic Tanned Leather</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Kamdidar</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Open Doors</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Splice x Resident Advisor</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">Ramla Ali Sisters Club</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">V&amp;A East Make Space</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">ENDLESSLOVESHOW</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">0f Passage</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">New Here</span></a>
+              <a href="javascript:void(0);"><span class="main-project-list__title invert-hover--nonmix">KK23ARC</span></a>
+    
+    
+            </div> 
+            <div class="main-projects-list__item main-projects-list__side">
+              <div class="main-projects-list__img"><!-- School To Swoosh -->
+                <img src="https://freight.cargo.site/t/original/i/ad52a076359c00f87c626f4895141886722da2103ed73e33d78bc20a812726ed/Kaam-Kaaj-STS-08-min.gif">
+              </div>
+              <div class="main-projects-list__img"><!-- LCC Shows 2023 -->
+                <img src="https://freight.cargo.site/t/original/i/a35195234e88dd752fc556683aa6479cb67d206b7f828e85784193397eb7d64d/Kaam-Kaaj-LCC-Shows-2023-02.jpg">
+              </div>
+              <div class="main-projects-list__img"><!-- Levi’s x Anyways -->
+                <img src="https://freight.cargo.site/t/original/i/9b66d3193adfb4709e8f11ae7d43405b9744f5d06bff94fce9472ce2cd733238/Kaam-Kaaj-AnywaysxLevis_01.jpg">
+              </div>
+              <div class="main-projects-list__img"><!-- Rukh -->
+                <img src="https://freight.cargo.site/t/original/i/5217bcadd45e505c97151d312f29912384383c6bed72153ae23666c78ca6f6c1/Kaam-Kaaj-Rukh-Typeface-3.jpg">
+              </div>
+              <div class="main-projects-list__img"><!-- Organic Tanned Leather -->
+                <img src="https://freight.cargo.site/t/original/i/3361f56efda50182ab798d73bb249f0be2c0fdf0fb3d45fa0a646f36328d82a8/Kaam-Kaaj-OTL-Ecco-Leather-02-min.gif">
+              </div>
+              <div class="main-projects-list__img"><!-- Kamdidar -->
+                <img src="https://freight.cargo.site/t/original/i/3322c8b398a6fcffda0dc629cc25e37c121dc7c0ecbf30f08e76c0a51af6bdb9/Kaam-Kaaj-Kamdidar-01_1-min.gif">
+              </div>
+              <div class="main-projects-list__img"><!-- Open Doors -->
+                <img src="https://freight.cargo.site/t/original/i/37a18a394570b070991a9153396763b5def6cd84ac233c0ee03a774768abe8bd/Kaam-Kaaj-Open-Doors-03.jpg">
+              </div>
+              <div class="main-projects-list__img"><!-- Splice x RA -->
+                <img src="https://freight.cargo.site/t/original/i/f707ddc485a7ee1eb82b785891f9524b5435a1226d32953ebb3284c5ed84b511/Kaam-Kaaj-Splice-x-RA-02_1-min.gif">
+              </div>
+              <div class="main-projects-list__img"><!-- Ramla Ali Sisters Club -->
+                <img src="https://freight.cargo.site/t/original/i/f4cc82e15aa28900ce3106f96d4353cab5ddcd5ed797d7a6866b545297f3d231/Kaam-Kaaj-RASC-Nike-3.jpg">
+              </div>
+              <div class="main-projects-list__img"><!-- V&A East Make Space -->
+                <img src="https://freight.cargo.site/t/original/i/13ca1d4c464ebb82b18aef77884f69153f7e2eca1bc1c13969b87866ddaf852c/Kaam-Kaaj-V-02_1-min.gif">
+              </div>
+              <div class="main-projects-list__img"><!-- ENDLESSLOVESHOW -->
+                <img src="https://freight.cargo.site/t/original/i/d04f23f2151602029ecc272f178befa28a1f60ddec0287d04ee78fb82a9db0bf/Kaam-Kaaj-ENDLESSLOVESHOW-0_1-min.gif">
+              </div>
+              <div class="main-projects-list__img"><!-- Of Passage -->
+                <img src="https://freight.cargo.site/t/original/i/5c5438c68ff348546c4827e504264bad0e44dd79718ff52bd3e41fbcdfc4c7ec/Kaam-Kaaj-0fPassage-01.jpg">
+              </div>
+              <div class="main-projects-list__img"><!-- New Here -->
+                <img src="https://freight.cargo.site/t/original/i/dbd41aa5f2ed4a04eed252dd2fe76ca4a5dfe04e6cf0a121c02939ac8deac6f7/86c8721662_1-min.gif">
+              </div>
+              <div class="main-projects-list__img"><!-- KK23ARC -->
+                <img src="https://freight.cargo.site/t/original/i/20342b8893c449ae93d31ea173d825a53a36d1f789cd921b99171afa0af51e13/Kaam-Kaaj-KK23ARC-1.jpg">
+              </div>
+    
+            </div> 
+          </div>
+    
+        </section>
+      </div>
+    
+      <section class="footerSection">
+        <div class="space-divider"></div>
+    
+        <div class="winging-it-script__container">
+          <!--?xml version="1.0" encoding="UTF-8"?-->
+          <svg class="winging-it--svg" data-name="wing-section1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1654.85 309.96">
+            <path class="winging-it--path" d="m2.76,44.98C66.42,193.52,162.9-38.14,233.64,9.61c70.73,47.74-96.99,310.04-136.54,274.2-39.95-36.21,232.14-160.85,250.89-211.65,2.68-7.26,2.46-20.35-6.85-24.12-13.56-5.49-23.92,6.75-28.42,23.68-11.91,44.83-.59,149-12.63,197.12-4.95,19.77-16.36,33.47-30.32,28.13-8.96-3.43-9.37-15.32-8.48-25.01,6.23-67.78,187.34-268.22,245.21-222.57,44.72,35.28-104.42,122.9-120.78,96.48-23.55-38.01,258.39-61.63,88.67,8.38-50.46,20.81-80.22,37.34-94.59,51.83-7.04,7.1-13.68,17.33-10.04,27.69,3.67,10.41,15.14,14.75,25.45,13.51,27.87-3.34,49.87-28.84,69.38-46.61,13.09-11.93,35.14-34.09,54.54-22.53,30.04,17.91,24.44,69.19,4.57,93.42-6.91,8.42-19,18.16-30.35,11.92-6.75-3.71-10.03-11.88-7.3-19.09,10.33-27.3,66.22-83.73,102.57-76.39,46.9,9.48,10.79,90.19,50.01,92.76,24.5,1.61,35.27-20.96,4.94-64.52-117.31-168.48,119.05-99.47,68.89-24.24-25.87,38.8-92.74-16.31-36.18-58.09,83.79-61.89,83.64,56.15,86.85,126.34,3.76,82.2-108.29,59.27,2.75-95.76,44.06-61.52,68.22-56,78.21-29.87,51.46-70.24,100.76-9.53,13.43,23.26-60.85,22.85-83.31,44.68-71.26,58.99,31.98,37.98,103.99-76.24,140.39-54.53,40.47,24.13-45.23,120.92-67.93,108.08-24.09-13.63,64.07-107.57,110.17-98.25,46.9,9.48,2.25,116.62,41.47,119.19,24.5,1.61,48.37-14.94,21.64-60.8-121.57-208.59,223.98-192.75,99-160.27-146.94,38.19-101.04,276.1,80.58,165.54,56.67-34.5,2.18-74.23-101.16-47.38-39.06,12.21,194.65-72.29,156.42-115.95-43.3-46.66-39.63,100.4,106.93,21.05,48.52-26.27,110.52,59.85-61.47,103.05-57.96,14.56-48.13,73.75,3.51,68.51,122.61-12.44,211.4-144.35,239.73-187.91-37.43,54.2-160.89,228.27-70.43,212.76,100.59-17.25,141.75-97.45,74.12-97.45" style="--length: 7155.77978515625;"></path>
+            <path class="winging-it--path" d="m564.17,108.49c-10.55,0-19.1-8.55-19.1-19.1s8.55-19.1,19.1-19.1,19.1,8.55,19.1,19.1-8.55,19.1-19.1,19.1" style="--length: 120.02864837646484;"></path>
+            <path class="winging-it--path" d="m944.83,102.58c-10.55,0-19.1-8.55-19.1-19.1s8.55-19.1,19.1-19.1,19.1,8.55,19.1,19.1-8.55,19.1-19.1,19.1" style="--length: 120.02867126464844;"></path>
+            <path class="winging-it--path" d="m1447.23,79.08c-16.23,0-29.39-13.16-29.39-29.39s13.16-29.39,29.39-29.39,29.39,13.16,29.39,29.39-13.16,29.39-29.39,29.39" style="--length: 184.68728637695312;"></path>
+            <path class="winging-it--path" d="m1481.77,114.68c63.7,40.98,153.74,20.69,149.59,19.09-63.53-24.39-25.21-28.41,22.53-44.38" style="--length: 257.8889465332031;"></path>
+          </svg>
         </div>
-
-        <section class="footerSection">
-            <div class="space-divider"></div>
-        
-            <div class="winging-it-script__container">
-                <?xml version="1.0" encoding="UTF-8"?>
-                <svg class="winging-it--svg" data-name="wing-section1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1654.85 309.96">
-                    <path class="winging-it--path" d="m2.76,44.98C66.42,193.52,162.9-38.14,233.64,9.61c70.73,47.74-96.99,310.04-136.54,274.2-39.95-36.21,232.14-160.85,250.89-211.65,2.68-7.26,2.46-20.35-6.85-24.12-13.56-5.49-23.92,6.75-28.42,23.68-11.91,44.83-.59,149-12.63,197.12-4.95,19.77-16.36,33.47-30.32,28.13-8.96-3.43-9.37-15.32-8.48-25.01,6.23-67.78,187.34-268.22,245.21-222.57,44.72,35.28-104.42,122.9-120.78,96.48-23.55-38.01,258.39-61.63,88.67,8.38-50.46,20.81-80.22,37.34-94.59,51.83-7.04,7.1-13.68,17.33-10.04,27.69,3.67,10.41,15.14,14.75,25.45,13.51,27.87-3.34,49.87-28.84,69.38-46.61,13.09-11.93,35.14-34.09,54.54-22.53,30.04,17.91,24.44,69.19,4.57,93.42-6.91,8.42-19,18.16-30.35,11.92-6.75-3.71-10.03-11.88-7.3-19.09,10.33-27.3,66.22-83.73,102.57-76.39,46.9,9.48,10.79,90.19,50.01,92.76,24.5,1.61,35.27-20.96,4.94-64.52-117.31-168.48,119.05-99.47,68.89-24.24-25.87,38.8-92.74-16.31-36.18-58.09,83.79-61.89,83.64,56.15,86.85,126.34,3.76,82.2-108.29,59.27,2.75-95.76,44.06-61.52,68.22-56,78.21-29.87,51.46-70.24,100.76-9.53,13.43,23.26-60.85,22.85-83.31,44.68-71.26,58.99,31.98,37.98,103.99-76.24,140.39-54.53,40.47,24.13-45.23,120.92-67.93,108.08-24.09-13.63,64.07-107.57,110.17-98.25,46.9,9.48,2.25,116.62,41.47,119.19,24.5,1.61,48.37-14.94,21.64-60.8-121.57-208.59,223.98-192.75,99-160.27-146.94,38.19-101.04,276.1,80.58,165.54,56.67-34.5,2.18-74.23-101.16-47.38-39.06,12.21,194.65-72.29,156.42-115.95-43.3-46.66-39.63,100.4,106.93,21.05,48.52-26.27,110.52,59.85-61.47,103.05-57.96,14.56-48.13,73.75,3.51,68.51,122.61-12.44,211.4-144.35,239.73-187.91-37.43,54.2-160.89,228.27-70.43,212.76,100.59-17.25,141.75-97.45,74.12-97.45"/>
-                    <path class="winging-it--path" d="m564.17,108.49c-10.55,0-19.1-8.55-19.1-19.1s8.55-19.1,19.1-19.1,19.1,8.55,19.1,19.1-8.55,19.1-19.1,19.1"/>
-                    <path class="winging-it--path" d="m944.83,102.58c-10.55,0-19.1-8.55-19.1-19.1s8.55-19.1,19.1-19.1,19.1,8.55,19.1,19.1-8.55,19.1-19.1,19.1"/>
-                    <path class="winging-it--path" d="m1447.23,79.08c-16.23,0-29.39-13.16-29.39-29.39s13.16-29.39,29.39-29.39,29.39,13.16,29.39,29.39-13.16,29.39-29.39,29.39"/>
-                    <path class="winging-it--path" d="m1481.77,114.68c63.7,40.98,153.74,20.69,149.59,19.09-63.53-24.39-25.21-28.41,22.53-44.38"/>
-                </svg>
-            </div>
     
-            <div class="seeyou-text__container">
-                <p>
-                    Want to hire us? Send us an email <br> and let’s discuss
-                </p>
-            </div>
+        <div class="seeyou-text__container">
+          <p>
+            Want to hire us? Send us an email <br> and let’s discuss
+          </p>
+        </div>
     
-            <footer class="footer">
-                <div class="footer__column link--instagram"><a href="https://www.instagram.com/kaamkaaj.work/" target="_blank">INSTAGRAM</a></div>
-                <div class="footer__column link--email"><a href="mailto:info@kaamkaaj.work">EMAIL<span class="invert-hover">:INFO@KAAMKAAJ.WORK</span></a></div>
-                <div class="footer__column link--info"><a href="https://kaamkaaj.work/information">INFORMATION</a></div>
-            </footer>
-        </section>    
-        
+        <footer class="footer">
+          <div class="footer__column link--instagram"><a href="https://www.instagram.com/kaamkaaj.work/" target="_blank">INSTAGRAM</a></div>
+          <div class="footer__column link--email"><a href="mailto:info@kaamkaaj.work">EMAIL<span class="invert-hover">:INFO@KAAMKAAJ.WORK</span></a></div>
+          <div class="footer__column link--info"><a href="https://kaamkaaj.work/information">INFORMATION</a></div>
+        </footer>
+      </section>    
+    
     </section>
+    
 
 
 
