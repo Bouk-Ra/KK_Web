@@ -1,14 +1,19 @@
 
 (() => {
+
+
     function makeDraggable(element) {
         let isDragging = false;
         let offsetX, offsetY;
     
         element.addEventListener("mousedown", function(event) {
-            event.preventDefault();
-            isDragging = true;
-            offsetX = event.clientX - element.getBoundingClientRect().left;
-            offsetY = event.clientY - element.getBoundingClientRect().top;
+            // Check if the clicked element is not a link
+            if (!event.target.closest('a')) {
+                event.preventDefault();
+                isDragging = true;
+                offsetX = event.clientX - element.getBoundingClientRect().left;
+                offsetY = event.clientY - element.getBoundingClientRect().top;
+            }
         });
     
         document.addEventListener("mouseup", function() {
@@ -31,6 +36,8 @@
     draggableElements.forEach(function(element) {
         makeDraggable(element);
     });
+    
+    
     
     function closeBox(event) {
         const newsSection = document.querySelector('.newsSection');
