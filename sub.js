@@ -91,18 +91,6 @@
             });
         }));
     };
-    // loadImage();
-    // const loadImage = () => {
-    //     const img = new Image();
-    //     img.src = imageUrls[currentFrame];
-
-    //     img.onload = () => {
-    //         canvas.width = videoWidth;
-    //         canvas.height = videoHeight;
-    //         ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //         ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
-    //     };
-    // };
 
     const imageCache = {}; // 이미지 캐시 객체 추가
 
@@ -226,6 +214,18 @@
         const welcomeTextMarginTop = headerLogoHeight + navBarMobileHeight + "px";
         navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
         document.documentElement.style.setProperty('--welcome-text-margin-top', welcomeTextMarginTop);
+    })
+
+    window.addEventListener('resize', () => {
+        const headerLogoHeight = headerLogo.getBoundingClientRect().height;
+        const headerLogoStyle = getComputedStyle(headerLogo);
+        const headerLogoMarginBottom = parseInt(headerLogoStyle.getPropertyValue("margin-bottom"), 10);
+
+        if(window.innerWidth < 768) {
+            navBarMobile.style.top = headerLogoHeight + headerLogoMarginBottom + "px";
+            otherPageRender.style.top = headerLogo.clientHeight + 5 + "px";
+        }
+
     })
 
     document.addEventListener("DOMContentLoaded", async () => {
