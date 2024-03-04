@@ -24,15 +24,23 @@
         }
     })
 
-    window.addEventListener("wheel", function(event) {
-        if (window.innerWidth > 767 && event.deltaY > 0) {
-            // 마우스 휠을 아래로 스크롤할 때
-            htmlElement.style.scrollSnapType = "y mandatory";
-        } else if (window.innerWidth > 767 && event.deltaY < 0 && window.scrollY <= 0) {
-            // 마우스 휠을 위로 스크롤할 때
+    // window.addEventListener("wheel", function(event) {
+    //     if (window.innerWidth > 767 && event.deltaY > 0) {
+    //         // 마우스 휠을 아래로 스크롤할 때
+    //         htmlElement.style.scrollSnapType = "y mandatory";
+    //     } else if (window.innerWidth > 767 && event.deltaY < 0 && window.scrollY <= 0) {
+    //         // 마우스 휠을 위로 스크롤할 때
+    //         htmlElement.style.scrollSnapType = "none";
+    //     }
+    // });
+
+    window.addEventListener("scroll", function(event) {
+        if (this.window.scrollY >= this.window.innerHeight*2) {
             htmlElement.style.scrollSnapType = "none";
+        } else {
+            htmlElement.style.scrollSnapType = "y mandatory";
         }
-    });
+    }) 
 
 })();
 
